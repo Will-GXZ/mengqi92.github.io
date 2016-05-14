@@ -1,0 +1,776 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="4Fw5av3MAK9VoBQQanNGeiDwK9jEJjQBL6jk3PSY-B4" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="随笔,机器学习感悟," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mengqi's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="加州理工的机器学习公开课上，穆斯塔法教授对机器学习的讲解非常细致，每个公式、每个符号都会进行详细的剖析，并直观地解释出来，他对机器学习的热情和态度很值得我们学习。
+而这门课程在讲解学习的可行性时，多次提到了$E_{in}$和$E_{out}$的概念。 $E_{in}$和$E_{out}$分别表示模型假设对样本（已知）的错误率和对真实情况（未知）的错误率。统计机器学习之所以可行，就是因为有这样一个理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ein 和 Eout，假设模型以及开放思维">
+<meta property="og:url" content="http://mengqi92.github.io/2015/10/13/Ein-Eout/index.html">
+<meta property="og:site_name" content="Mengqi's blog">
+<meta property="og:description" content="加州理工的机器学习公开课上，穆斯塔法教授对机器学习的讲解非常细致，每个公式、每个符号都会进行详细的剖析，并直观地解释出来，他对机器学习的热情和态度很值得我们学习。
+而这门课程在讲解学习的可行性时，多次提到了$E_{in}$和$E_{out}$的概念。 $E_{in}$和$E_{out}$分别表示模型假设对样本（已知）的错误率和对真实情况（未知）的错误率。统计机器学习之所以可行，就是因为有这样一个理">
+<meta property="og:updated_time" content="2016-05-07T05:23:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ein 和 Eout，假设模型以及开放思维">
+<meta name="twitter:description" content="加州理工的机器学习公开课上，穆斯塔法教授对机器学习的讲解非常细致，每个公式、每个符号都会进行详细的剖析，并直观地解释出来，他对机器学习的热情和态度很值得我们学习。
+而这门课程在讲解学习的可行性时，多次提到了$E_{in}$和$E_{out}$的概念。 $E_{in}$和$E_{out}$分别表示模型假设对样本（已知）的错误率和对真实情况（未知）的错误率。统计机器学习之所以可行，就是因为有这样一个理">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 12217047,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Ein 和 Eout，假设模型以及开放思维 | Mengqi's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68396368-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8800f71adfa983d80f6c943ceb1ee330";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mengqi's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">a paranoid android.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Ein 和 Eout，假设模型以及开放思维
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-13T01:32:18+08:00" content="2015-10-13">
+              2015-10-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/nonsense/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/13/Ein-Eout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/13/Ein-Eout/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x52A0;&#x5DDE;&#x7406;&#x5DE5;&#x7684;<a href="http://open.163.com/special/opencourse/learningfromdata.html" target="_blank" rel="external">&#x673A;&#x5668;&#x5B66;&#x4E60;&#x516C;&#x5F00;&#x8BFE;</a>&#x4E0A;&#xFF0C;<a href="https://work.caltech.edu" target="_blank" rel="external">&#x7A46;&#x65AF;&#x5854;&#x6CD5;&#x6559;&#x6388;</a>&#x5BF9;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x8BB2;&#x89E3;&#x975E;&#x5E38;&#x7EC6;&#x81F4;&#xFF0C;&#x6BCF;&#x4E2A;&#x516C;&#x5F0F;&#x3001;&#x6BCF;&#x4E2A;&#x7B26;&#x53F7;&#x90FD;&#x4F1A;&#x8FDB;&#x884C;&#x8BE6;&#x7EC6;&#x7684;&#x5256;&#x6790;&#xFF0C;&#x5E76;&#x76F4;&#x89C2;&#x5730;&#x89E3;&#x91CA;&#x51FA;&#x6765;&#xFF0C;&#x4ED6;&#x5BF9;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x70ED;&#x60C5;&#x548C;&#x6001;&#x5EA6;&#x5F88;&#x503C;&#x5F97;&#x6211;&#x4EEC;&#x5B66;&#x4E60;&#x3002;</p>
+<p>&#x800C;&#x8FD9;&#x95E8;&#x8BFE;&#x7A0B;&#x5728;&#x8BB2;&#x89E3;&#x5B66;&#x4E60;&#x7684;&#x53EF;&#x884C;&#x6027;&#x65F6;&#xFF0C;&#x591A;&#x6B21;&#x63D0;&#x5230;&#x4E86;$E_{in}$&#x548C;$E_{out}$&#x7684;&#x6982;&#x5FF5;&#x3002; $E_{in}$&#x548C;$E_{out}$&#x5206;&#x522B;&#x8868;&#x793A;&#x6A21;&#x578B;&#x5047;&#x8BBE;&#x5BF9;&#x6837;&#x672C;&#xFF08;&#x5DF2;&#x77E5;&#xFF09;&#x7684;&#x9519;&#x8BEF;&#x7387;&#x548C;&#x5BF9;&#x771F;&#x5B9E;&#x60C5;&#x51B5;&#xFF08;&#x672A;&#x77E5;&#xFF09;&#x7684;&#x9519;&#x8BEF;&#x7387;&#x3002;&#x7EDF;&#x8BA1;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4E4B;&#x6240;&#x4EE5;&#x53EF;&#x884C;&#xFF0C;&#x5C31;&#x662F;&#x56E0;&#x4E3A;&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x7406;&#x8BBA;&#x652F;&#x6491;&#xFF1A;<br>$$P[E_{in} - E_{out} &gt; \epsilon] = 2 e^{-2\epsilon^2 N} \tag{*}\label{*}$$<br>&#x4E0A;&#x9762;&#x7684;&#x5F0F;&#x5B50;&#x53EB; <a href="https://en.wikipedia.org/wiki/Hoeffding%27s_inequality" target="_blank" rel="external">Hoeffding &#x4E0D;&#x7B49;&#x5F0F;</a>&#x3002;&#x4ECE;&#x516C;&#x5F0F;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5F53;N&#x8DB3;&#x591F;&#x5927;&#x65F6;&#xFF0C;$E_{in}$&#x548C;$E_{out}$&#x76F8;&#x5DEE;&#x592A;&#x5927;&#x7684;&#x6982;&#x7387;&#x5C31;&#x6BD4;&#x8F83;&#x5C0F;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x5F53;N&#x8DB3;&#x591F;&#x5927;&#x65F6;&#xFF0C;$E_{in}$&#x5C31;&#x4F1A;&#x66F4;&#x63A5;&#x8FD1;&#x4E8E;$E_{out}$&#x3002;&#x5982;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x63D0;&#x51FA;&#x7684;&#x6A21;&#x578B;&#x5047;&#x8BBE;&#x5982;&#x679C;&#x5BF9;&#x5927;&#x91CF;&#x5DF2;&#x77E5;&#x6837;&#x672C;&#x80FD;&#x591F;&#x8F83;&#x597D;&#x5730;&#x62DF;&#x5408;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x5B83;&#x5BF9;&#x771F;&#x5B9E;&#x7684;&#x672A;&#x77E5;&#x6837;&#x672C;&#x5E94;&#x8BE5;&#x4E5F;&#x80FD;&#x591F;&#x8F83;&#x597D;&#x5730;&#x62DF;&#x5408;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x7684;$\ref{*}$&#x5F0F;&#x53EA;&#x9002;&#x7528;&#x4E8E;&#x4E00;&#x6B21;&#x968F;&#x673A;&#x8BD5;&#x9A8C;&#xFF0C;&#x4E00;&#x6B21;&#x8BD5;&#x9A8C;&#x53EA;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x5047;&#x8BBE;&#xFF0C;&#x800C;&#x6211;&#x4EEC;&#x5B9E;&#x9645;&#x8BAD;&#x7EC3;&#x65F6;&#x662F;&#x8981;&#x63D0;&#x51FA;&#x82E5;&#x5E72;&#x4E2A;&#x5047;&#x8BBE;&#xFF0C;&#x518D;&#x4ECE;&#x8FD9;&#x4E9B;&#x5047;&#x8BBE;&#x4E2D;&#x9009;&#x62E9;&#x6700;&#x7B26;&#x5408;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x90A3;&#x4E2A;&#x5047;&#x8BBE;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#xFF1A;<br>$$P[E_{in} - E_{out} &gt; \epsilon] = 2 M e^{-2\epsilon^2 N} \tag{**}\label{**}$$<br>&#x5F0F;&#x5B50;&#x4E2D;&#x7684; M &#x5C31;&#x662F;&#x6211;&#x4EEC;&#x63D0;&#x51FA;&#x7684;&#x5047;&#x8BBE;&#x6570;&#x76EE;&#x3002;</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>&#x7406;&#x8BBA;&#x5148;&#x8BB2;&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x4E0B;&#x9762;&#x8C08;&#x8C08;&#x6211;&#x4E2A;&#x4EBA;&#x5BF9;$E_{in}$&#x548C;$E_{out}$&#x7684;&#x4E00;&#x70B9;&#x7406;&#x89E3;&#x3002;</p>
+<p><strong>&#x6211;&#x4EEC;&#x4EBA;&#x5728;&#x89C2;&#x5BDF;&#x4E16;&#x754C;&#x3001;&#x89C2;&#x5BDF;&#x4ED6;&#x4EBA;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5728;&#x5B66;&#x4E60;&#x3002;&#x4ECE;&#x5C0F;&#x5230;&#x5927;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x773C;&#x8033;&#x9F3B;&#x7B49;&#x4E94;&#x5B98;&#x83B7;&#x77E5;&#x5927;&#x91CF;&#x6837;&#x672C;&#xFF0C;&#x518D;&#x4ECE;&#x8FD9;&#x4E9B;&#x6837;&#x672C;&#x4E2D;&#x4E0D;&#x65AD;&#x4E30;&#x5BCC;&#x548C;&#x8C03;&#x6574;&#x81EA;&#x5DF1;&#x5934;&#x8111;&#x4E2D;&#x7684;&#x5047;&#x8BBE;&#x6A21;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x5BF9;&#x4E8B;&#x7269;&#x3001;&#x5BF9;&#x793E;&#x4F1A;&#x3001;&#x5BF9;&#x4E16;&#x754C;&#x7684;&#x8BA4;&#x8BC6;&#x4E5F;&#x5C31;&#x662F;&#x6307;&#x81EA;&#x5DF1;&#x5934;&#x8111;&#x4E2D;&#x7684;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#xFF0C;&#x5373;&#x6240;&#x8C13;&#x7684;&#x201C;&#x4E16;&#x754C;&#x89C2;&#x201D;&#x3001;&#x201C;&#x4EF7;&#x503C;&#x89C2;&#x201D;&#x7B49;&#x7B49;&#x3002;&#x6BCF;&#x4E2A;&#x4EBA;&#x5BF9;&#x793E;&#x4F1A;&#x3001;&#x5BF9;&#x4ED6;&#x4EBA;&#x7684;&#x8BC4;&#x5224;&#x4E5F;&#x90FD;&#x662F;&#x6765;&#x6E90;&#x4E8E;&#x4ED6;&#x5934;&#x8111;&#x4E2D;&#x5BF9;&#x6240;&#x8BA4;&#x8BC6;&#x4E8B;&#x7269;&#x5EFA;&#x7ACB;&#x7684;&#x6A21;&#x578B;&#x3002;</strong></p>
+<p>&#x6BD4;&#x5982;&#x201C;&#x58EB;&#x522B;&#x4E09;&#x65E5;&#xFF0C;&#x5F53;&#x522E;&#x76EE;&#x76F8;&#x770B;&#x201D;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5B59;&#x6743;&#x3001;&#x9C81;&#x8083;&#x4E0E;&#x5415;&#x8499;&#x957F;&#x671F;&#x5171;&#x4E8B;&#xFF0C;&#x9010;&#x6E10;&#x5BF9;&#x5415;&#x8499;&#x5EFA;&#x7ACB;&#x4E86;&#x5047;&#x8BBE;&#x6A21;&#x578B;&#xFF0C;&#x800C;&#x5F53;&#x5415;&#x8499;&#x201C;&#x4E43;&#x59CB;&#x5C31;&#x5B66;&#x201D;&#x4E4B;&#x540E;&#xFF0C;&#x9C81;&#x8083;&#x518D;&#x4E0E;&#x5415;&#x8499;&#x8BBA;&#x8BAE;&#xFF0C;&#x53D1;&#x73B0;&#x4ED6;&#x5934;&#x8111;&#x4E2D;&#x7684;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x5DF2;&#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x62DF;&#x5408;&#x73B0;&#x5728;&#x7684;&#x5415;&#x8499;&#xFF0C;&#x4E43;&#x5927;&#x60CA;&#x66F0;&#x201C;&#x58EB;&#x522B;&#x4E09;&#x65E5;&#xFF0C;&#x5F53;&#x522E;&#x76EE;&#x60F3;&#x770B;&#x201D;&#x3002;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x770B;&#x4EBA;&#x65F6;&#xFF0C;&#x4E5F;&#x8981;&#x7ECF;&#x5E38;&#x63D0;&#x9192;&#x81EA;&#x5DF1;&#xFF0C;&#x81EA;&#x5DF1;&#x5BF9;&#x4ED6;&#x4EBA;&#x7684;&#x770B;&#x6CD5;&#x4E5F;&#x53EA;&#x662F;&#x81EA;&#x5DF1;&#x5934;&#x8111;&#x4E2D;&#x7684;&#x201C;&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x201D;&#x800C;&#x5DF2;&#xFF0C;&#x4F60;&#x81EA;&#x5DF1;&#x89C9;&#x5F97;&#x62DF;&#x5408;&#x7684;&#x518D;&#x597D;&#xFF0C;&#x89C9;&#x5F97;$E_{in}$&#x5DF2;&#x7ECF;&#x5F88;&#x5C0F;&#x4E86;&#xFF0C;&#x4F46;&#x4E5F;&#x4E0D;&#x80FD;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x201C;&#x5047;&#x8BBE;&#x201D;&#x5C31;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x62DF;&#x5408;&#x771F;&#x5B9E;&#x60C5;&#x51B5;&#x3002;$E_{in}$&#x5C0F;&#xFF0C;&#x4E0D;&#x4EE3;&#x8868;$E_{out}$&#x5C31;&#x5C0F;&#xFF0C;&#x8FD8;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x8FC7;&#x62DF;&#x5408;&#xFF0C;&#x6216;&#x662F;&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x672C;&#x8EAB;&#x5C31;&#x9519;&#x4E86;&#x554A;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x6709;&#x65F6;&#x9762;&#x5BF9;&#x4ED6;&#x4EBA;&#x65E0;&#x7AEF;&#x6307;&#x8D23;&#x6216;&#x662F;&#x8BEF;&#x89E3;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x60F3;&#xFF1A;&#x4ED6;&#x5BF9;&#x4F60;&#x7684;&#x770B;&#x6CD5;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x4ED6;&#x5148;&#x5BF9;&#x4F60;&#x89C2;&#x5BDF;&#xFF0C;&#x5E76;&#x5728;&#x4ED6;&#x5934;&#x8111;&#x4E2D;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x5C31;&#x662F;&#x4F60;&#x5728;&#x4ED6;&#x5934;&#x8111;&#x4E2D;&#x7684;&#x6295;&#x5F71;&#x3002;&#x800C;&#x4ED6;&#x8868;&#x8FBE;&#x51FA;&#x6765;&#x5BF9;&#x4F60;&#x7684;&#x770B;&#x6CD5;&#xFF0C;&#x4E5F;&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x4ED6;&#x5BF9;&#x4F60;&#x5728;&#x4ED6;&#x5934;&#x8111;&#x4E2D;&#x7684;&#x6295;&#x5F71;&#x6240;&#x505A;&#x7684;&#x89C2;&#x5BDF;&#x3002;&#x65E2;&#x7136;&#x662F;&#x6295;&#x5F71;&#xFF0C;&#x5FC5;&#x7136;&#x4E0D;&#x5168;&#x9762;&#xFF0C;&#x8FD9;&#x4E2A;&#x6295;&#x5F71;&#x4E0D;&#x4E00;&#x5B9A;&#x80FD;&#x4EE3;&#x8868;&#x4F60;&#x7684;&#x771F;&#x5B9E;&#x60C5;&#x51B5;&#x3002;&#x8FD9;&#x6837;&#x770B;&#x6765;&#xFF0C;&#x5F53;&#x4F60;&#x88AB;&#x4EBA;&#x65E0;&#x7F18;&#x7531;&#x5632;&#x8BBD;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53CD;&#x800C;&#x66B4;&#x9732;&#x51FA;&#x4E86;&#x4ED6;&#x8BA4;&#x8BC6;&#x7684;&#x5C40;&#x9650;&#x3002;&#x4F60;&#x4E5F;&#x4E0D;&#x59A8;&#x5C31;&#x5F53;&#x4ED6;&#x5728;&#x5BF9;&#x4E00;&#x4E2A;&#x201C;&#x5E7D;&#x7075;&#x201D;&#x8BF4;&#x8BDD;&#x3002;</p>
+<p>&#x518D;&#x4ECE;&#x8FD9;&#x4E2A;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x5C31;&#x4E0D;&#x96BE;&#x7406;&#x89E3;&#x65B0;&#x95FB;&#x4E0A;&#x7ECF;&#x5E38;&#x51FA;&#x73B0;&#x7684;&#x4E00;&#x4E9B;&#x7C7B;&#x4F3C;&#x201C;&#x67D0;&#x2018;&#x597D;&#x7537;&#x4EBA;&#x2019;&#x88AB;&#x66DD;&#x51FA;&#x8F68;&#x201D;&#x3001;&#x201C;&#x67D0;&#x6E29;&#x6587;&#x5C14;&#x96C5;&#x7684;&#x7F16;&#x5267;&#x5438;&#x6BD2;&#x201D;&#x7684;&#x65B0;&#x95FB;&#x6240;&#x5F15;&#x8D77;&#x7684;&#x8206;&#x8BBA;&#x54D7;&#x7136;&#x3002;&#x4ECE;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x89D2;&#x5EA6;&#x770B;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x53CD;&#x6620;&#x4E86;&#x5927;&#x4F17;&#x8111;&#x4E2D;&#x7684;&#x6A21;&#x578B;&#x548C;&#x771F;&#x5B9E;&#x60C5;&#x51B5;&#x53CD;&#x5DEE;&#x592A;&#x5927;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x53CD;&#x5DEE;&#x7684;&#x63ED;&#x9732;&#x65F6;&#x95F4;&#x53C8;&#x8FC7;&#x77ED;&#x4F7F;&#x5F97;&#x5927;&#x5BB6;&#x4E00;&#x65F6;&#x63A5;&#x53D7;&#x4E0D;&#x4E86;&#xFF08;Justin Beiber&#x7684;&#x53D8;&#x5316;&#x65F6;&#x95F4;&#x5C31;&#x591F;&#x957F;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x7684;&#x90A3;&#x4E9B;&#x65B0;&#x95FB;&#xFF0C;&#x6211;&#x4E5F;&#x90FD;&#x89C1;&#x602A;&#x4E0D;&#x602A;&#x4E86; -_-&#xFF09;&#x3002;&#x5927;&#x4F17;&#x8111;&#x4E2D;&#x6240;&#x5EFA;&#x7ACB;&#x6A21;&#x578B;&#x7684;$E_{out}$&#x8FC7;&#x5927;&#xFF0C;&#x6216;&#x8005;&#x8BF4; &#x201C;bias&#x201D; &#x8FC7;&#x5927;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x9884;&#x6D4B;&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#xFF0C;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x80FD;&#x591F;&#x6539;&#x5584;&#x6211;&#x4EEC;&#x7684;&#x5047;&#x8BBE;&#x5BF9;&#x4E8E;&#x771F;&#x5B9E;&#x60C5;&#x51B5;&#x7684;&#x9884;&#x6D4B;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x518D;&#x6765;&#x56DE;&#x987E;&#x4E00;&#x4E0B;$\ref{**}&#x5F0F;$&#xFF1A;<br>$$P[E_{in} - E_{out} &gt; \epsilon] = 2 M e^{-2\epsilon^2 N}$$<br>&#x8981;&#x60F3;&#x63D0;&#x9AD8;$P[E_{in} - E_{out} &gt; \epsilon] $&#xFF1A;&#x4E00;&#x4E2A;&#x662F;&#x63D0;&#x9AD8;$N$&#xFF0C;&#x5373;&#x589E;&#x52A0;&#x6211;&#x4EEC;&#x7684;&#x9605;&#x5386;&#xFF0C;&#x800C;&#x4E14;&#x6240;&#x201C;&#x9605;&#x201D;&#x7684;&#x4EBA;&#xFF08;&#x6837;&#x672C;&#xFF09;&#x5206;&#x5E03;&#x4E5F;&#x8981;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x5E7F;&#xFF0C;&#x8FD9;&#x6837;&#x5EFA;&#x7ACB;&#x7684;&#x6A21;&#x578B;&#x6CDB;&#x5316;&#x80FD;&#x529B;&#x624D;&#x66F4;&#x5F3A;&#x3002;&#x53E6;&#x4E00;&#x4E2A;&#x5C31;&#x662F;&#x4E0D;&#x65AD;&#x8FED;&#x4EE3;&#xFF0C;&#x4E0D;&#x65AD;&#x8BC4;&#x4EF7;&#x65E7;&#x6709;&#x5047;&#x8BBE;&#xFF0C;&#x4ECE;&#x4E2D;&#x53D1;&#x73B0;&#x4E0D;&#x8DB3;&#xFF08;&#x201C;&#x543E;&#x65E5;&#x4E09;&#x7701;&#x543E;&#x8EAB;&#x201D;&#xFF09;&#xFF0C;&#x5E76;&#x5728;&#x5176;&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x884C;&#x6539;&#x826F;&#xFF0C;&#x63D0;&#x51FA;&#x65B0;&#x7684;&#x5047;&#x8BBE;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x4FDD;&#x6301;&#x4E00;&#x4E2A;&#x52E4;&#x4E8E;&#x601D;&#x8003;&#x3001;&#x5F00;&#x653E;&#x7684;&#x5934;&#x8111;&#xFF0C;&#x65F6;&#x523B;&#x63D0;&#x9192;&#x81EA;&#x5DF1;&#x8BA4;&#x8BC6;&#x5177;&#x6709;&#x5C40;&#x9650;&#xFF0C;&#x4FDD;&#x6301;&#x8C26;&#x5351;&#x7684;&#x5FC3;&#x6001;&#xFF0C;&#x4E0D;&#x65AD;&#x5B66;&#x4E60;&#x3001;&#x5438;&#x6536;&#x5E76;&#x66F4;&#x65B0;&#x6211;&#x4EEC;&#x5BF9;&#x4E16;&#x754C;&#x3001;&#x5BF9;&#x4ED6;&#x4EBA;&#x7684;&#x770B;&#x6CD5;&#xFF01;</p>
+<h2 id="&#x7248;&#x6743;&#x58F0;&#x660E;"><a href="#&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;" class="headerlink" title="&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;"></a>&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;</h2><p>&#x672C;&#x6587;&#x4E2D;&#x6240;&#x6709;&#x6587;&#x5B57;&#x7248;&#x6743;&#x5747;&#x5C5E;&#x672C;&#x4EBA;&#x6240;&#x6709;&#xFF0C;&#x672A;&#x7ECF;&#x5141;&#x8BB8;&#x8BF7;&#x52FF;&#x8F6C;&#x8F7D;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/随笔/" rel="tag">#随笔</a>
+          
+            <a href="/tags/机器学习感悟/" rel="tag">#机器学习感悟</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/11/gabor/" rel="next" title="Gabor 特征总结">
+                <i class="fa fa-chevron-left"></i> Gabor 特征总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/03/linear-algebra-1/" rel="prev" title="线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程">
+                线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=2099805" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2099805" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/10/13/Ein-Eout/"
+           data-title="Ein 和 Eout，假设模型以及开放思维" data-url="http://mengqi92.github.io/2015/10/13/Ein-Eout/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Mengqi" />
+          <p class="site-author-name" itemprop="name">Mengqi</p>
+          <p class="site-description motion-element" itemprop="description">机器学习、图像处理、统计分析、函数式编程</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mengqi92" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/mengqipei" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:mengqipei@gmail.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2264422383" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.fuzihao.org" title="切问录" target="_blank">切问录</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版权声明"><span class="nav-number">2.</span> <span class="nav-text">版权声明：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015.1 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mengqi</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mengqipei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

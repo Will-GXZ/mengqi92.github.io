@@ -1,0 +1,815 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="4Fw5av3MAK9VoBQQanNGeiDwK9jEJjQBL6jk3PSY-B4" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="傅里叶变换,欧拉公式,复数,数字信号处理,图像处理,基础概念,Gabor 特征," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mengqi's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="研究傅里叶变换的过程中经常要和复数打交道，经常会遇到 $e^{ix}$ 这种形式。
+这里就总结一下复数的直角坐标、极坐标，以及复指数表示形式，也有对欧拉公式的直观解释，以便更好地理解傅里叶变换。
+本文中图片均来自于 国立台湾师范大学资讯工程学系的演算法笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="复数的几种表示形式">
+<meta property="og:url" content="http://mengqi92.github.io/2015/10/06/complex/index.html">
+<meta property="og:site_name" content="Mengqi's blog">
+<meta property="og:description" content="研究傅里叶变换的过程中经常要和复数打交道，经常会遇到 $e^{ix}$ 这种形式。
+这里就总结一下复数的直角坐标、极坐标，以及复指数表示形式，也有对欧拉公式的直观解释，以便更好地理解傅里叶变换。
+本文中图片均来自于 国立台湾师范大学资讯工程学系的演算法笔记。">
+<meta property="og:image" content="http://mengqi92.github.io/2015/10/06/complex/complex-plane.png">
+<meta property="og:image" content="http://mengqi92.github.io/2015/10/06/complex/complex-polar-plane.png">
+<meta property="og:image" content="http://mengqi92.github.io/2015/10/06/complex/complex-polar-transform.png">
+<meta property="og:image" content="http://mengqi92.github.io/2015/10/06/complex/real-wave-complex-wave.png">
+<meta property="og:updated_time" content="2015-10-06T06:47:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="复数的几种表示形式">
+<meta name="twitter:description" content="研究傅里叶变换的过程中经常要和复数打交道，经常会遇到 $e^{ix}$ 这种形式。
+这里就总结一下复数的直角坐标、极坐标，以及复指数表示形式，也有对欧拉公式的直观解释，以便更好地理解傅里叶变换。
+本文中图片均来自于 国立台湾师范大学资讯工程学系的演算法笔记。">
+<meta name="twitter:image" content="http://mengqi92.github.io/2015/10/06/complex/complex-plane.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 12217047,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 复数的几种表示形式 | Mengqi's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68396368-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8800f71adfa983d80f6c943ceb1ee330";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mengqi's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">a paranoid android.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                复数的几种表示形式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-06T14:47:16+08:00" content="2015-10-06">
+              2015-10-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/cv/" itemprop="url" rel="index">
+                    <span itemprop="name">图像处理</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/06/complex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/06/complex/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&#x7814;&#x7A76;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x7ECF;&#x5E38;&#x8981;&#x548C;&#x590D;&#x6570;&#x6253;&#x4EA4;&#x9053;&#xFF0C;&#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230; $e^{ix}$ &#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x5C31;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x590D;&#x6570;&#x7684;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x3001;&#x6781;&#x5750;&#x6807;&#xFF0C;&#x4EE5;&#x53CA;&#x590D;&#x6307;&#x6570;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#xFF0C;&#x4E5F;&#x6709;&#x5BF9;&#x6B27;&#x62C9;&#x516C;&#x5F0F;&#x7684;&#x76F4;&#x89C2;&#x89E3;&#x91CA;&#xFF0C;&#x4EE5;&#x4FBF;&#x66F4;&#x597D;&#x5730;&#x7406;&#x89E3;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x4E2D;&#x56FE;&#x7247;&#x5747;&#x6765;&#x81EA;&#x4E8E; <a href="http://www.csie.ntnu.edu.tw/~u91029/Wave.html" target="_blank" rel="external">&#x56FD;&#x7ACB;&#x53F0;&#x6E7E;&#x5E08;&#x8303;&#x5927;&#x5B66;&#x8D44;&#x8BAF;&#x5DE5;&#x7A0B;&#x5B66;&#x7CFB;&#x7684;&#x6F14;&#x7B97;&#x6CD5;&#x7B14;&#x8BB0;</a>&#x3002;</p>
+<a id="more"></a>
+<h2 id="&#x4E00;-&#x590D;&#x6570;&#x7684;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x8868;&#x793A;"><a href="#&#x4E00;&#x3001;&#x590D;&#x6570;&#x7684;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x8868;&#x793A;" class="headerlink" title="&#x4E00;&#x3001;&#x590D;&#x6570;&#x7684;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x8868;&#x793A;"></a>&#x4E00;&#x3001;&#x590D;&#x6570;&#x7684;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x8868;&#x793A;</h2><p>&#x9996;&#x5148;&#xFF0C;&#x590D;&#x6570;&#x57FA;&#x672C;&#x5355;&#x4F4D;&#x662F; $i=\sqrt{-1}$&#xFF0C;&#x6709;&#x4E86;&#x8FD9;&#x4E2A;&#x5355;&#x4F4D;&#xFF0C;&#x590D;&#x6570;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6570;&#x90FD;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A; $a+bi$ &#x7684;&#x5F62;&#x5F0F;&#x3002;&#x5176;&#x4E2D;&#xFF0C;a &#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x5B9E;&#x90E8;&#xFF08;real part&#xFF09;&#x201D;&#xFF0C;b &#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x865A;&#x90E8;&#xFF08;imaginary part&#xFF09;&#x201D;&#x3002;</p>
+<p>&#x590D;&#x6570;&#x53EF;&#x4EE5;&#x5728;&#x590D;&#x5E73;&#x9762;&#xFF08;complex plane&#xFF09;&#x4E0A;&#x8868;&#x793A;&#xFF0C;&#x590D;&#x5E73;&#x9762;&#x6A2A;&#x7EB5;&#x5750;&#x6807;&#x5206;&#x522B;&#x4E3A;&#x5B9E;&#x90E8;&#x548C;&#x865A;&#x90E8;&#xFF0C;&#x4E0B;&#x56FE;&#x5C31;&#x662F;&#x590D;&#x6570; $2+3i$ &#x5728;&#x590D;&#x5E73;&#x9762;&#x4E0A;&#x7684;&#x8868;&#x793A;&#x3002;</p>
+<img src="/2015/10/06/complex/complex-plane.png" alt="&#x590D;&#x5E73;&#x9762;" title="&#x590D;&#x5E73;&#x9762;">
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x8FD9;&#x4E2A;&#x590D;&#x5E73;&#x9762;&#x548C;&#x5B9E;&#x6570;&#x7A7A;&#x95F4;&#x7684;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x7CFB;&#x7C7B;&#x4F3C;&#x3002;&#x90A3;&#x53EF;&#x4E0D;&#x53EF;&#x4EE5;&#x7528;&#x6781;&#x5750;&#x6807;&#x7684;&#x65B9;&#x6CD5;&#x8868;&#x793A;&#x590D;&#x6570;&#x5462;&#xFF1F;</p>
+<h2 id="&#x4E8C;-&#x590D;&#x6570;&#x7684;&#x6781;&#x5750;&#x6807;&#x8868;&#x793A;"><a href="#&#x4E8C;&#x3001;&#x590D;&#x6570;&#x7684;&#x6781;&#x5750;&#x6807;&#x8868;&#x793A;" class="headerlink" title="&#x4E8C;&#x3001;&#x590D;&#x6570;&#x7684;&#x6781;&#x5750;&#x6807;&#x8868;&#x793A;"></a>&#x4E8C;&#x3001;&#x590D;&#x6570;&#x7684;&#x6781;&#x5750;&#x6807;&#x8868;&#x793A;</h2><p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x590D;&#x6570;&#x662F;&#x53EF;&#x4EE5;&#x7528;&#x6781;&#x5750;&#x6807;&#x8868;&#x793A;&#x7684;&#xFF0C;&#x90A3;&#x4E00;&#x4E2A;&#x590D;&#x6570;&#x7528;&#x6781;&#x5750;&#x6807;&#x8868;&#x793A;&#x65F6;&#x7684;&#x957F;&#x5EA6;&#x548C;&#x89D2;&#x5EA6;&#x5206;&#x522B;&#x662F;&#x591A;&#x5C11;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x590D;&#x5E73;&#x9762;&#x4E2D;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x590D;&#x6570; $4+3i$ &#x7684;&#x590D;&#x5E73;&#x9762;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x8868;&#x793A;&#x662F;$(4, 3)$&#xFF0C;&#x539F;&#x70B9;&#x6307;&#x5411;&#x8BE5;&#x70B9;&#x7684;&#x5411;&#x91CF;&#x957F;&#x5EA6; $r=\sqrt{3^2+4^2}=5$&#xFF0C;&#x5411;&#x91CF;&#x7684;&#x89D2;&#x5EA6; $\theta = arctan(\frac{3}{4})$&#x3002;</p>
+<img src="/2015/10/06/complex/complex-polar-plane.png" alt="&#x590D;&#x6570;&#x7684;&#x6781;&#x5750;&#x6807;&#x8868;&#x793A;" title="&#x590D;&#x6570;&#x7684;&#x6781;&#x5750;&#x6807;&#x8868;&#x793A;">
+<p>&#x8FD9;&#x91CC;&#xFF0C;&#x590D;&#x6570;&#x6781;&#x5750;&#x6807;&#x8868;&#x793A;&#x7684;&#x957F;&#x5EA6; $r$ &#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x5F3A;&#x5EA6;&#xFF08;magnitude&#xFF09;&#x201D;&#xFF0C;&#x89D2;&#x5EA6; $\theta$ &#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x76F8;&#x4F4D;&#xFF08;phase&#xFF09;&#x201D;&#x3002;</p>
+<h3 id="21-&#x7531;&#x590D;&#x6570;&#x6781;&#x5750;&#x6807;&#x5F97;&#x5230;&#x76F4;&#x89D2;&#x5750;&#x6807;"><a href="#2-1-&#x7531;&#x590D;&#x6570;&#x6781;&#x5750;&#x6807;&#x5F97;&#x5230;&#x76F4;&#x89D2;&#x5750;&#x6807;" class="headerlink" title="2.1 &#x7531;&#x590D;&#x6570;&#x6781;&#x5750;&#x6807;&#x5F97;&#x5230;&#x76F4;&#x89D2;&#x5750;&#x6807;"></a>2.1 &#x7531;&#x590D;&#x6570;&#x6781;&#x5750;&#x6807;&#x5F97;&#x5230;&#x76F4;&#x89D2;&#x5750;&#x6807;</h3><p>&#x4E0A;&#x9762;&#x6211;&#x4EEC;&#x7528;&#x590D;&#x6570;&#x7684;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x8BA1;&#x7B97;&#x51FA;&#x4E86;&#x6781;&#x5750;&#x6807;&#xFF0C;&#x90A3;&#x4E48;&#x662F;&#x4E0D;&#x662F;&#x4E5F;&#x53EF;&#x4EE5;&#x7531;&#x6781;&#x5750;&#x6807;&#x63A8;&#x51FA;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x4ECE;&#x590D;&#x5E73;&#x9762;&#x4E2D;&#x6765;&#x770B;&#xFF1A;</p>
+<img src="/2015/10/06/complex/complex-polar-transform.png" alt="&#x590D;&#x6570;&#x4E24;&#x79CD;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#x4E4B;&#x95F4;&#x7684;&#x8F6C;&#x6362;" title="&#x590D;&#x6570;&#x4E24;&#x79CD;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#x4E4B;&#x95F4;&#x7684;&#x8F6C;&#x6362;">
+<p>&#x4ECE;&#x4E0A;&#x56FE;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x6709;&#x590D;&#x6570;&#x6781;&#x5750;&#x6807; $(r, \theta)$ &#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x5176;&#x76F4;&#x89D2;&#x5750;&#x6807; $(r \cos(\theta), r \sin(\theta))$&#xFF0C;&#x5373;&#x8BE5;&#x590D;&#x6570;&#x4E3A; $r\cos\theta + r*i\sin\theta$&#x3002;</p>
+<h2 id="&#x4E09;-&#x590D;&#x6570;&#x7684;&#x590D;&#x6307;&#x6570;&#x8868;&#x793A;&#x4E0E;&#x6B27;&#x62C9;&#x516C;&#x5F0F;"><a href="#&#x4E09;&#x3001;&#x590D;&#x6570;&#x7684;&#x590D;&#x6307;&#x6570;&#x8868;&#x793A;&#x4E0E;&#x6B27;&#x62C9;&#x516C;&#x5F0F;" class="headerlink" title="&#x4E09;&#x3001;&#x590D;&#x6570;&#x7684;&#x590D;&#x6307;&#x6570;&#x8868;&#x793A;&#x4E0E;&#x6B27;&#x62C9;&#x516C;&#x5F0F;"></a>&#x4E09;&#x3001;&#x590D;&#x6570;&#x7684;&#x590D;&#x6307;&#x6570;&#x8868;&#x793A;&#x4E0E;&#x6B27;&#x62C9;&#x516C;&#x5F0F;</h2><p>&#x6B27;&#x62C9;&#x6709;&#x4E00;&#x5929;&#x53D1;&#x73B0;&#xFF0C;&#x795E;&#x5947;&#x6570;&#x5B57; $e$ &#x7684;&#x7EAF;&#x865A;&#x6570;&#x6B21;&#x65B9;&#x7ADF;&#x7136;&#x5728;&#x590D;&#x6570;&#x5E73;&#x9762;&#x4E0A;&#x7ED5;&#x5708;&#xFF01;</p>
+<p>&#x7528;&#x6781;&#x5750;&#x6807;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#xFF0C;&#x5C31;&#x662F; $e^{i\theta}=\cos\theta+i\sin\theta$&#x3002;</p>
+<p>&#x5982;&#x6B64;&#xFF0C;&#x4E00;&#x4E2A;&#x590D;&#x6570;&#x5C31;&#x53C8;&#x591A;&#x4E86;&#x4E00;&#x79CD;&#x6307;&#x6570;&#x7684;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#xFF0C;&#x5373;&#x590D;&#x6307;&#x6570;&#x5F62;&#x5F0F;&#xFF1A;$r e^{i\theta} = r \cos\theta + r*i \sin\theta$&#x3002;</p>
+<p>&#x800C;&#x5F53; $r=1$&#xFF0C;$\theta=\pi$ &#x65F6;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x76F4;&#x89D2;&#x5750;&#x6807;&#x521A;&#x597D;&#x5C31;&#x662F; $(-1, 0)$ &#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5B9E;&#x6570; -1&#x3002;&#x7531;&#x6B64;&#x5C31;&#x6709;&#x4E86;&#x90A3;&#x4E2A;&#x8457;&#x540D;&#x7684;&#x201C;&#x6B27;&#x62C9;&#x516C;&#x5F0F;&#x201D;&#xFF1A;$$e^{i\pi}+1=0$$</p>
+<h3 id="31-&#x590D;&#x6570;&#x6CE2;&#x548C;&#x5B9E;&#x6570;&#x6CE2;"><a href="#3-1-&#x590D;&#x6570;&#x6CE2;&#x548C;&#x5B9E;&#x6570;&#x6CE2;" class="headerlink" title="3.1 &#x590D;&#x6570;&#x6CE2;&#x548C;&#x5B9E;&#x6570;&#x6CE2;"></a>3.1 &#x590D;&#x6570;&#x6CE2;&#x548C;&#x5B9E;&#x6570;&#x6CE2;</h3><p>&#x5B9E;&#x6570;&#x6CE2;&#x6211;&#x4EEC;&#x6BD4;&#x8F83;&#x719F;&#x6089;&#xFF0C;&#x5C31;&#x662F; $\sin\theta$ &#x6216; $\cos\theta$ &#x5F62;&#x5F0F;&#x3002;&#x800C;&#x590D;&#x6570;&#x6CE2;&#x5219;&#x662F;&#x7531; $e^{i\theta}$ &#x6765;&#x5B9A;&#x4E49;&#xFF0C;&#x5B9E;&#x6570;&#x6CE2;&#x548C;&#x590D;&#x6570;&#x6CE2;&#x7684;&#x793A;&#x610F;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;</p>
+<img src="/2015/10/06/complex/real-wave-complex-wave.png" alt="&#x5B9E;&#x6570;&#x6CE2;&#x548C;&#x590D;&#x6570;&#x6CE2;&#x793A;&#x610F;" title="&#x5B9E;&#x6570;&#x6CE2;&#x548C;&#x590D;&#x6570;&#x6CE2;&#x793A;&#x610F;">
+<p>&#x4ECE;&#x793A;&#x610F;&#x56FE;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5F53;&#x4FEF;&#x89C6;&#x590D;&#x6570;&#x6CE2;&#x65F6;&#xFF0C;&#x89C2;&#x5BDF;&#x5230;&#x7684;&#x6295;&#x5F71;&#x5373;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x6570;&#x6CE2;&#xFF0C;&#x5373;&#x662F; $e^{i\theta}=\cos\theta + i* \sin\theta$ &#x7684;&#x5B9E;&#x90E8;&#xFF1A;$\cos\theta$&#xFF1B;&#x5F53;&#x4ECE;&#x5DE6;&#x4FA7;&#x4FA7;&#x89C6;&#x590D;&#x6570;&#x6CE2;&#x65F6;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x6295;&#x5F71;&#x5373;&#x662F;&#x5176;&#x865A;&#x90E8;&#xFF1A;$\sin\theta$&#x3002;</p>
+<p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x590D;&#x6570;&#x6CE2;&#x7684;&#x5B8C;&#x6574;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;<br>$$ Ae^{i(\omega t+\phi)} = Ae^{i(2\pi f t+\phi)} = A\cos(2\pi f t+\phi) + iA\sin(2\pi f t+\phi) $$<br>&#x5176;&#x4E2D;&#xFF0C;$A$&#x4E3A;&#x632F;&#x5E45;&#xFF0C;$\omega$&#x4E3A;&#x89D2;&#x901F;&#x5EA6;&#xFF0C;$f$&#x4E3A;&#x9891;&#x7387;&#xFF0C;$\phi$&#x4E3A;&#x521D;&#x8BD5;&#x76F8;&#x4F4D;&#xFF0C;&#x8FD9;&#x4E2A;&#x6CE2;&#x7684;&#x5F3A;&#x5EA6;&#xFF08;magnitude&#xFF09;&#x4E3A; $A = \sqrt{A^2 \cdot \cos^2(2\pi f t+\phi) + A^2 \cdot \sin^2(2\pi f t+\phi)}$&#xFF0C;&#x77AC;&#x65F6;&#x76F8;&#x4F4D;&#xFF08;phase&#xFF09;&#x4E3A; $2\pi f t + \phi$&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x590D;&#x6307;&#x6570;&#x5F62;&#x5F0F;&#x7684;&#x590D;&#x6570;&#x6CE2;$e^{i\theta}$&#x76F8;&#x8F83;&#x4E8E;$\cos(\theta)+i\sin(\theta)$&#x66F4;&#x7B80;&#x5355;&#x4E14;&#x66F4;&#x6613;&#x4E8E;&#x63A7;&#x5236;&#xFF0C;&#x56E0;&#x800C;&#x5728;&#x4FE1;&#x53F7;&#x5904;&#x7406;&#x4E2D;&#x5F97;&#x5230;&#x5E7F;&#x6CDB;&#x7684;&#x4F7F;&#x7528;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;$e^{i\theta}$&#x5F62;&#x5F0F;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x5B9E;&#x6570;&#x6CE2;&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7EC4;&#x5408;&#x4E24;&#x4E2A;&#x590D;&#x6570;&#x6CE2;&#x6765;&#x5F97;&#x5230;$\cos(\theta)$&#x548C;$\sin(\theta)$&#xFF1A;</p>
+<p>$$\cos(\theta)=\frac{e^{i\theta}+e^{-i\theta}}{2}$$<br>$$\sin(\theta)=\frac{e^{i\theta}-e^{-i\theta}}{2i}$$</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x5728;&#x4FE1;&#x53F7;&#x5904;&#x7406;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x8003;&#x8651;&#x5B9E;&#x90E8;&#x7684;&#x7EBF;&#x6027;&#x8FD0;&#x7B97;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x5BF9;&#x4E00;&#x4E2A;&#x590D;&#x6570;&#x6CE2;&#x8FDB;&#x884C;&#x6EE4;&#x6CE2;&#x540E;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x590D;&#x6570;&#x6CE2;&#x53EF;&#x4EE5;&#x5206;&#x89E3;&#x4E3A; $\cos$ &#x548C; $\sin$ &#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x8FDB;&#x800C;&#x53EA;&#x9700;&#x8981;&#x9009;&#x53D6;&#x5B9E;&#x90E8;&#x6240;&#x5BF9;&#x5E94;&#x7684; $\cos$ &#x90E8;&#x5206;&#x5C31;&#x884C;&#x4E86;&#x3002;</p>
+<p>&#x5728;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;&#x4E2D;&#xFF0C;&#x4FBF;&#x662F;&#x5C06;&#x4EFB;&#x610F;&#x975E;&#x5468;&#x671F;&#x51FD;&#x6570;&#x5206;&#x89E3;&#x4E3A;&#x4E86;&#x5404;&#x79CD;&#x590D;&#x6570;&#x6CE2;&#x53E0;&#x52A0;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x56E0;&#x800C;&#x5085;&#x91CC;&#x53F6;&#x53D8;&#x6362;&#x7684;&#x516C;&#x5F0F;&#x4E2D;&#x624D;&#x4F1A;&#x6709;&#x7C7B;&#x4F3C; $e^{ix}$ &#x7684;&#x5F62;&#x5F0F;&#x3002;</p>
+<h3 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</h3><ol>
+<li><a href="http://www.csie.ntnu.edu.tw/~u91029/Wave.html" target="_blank" rel="external">&#x56FD;&#x7ACB;&#x53F0;&#x6E7E;&#x5E08;&#x8303;&#x5927;&#x5B66;&#x8D44;&#x8BAF;&#x5DE5;&#x7A0B;&#x5B66;&#x7CFB;&#x7684;&#x6F14;&#x7B97;&#x6CD5;&#x7B14;&#x8BB0;</a></li>
+<li><a href="https://ccrma.stanford.edu/~jos/fp/Complex_Sinusoids.html" target="_blank" rel="external">&#x65AF;&#x5766;&#x798F;&#x5927;&#x5B66; JULIUS O. SMITH III &#x6240;&#x8457; Introduction to Digital Filters with Audio Applications &#x5728;&#x7EBF;&#x7248;</a></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/傅里叶变换/" rel="tag">#傅里叶变换</a>
+          
+            <a href="/tags/欧拉公式/" rel="tag">#欧拉公式</a>
+          
+            <a href="/tags/复数/" rel="tag">#复数</a>
+          
+            <a href="/tags/数字信号处理/" rel="tag">#数字信号处理</a>
+          
+            <a href="/tags/图像处理/" rel="tag">#图像处理</a>
+          
+            <a href="/tags/基础概念/" rel="tag">#基础概念</a>
+          
+            <a href="/tags/Gabor-特征/" rel="tag">#Gabor 特征</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/05/logistic-regression/" rel="next" title="Logistic 回归">
+                <i class="fa fa-chevron-left"></i> Logistic 回归
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/06/convolution/" rel="prev" title="我对卷积的理解">
+                我对卷积的理解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=2099805" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2099805" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/10/06/complex/"
+           data-title="复数的几种表示形式" data-url="http://mengqi92.github.io/2015/10/06/complex/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Mengqi" />
+          <p class="site-author-name" itemprop="name">Mengqi</p>
+          <p class="site-description motion-element" itemprop="description">机器学习、图像处理、统计分析、函数式编程</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mengqi92" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/mengqipei" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:mengqipei@gmail.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2264422383" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.fuzihao.org" title="切问录" target="_blank">切问录</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-复数的直角坐标表示"><span class="nav-number">1.</span> <span class="nav-text">一、复数的直角坐标表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-复数的极坐标表示"><span class="nav-number">2.</span> <span class="nav-text">二、复数的极坐标表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-由复数极坐标得到直角坐标"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 由复数极坐标得到直角坐标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-复数的复指数表示与欧拉公式"><span class="nav-number">3.</span> <span class="nav-text">三、复数的复指数表示与欧拉公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#31-复数波和实数波"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 复数波和实数波</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">3.2.</span> <span class="nav-text">参考资料：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015.1 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mengqi</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mengqipei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

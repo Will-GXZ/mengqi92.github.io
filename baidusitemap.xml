@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://mengqi92.github.io/2016/05/03/linear-algebra-1/</loc>
+    <lastmod>2016-05-14T10:12:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程</title>
+        <pubTime>2016-05-03T14:55:27.000Z</pubTime>
+        
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
+         
+        <tag>线性代数</tag>
+         
+        <tag>线性代数拾遗</tag>
+         
+         
+           
+             
+              <breadCrumb title="线性代数" url="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mengqi92.github.io/2016/05/14/linear-algebra-2/</loc>
+    <lastmod>2016-05-14T10:11:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>线性代数拾遗（二）：线性方程组的解集及其几何意义</title>
+        <pubTime>2016-05-14T10:11:25.000Z</pubTime>
+        
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
+         
+        <tag>线性代数</tag>
+         
+        <tag>线性代数拾遗</tag>
+         
+         
+           
+             
+              <breadCrumb title="线性代数" url="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mengqi92.github.io/2015/10/05/logistic-regression/</loc>
+    <lastmod>2016-05-14T10:07:26.000Z</lastmod>
+    <data>
+        <display>
+        <title>Logistic 回归</title>
+        <pubTime>2015-10-05T06:50:00.000Z</pubTime>
+        
+        <tag>机器学习</tag>
+         
+        <tag>Logistic 回归</tag>
+         
+        <tag>Logistic Regression</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://mengqi92.github.io/categories/ml/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+  <url>
+    <loc>http://mengqi92.github.io/2015/10/11/gabor/</loc>
+    <lastmod>2016-05-14T02:46:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>Gabor 特征总结</title>
+        <pubTime>2015-10-11T09:02:00.000Z</pubTime>
+        
+        <tag>机器学习</tag>
+         
+        <tag>傅里叶变换</tag>
+         
+        <tag>图像处理</tag>
+         
+        <tag>Gabor 特征</tag>
+         
+        <tag>特征提取</tag>
+         
+        <tag>Gabor</tag>
+         
+         
+           
+             
+              <breadCrumb title="图像处理" url="http://mengqi92.github.io/categories/cv/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mengqi92.github.io/2015/10/06/convolution/</loc>
+    <lastmod>2016-05-13T16:32:15.000Z</lastmod>
+    <data>
+        <display>
+        <title>我对卷积的理解</title>
+        <pubTime>2015-10-06T12:05:00.000Z</pubTime>
+        
+        <tag>机器学习</tag>
+         
+        <tag>图像处理</tag>
+         
+        <tag>基础概念</tag>
+         
+        <tag>Gabor 特征</tag>
+         
+        <tag>数学</tag>
+         
+        <tag>卷积</tag>
+         
+         
+           
+             
+              <breadCrumb title="图像处理" url="http://mengqi92.github.io/categories/cv/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mengqi92.github.io/2015/10/13/Ein-Eout/</loc>
+    <lastmod>2016-05-07T05:23:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>Ein 和 Eout，假设模型以及开放思维</title>
+        <pubTime>2015-10-12T17:32:18.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+        <tag>机器学习感悟</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://mengqi92.github.io/categories/nonsense/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mengqi92.github.io/2015/10/06/complex/</loc>
+    <lastmod>2015-10-06T06:47:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>复数的几种表示形式</title>
+        <pubTime>2015-10-06T06:47:16.000Z</pubTime>
+        
+        <tag>傅里叶变换</tag>
+         
+        <tag>欧拉公式</tag>
+         
+        <tag>复数</tag>
+         
+        <tag>数字信号处理</tag>
+         
+        <tag>图像处理</tag>
+         
+        <tag>基础概念</tag>
+         
+        <tag>Gabor 特征</tag>
+         
+         
+           
+             
+              <breadCrumb title="图像处理" url="http://mengqi92.github.io/categories/cv/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mengqi92.github.io/2015/10/03/think-statistics-note/</loc>
+    <lastmod>2015-10-03T07:20:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>《统计思维：程序员数学之概率统计》读书摘录</title>
+        <pubTime>2015-10-03T07:20:00.000Z</pubTime>
+        
+        <tag>读书笔记</tag>
+         
+        <tag>统计</tag>
+         
+         
+           
+             
+              <breadCrumb title="statistics" url="http://mengqi92.github.io/categories/statistics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>

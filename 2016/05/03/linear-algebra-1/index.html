@@ -1,0 +1,972 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="4Fw5av3MAK9VoBQQanNGeiDwK9jEJjQBL6jk3PSY-B4" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="基础概念,数学,线性代数,线性代数拾遗," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mengqi's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言线性代数在各大理工科，乃至经济金融领域的使用之广泛，毋庸置疑。 一直以来，我虽也知道线性代数的重要，但从内心上其实一直是犯怵的（尤其是学习论文、算法中，基本只要看到对方把算法向量化之后就蒙圈了），当年在学校学习过程中很多也是靠着死记硬背过来的，对它的直观意义一直都没能有很好的理解。
+最近，这么一本书进入了我的视线：《线性代数及其应用》，听书名感觉平平，但只翻了几页就感觉十分过瘾，仿佛打通了任">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程">
+<meta property="og:url" content="http://mengqi92.github.io/2016/05/03/linear-algebra-1/index.html">
+<meta property="og:site_name" content="Mengqi's blog">
+<meta property="og:description" content="前言线性代数在各大理工科，乃至经济金融领域的使用之广泛，毋庸置疑。 一直以来，我虽也知道线性代数的重要，但从内心上其实一直是犯怵的（尤其是学习论文、算法中，基本只要看到对方把算法向量化之后就蒙圈了），当年在学校学习过程中很多也是靠着死记硬背过来的，对它的直观意义一直都没能有很好的理解。
+最近，这么一本书进入了我的视线：《线性代数及其应用》，听书名感觉平平，但只翻了几页就感觉十分过瘾，仿佛打通了任">
+<meta property="og:image" content="http://mengqi92.github.io/2016/05/03/linear-algebra-1/banner.jpeg">
+<meta property="og:updated_time" content="2016-05-14T10:12:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程">
+<meta name="twitter:description" content="前言线性代数在各大理工科，乃至经济金融领域的使用之广泛，毋庸置疑。 一直以来，我虽也知道线性代数的重要，但从内心上其实一直是犯怵的（尤其是学习论文、算法中，基本只要看到对方把算法向量化之后就蒙圈了），当年在学校学习过程中很多也是靠着死记硬背过来的，对它的直观意义一直都没能有很好的理解。
+最近，这么一本书进入了我的视线：《线性代数及其应用》，听书名感觉平平，但只翻了几页就感觉十分过瘾，仿佛打通了任">
+<meta name="twitter:image" content="http://mengqi92.github.io/2016/05/03/linear-algebra-1/banner.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 12217047,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程 | Mengqi's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68396368-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8800f71adfa983d80f6c943ceb1ee330";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mengqi's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">a paranoid android.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-03T22:55:27+08:00" content="2016-05-03">
+              2016-05-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/线性代数/" itemprop="url" rel="index">
+                    <span itemprop="name">线性代数</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/03/linear-algebra-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/03/linear-algebra-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2016/05/03/linear-algebra-1/banner.jpeg" alt="banner.jpeg" title="">
+<h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h1><p>&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x5728;&#x5404;&#x5927;&#x7406;&#x5DE5;&#x79D1;&#xFF0C;&#x4E43;&#x81F3;&#x7ECF;&#x6D4E;&#x91D1;&#x878D;&#x9886;&#x57DF;&#x7684;&#x4F7F;&#x7528;&#x4E4B;&#x5E7F;&#x6CDB;&#xFF0C;&#x6BCB;&#x5EB8;&#x7F6E;&#x7591;&#x3002; &#x4E00;&#x76F4;&#x4EE5;&#x6765;&#xFF0C;&#x6211;&#x867D;&#x4E5F;&#x77E5;&#x9053;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x7684;&#x91CD;&#x8981;&#xFF0C;&#x4F46;&#x4ECE;&#x5185;&#x5FC3;&#x4E0A;&#x5176;&#x5B9E;&#x4E00;&#x76F4;&#x662F;&#x72AF;&#x6035;&#x7684;&#xFF08;&#x5C24;&#x5176;&#x662F;&#x5B66;&#x4E60;&#x8BBA;&#x6587;&#x3001;&#x7B97;&#x6CD5;&#x4E2D;&#xFF0C;&#x57FA;&#x672C;&#x53EA;&#x8981;&#x770B;&#x5230;&#x5BF9;&#x65B9;&#x628A;&#x7B97;&#x6CD5;&#x5411;&#x91CF;&#x5316;&#x4E4B;&#x540E;&#x5C31;&#x8499;&#x5708;&#x4E86;&#xFF09;&#xFF0C;&#x5F53;&#x5E74;&#x5728;&#x5B66;&#x6821;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x4E2D;&#x5F88;&#x591A;&#x4E5F;&#x662F;&#x9760;&#x7740;&#x6B7B;&#x8BB0;&#x786C;&#x80CC;&#x8FC7;&#x6765;&#x7684;&#xFF0C;&#x5BF9;&#x5B83;&#x7684;&#x76F4;&#x89C2;&#x610F;&#x4E49;&#x4E00;&#x76F4;&#x90FD;&#x6CA1;&#x80FD;&#x6709;&#x5F88;&#x597D;&#x7684;&#x7406;&#x89E3;&#x3002;</p>
+<p>&#x6700;&#x8FD1;&#xFF0C;&#x8FD9;&#x4E48;&#x4E00;&#x672C;&#x4E66;&#x8FDB;&#x5165;&#x4E86;&#x6211;&#x7684;&#x89C6;&#x7EBF;&#xFF1A;&#x300A;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x53CA;&#x5176;&#x5E94;&#x7528;&#x300B;&#xFF0C;&#x542C;&#x4E66;&#x540D;&#x611F;&#x89C9;&#x5E73;&#x5E73;&#xFF0C;&#x4F46;&#x53EA;&#x7FFB;&#x4E86;&#x51E0;&#x9875;&#x5C31;&#x611F;&#x89C9;&#x5341;&#x5206;&#x8FC7;&#x763E;&#xFF0C;&#x4EFF;&#x4F5B;&#x6253;&#x901A;&#x4E86;&#x4EFB;&#x7763;&#x4E8C;&#x8109;&#x3002;&#x4EE5;&#x5F80;&#x5F88;&#x591A;&#x6B7B;&#x8BB0;&#x786C;&#x80CC;&#x7684;&#x77E5;&#x8BC6;&#x70B9;&#x5728;&#x8FD9;&#x672C;&#x4E66;&#x7684;&#x89E3;&#x91CA;&#x4E0B;&#xFF0C;&#x53D8;&#x6210;&#x4E86;&#x53EF;&#x4EE5;&#x76F4;&#x89C2;&#x63A8;&#x5BFC;&#x51FA;&#x6765;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x8FD9;&#x672C;&#x4E66;&#x4E0D;&#x4EC5;&#x5BF9;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x9610;&#x8FF0;&#x5730;&#x5F88;&#x76F4;&#x89C2;&#x5F62;&#x8C61;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x6709;&#x8BB8;&#x591A;&#x73B0;&#x5B9E;&#x751F;&#x6D3B;&#x4E2D;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x7ECF;&#x6D4E;&#x3001;&#x7269;&#x7406;&#x3001;&#x8BA1;&#x7B97;&#x673A;&#x9886;&#x57DF;&#xFF0C;&#x771F;&#x6B63;&#x8BA9;&#x4EBA;&#x9886;&#x7565;&#x5230;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x4F5C;&#x4E3A;&#x73B0;&#x4EE3;&#x6570;&#x5B66;&#x7684;&#x9B45;&#x529B;&#x3002;</p>
+<p>&#x6211;&#x7279;&#x5C06;&#x81EA;&#x5DF1;&#x7684;&#x8BFB;&#x4E66;&#x603B;&#x7ED3;&#x548C;&#x4F53;&#x4F1A;&#x8BB0;&#x5F55;&#x4E8E;&#x6B64;&#xFF0C;&#x4E5F;&#x662F;&#x5E0C;&#x671B;&#x501F;&#x6B64;&#x52A0;&#x6DF1;&#x81EA;&#x5DF1;&#x7684;&#x7406;&#x89E3;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E2A;&#x7CFB;&#x5217;&#x5047;&#x8BBE;&#x4F60;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x57FA;&#x7840;&#xFF0C;&#x50CF;&#x662F;&#x884C;&#x53D8;&#x6362;&#x3001;&#x5C06;&#x77E9;&#x9635;&#x8F6C;&#x6362;&#x4E3A;&#x884C;&#x9636;&#x68AF;&#x5F62;&#x5F0F;&#x8FD9;&#x79CD;&#x57FA;&#x672C;&#x6280;&#x5DE7;&#x5DF2;&#x7ECF;&#x638C;&#x63E1;&#x3002;&#x672C;&#x6587;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;&#x5177;&#x4F53;&#x64CD;&#x4F5C;&#x6B65;&#x9AA4;&#xFF0C;&#x4E3B;&#x8981;&#x5173;&#x6CE8;&#x4E8E;&#x6982;&#x5FF5;&#x7684;&#x76F4;&#x89C2;&#x7406;&#x89E3;&#x3002;</p>
+<a id="more"></a>
+<h1 id="&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;-&#x5411;&#x91CF;&#x65B9;&#x7A0B;&#x548C;&#x77E9;&#x9635;&#x65B9;&#x7A0B;"><a href="#&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x3001;&#x5411;&#x91CF;&#x65B9;&#x7A0B;&#x548C;&#x77E9;&#x9635;&#x65B9;&#x7A0B;" class="headerlink" title="&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x3001;&#x5411;&#x91CF;&#x65B9;&#x7A0B;&#x548C;&#x77E9;&#x9635;&#x65B9;&#x7A0B;"></a>&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x3001;&#x5411;&#x91CF;&#x65B9;&#x7A0B;&#x548C;&#x77E9;&#x9635;&#x65B9;&#x7A0B;</h1><h2 id="&#x4E00;-&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;"><a href="#&#x4E00;&#x3001;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;" class="headerlink" title="&#x4E00;&#x3001;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;"></a>&#x4E00;&#x3001;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;</h2><p>&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#xFF0C;&#x6700;&#x57FA;&#x672C;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x89E3;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x4E86;&#x3002;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x5C31;&#x662F;&#x4E00;&#x7EC4;&#x5F62;&#x5982; $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b$ &#x7684;&#x65B9;&#x7A0B;&#x3002;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x4E2A;&#x65B9;&#x7A0B;&#x662F;&#x5173;&#x4E8E; $x_1 \cdots x_n$ &#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x5176;&#x4ED6;&#x7684;&#x4E5F;&#x90FD;&#x5E94;&#x8BE5;&#x5982;&#x6B64;&#xFF08;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x4E0D;&#x4E00;&#x5B9A;&#x90FD;&#x51FA;&#x73B0;&#xFF0C;&#x56E0;&#x4E3A;&#x7CFB;&#x6570;&#x53EF;&#x4EE5;&#x6709; 0&#xFF09;&#x3002;</p>
+<h3 id="11-&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x77E9;&#x9635;&#x5F62;&#x5F0F;"><a href="#1-1-&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x77E9;&#x9635;&#x5F62;&#x5F0F;" class="headerlink" title="1.1 &#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x77E9;&#x9635;&#x5F62;&#x5F0F;"></a>1.1 &#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x77E9;&#x9635;&#x5F62;&#x5F0F;</h3><p>&#x65B9;&#x7A0B;&#x7EC4;</p>
+<span>$$\left\{
+\begin{equation}\label{initial}
+\begin{array}{ccl}
+x_1 &amp;-&amp; 2x_2 &amp;+&amp; x_3 &amp;= 0 \\
+    &amp;&amp; 2x_2 &amp;-&amp; 8x_3 &amp;= 8 \\
+{-4x_1} &amp;+&amp; 5x_2 &amp;+&amp; 9x_3 &amp;= {-9}
+\end{array}
+\end{equation}
+\right.$$</span><!-- Has MathJax -->
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5897;&#x5E7F;&#x77E9;&#x9635;&#x5F62;&#x5F0F;&#x63CF;&#x8FF0;&#xFF1A;<br><span>$$\begin{bmatrix}
+1 &amp; -2 &amp; 1 &amp; 0\\
+0 &amp; 2 &amp; -8 &amp; 8\\
+-4 &amp; 5 &amp; 9 &amp; -9\\
+\end{bmatrix}$$</span><!-- Has MathJax --><br>&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x53BB;&#x6389;&#x6700;&#x540E;&#x4E00;&#x5217;&#xFF0C;&#x5C31;&#x662F;&#x8BE5;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x7CFB;&#x6570;&#x77E9;&#x9635;&#x3002;</p>
+<p>&#x77E9;&#x9635;&#x5F62;&#x5F0F;&#x53EA;&#x662F;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x4E00;&#x79CD;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#x3002;&#x4ECA;&#x540E;&#x7684;&#x5F88;&#x591A;&#x5173;&#x4E8E;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x8BA1;&#x7B97;&#xFF0C;&#x90FD;&#x5C06;&#x5728;&#x77E9;&#x9635;&#x5F62;&#x5F0F;&#x4E0A;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x7136;&#x800C;&#x4F60;&#x4E5F;&#x9700;&#x8981;&#x77E5;&#x9053;&#xFF0C;&#x5728;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x4E5F;&#x5728;&#x8FDB;&#x884C;&#x7C7B;&#x4F3C;&#x7684;&#x53D8;&#x6362;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x5C06;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x7684;&#x7B2C;&#x4E00;&#x3001;&#x4E8C;&#x884C;&#x5BF9;&#x6362;&#xFF0C;&#x90A3;&#x4E48;&#x540C;&#x65F6;&#xFF0C;&#x5B83;&#x6240;&#x4EE3;&#x8868;&#x7684;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x4E2D;&#xFF0C;&#x7B2C;&#x4E00;&#x3001;&#x4E8C;&#x4E2A;&#x65B9;&#x7A0B;&#x4E5F;&#x8FDB;&#x884C;&#x4E86;&#x5BF9;&#x8C03;&#x3002;</p>
+<h3 id="12-&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x89E3;"><a href="#1-2-&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x89E3;" class="headerlink" title="1.2 &#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x89E3;"></a>1.2 &#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x89E3;</h3><p>&#x89E3;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#xFF0C;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x5BF9;&#x5176;&#x77E9;&#x9635;&#x5F62;&#x5F0F;&#x884C;&#x53D8;&#x6362;&#xFF08;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;&#x4EA4;&#x6362;&#x65B9;&#x7A0B;&#x7684;&#x5148;&#x540E;&#x987A;&#x5E8F;&#xFF0C;&#x4E00;&#x4E2A;&#x65B9;&#x7A0B;&#x5DE6;&#x53F3;&#x540C;&#x4E58;&#x4EE5;&#x67D0;&#x6570;&#xFF0C;&#x548C;&#x4E24;&#x4E2A;&#x65B9;&#x7A0B;&#x76F8;&#x52A0;&#xFF09; &#x8F6C;&#x6362;&#x4E3A;&#x884C;&#x9636;&#x68AF;&#x5F62;&#x5F0F;&#x3002;&#x6BD4;&#x5982;</p>
+<span>$$\begin{bmatrix}
+1 &amp; -2 &amp; 1 &amp; 0 &amp; \\
+0 &amp; 2 &amp; -8 &amp; 8 &amp; \\
+-4 &amp; 5 &amp; 9 &amp; -9 &amp;
+\end{bmatrix}
+\text{&#x8F6C;&#x5316;&#x4E3A;&#x884C;&#x9636;&#x68AF;&#x5F62;&#x5F0F;&#xFF1A;}
+\begin{bmatrix}
+1 &amp; -2 &amp; 1 &amp; 0 &amp; \\
+0 &amp; 1 &amp; -4 &amp; 4 &amp; \\
+0 &amp; 0 &amp; 1 &amp; 3
+\end{bmatrix}
+\text{&#x548C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#xFF1A;}
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 29 &amp; \\
+0 &amp; 1 &amp; 0 &amp; 16 &amp; \\
+0 &amp; 0 &amp; 1 &amp; 3
+\end{bmatrix}$$</span><!-- Has MathJax -->
+<p>&#x4E0A;&#x9762;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#x7684;&#x77E9;&#x9635;&#x5BF9;&#x5E94;&#x7684;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x662F;</p>
+<span>$$\left\{
+\begin{array}{ccl}
+x_1 &amp;&amp; &amp;&amp; &amp;= 29 \\
+    &amp;&amp; x_2 &amp;&amp; &amp;= 16 \\
+&amp;&amp; &amp;&amp; x_3 &amp;= 3
+\end{array}
+\right.$$</span><!-- Has MathJax -->
+<p>&#x8FD9;&#x4E2A;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x548C;&#x4E00;&#x5F00;&#x59CB;&#x7684;&#x65B9;&#x7A0B;&#x7EC4;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x5904;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x89E3;&#x4E5F;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x800C;&#x663E;&#x7136;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#x7684;&#x65B9;&#x7A0B;&#x7EC4;&#x6700;&#x5BB9;&#x6613;&#x89E3;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x90FD;<strong>&#x5C06;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x5897;&#x5E7F;&#x77E9;&#x9635;&#x8F6C;&#x5316;&#x4E3A;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#x7EE7;&#x800C;&#x6C42;&#x89E3;</strong>&#x3002;</p>
+<h3 id="13-&#x89E3;&#x7684;&#x5B58;&#x5728;&#x6027;&#x548C;&#x552F;&#x4E00;&#x6027;"><a href="#1-3-&#x89E3;&#x7684;&#x5B58;&#x5728;&#x6027;&#x548C;&#x552F;&#x4E00;&#x6027;" class="headerlink" title="1.3 &#x89E3;&#x7684;&#x5B58;&#x5728;&#x6027;&#x548C;&#x552F;&#x4E00;&#x6027;"></a>1.3 &#x89E3;&#x7684;&#x5B58;&#x5728;&#x6027;&#x548C;&#x552F;&#x4E00;&#x6027;</h3><p>&#x8FD8;&#x8BB0;&#x5F97;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x65F6;&#x7ECF;&#x5E38;&#x8BA8;&#x8BBA;&#x7684;&#x201C;&#x65E0;&#x89E3;&#x201C;&#x201C;&#x552F;&#x4E00;&#x89E3;&#x201D;&#x201C;&#x65E0;&#x7A77;&#x591A;&#x89E3;&#x201D;&#x5427;&#xFF1F;</p>
+<p>&#x9996;&#x5148;&#x6765;&#x770B;&#x521A;&#x624D;&#x7684;&#x65B9;&#x7A0B;&#x7EC4;&#xFF0C;&#x7ECF;&#x8FC7;&#x884C;&#x53D8;&#x6362;&#x540E;&#xFF0C;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x89E3;&#x5DF2;&#x7ECF;&#x5F88;&#x663E;&#x7136;&#x4E86;&#xFF1A;$x_1 = 29, x_2 =16, x_3 = 3$&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x89E3;&#x5C31;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#xFF0C;&#x662F;&#x552F;&#x4E00;&#x89E3;&#x3002;</p>
+<h4 id="131-&#x65E0;&#x89E3;"><a href="#1-3-1-&#x65E0;&#x89E3;" class="headerlink" title="1.3.1 &#x65E0;&#x89E3;"></a>1.3.1 &#x65E0;&#x89E3;</h4><p>&#x6211;&#x4EEC;&#x518D;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x65B9;&#x7A0B;&#x7EC4;&#xFF1A;<br><span>$$\left\{
+\begin{array}{cccl}
+&amp;&amp; x_2 &amp;-&amp; 4x_3 &amp;= 8 \\
+2x_1 &amp;-&amp; 3x_2 &amp;+&amp; 2x_3 &amp;= 1\\
+5x_1 &amp;-&amp; 8x_2 &amp;+&amp; 7x_3 &amp;= 1
+\end{array}
+\right.$$</span><!-- Has MathJax --></p>
+<p>&#x5B83;&#x7684;&#x589E;&#x5E7F;&#x77E9;&#x9635;<br><span>$$\begin{bmatrix}
+0 &amp; 1 &amp; -4 &amp; 8 &amp; \\
+2 &amp; -3 &amp; 2 &amp; 1 &amp; \\
+5 &amp; -8 &amp; 7 &amp; 1
+\end{bmatrix}
+\text{ &#x884C;&#x53D8;&#x6362;&#x5F97;&#x5230;&#xFF1A;}
+\begin{bmatrix}
+2 &amp; -3 &amp; 2 &amp; 1 &amp; \\
+0 &amp; 1 &amp; -4 &amp; 8 &amp; \\
+0 &amp; 0 &amp; 0 &amp; 5/2
+\end{bmatrix}$$</span><!-- Has MathJax --></p>
+<p>&#x53D8;&#x6362;&#x540E;&#x7684;&#x77E9;&#x9635;&#x6240;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x7A0B;&#x7EC4;&#x4E3A;<br><span>$$\left\{
+\begin{array}{cccl}
+2x_1 &amp;-&amp; 3x_2 &amp;+&amp; 2x_3 &amp;= 1 \\
+&amp;&amp; x_2 &amp;-&amp; 4x_3 &amp;= 8\\
+&amp;&amp; &amp;&amp; 0 &amp;= 5/2
+\end{array}
+\right.$$</span><!-- Has MathJax --></p>
+<p>&#x663E;&#x7136;&#xFF0C;&#x7B2C;&#x4E09;&#x4E2A;&#x65B9;&#x7A0B; $0=5/2$ &#x662F;&#x65E0;&#x89E3;&#x7684;&#x3002;&#x5BF9;&#x6BD4;&#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;&#x7EC4;&#x548C;&#x5B83;&#x5BF9;&#x5E94;&#x7684;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;<strong>&#x5F53;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x7684;&#x884C;&#x9636;&#x68AF;&#x5F62;&#x5F0F;&#x5B58;&#x5728; $[0\ \cdots\ 0\ b]$ &#x5F62;&#x5F0F;&#x7684;&#x884C;&#x65F6;&#xFF0C;&#x65B9;&#x7A0B;&#x7EC4;&#x65E0;&#x89E3;&#x3002;</strong></p>
+<h4 id="132-&#x6709;&#x89E3;"><a href="#1-3-2-&#x6709;&#x89E3;" class="headerlink" title="1.3.2 &#x6709;&#x89E3;"></a>1.3.2 &#x6709;&#x89E3;</h4><p>&#x5F53;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x53D8;&#x6362;&#x4E3A;&#x884C;&#x9636;&#x68AF;&#x5F62;&#x5F0F;&#x540E;&#xFF0C;&#x4E0D;&#x5B58;&#x5728; $[0\ \cdots\ 0\ b]$ &#x5F62;&#x5F0F;&#x7684;&#x884C;&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x65B9;&#x7A0B;&#x6709;&#x89E3;&#x3002;&#x6211;&#x4EEC;&#x63A5;&#x4E0B;&#x6765;&#x8BA8;&#x8BBA;&#x4E0B;&#x5B83;&#x7684;&#x89E3;&#x5177;&#x4F53;&#x4F1A;&#x662F;&#x600E;&#x4E48;&#x6837;&#x7684;&#x3002;</p>
+<p>&#x5047;&#x8BBE;&#x73B0;&#x5728;&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5316;&#x4E3A;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#x7684;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#xFF1A;</p>
+<span>$$\begin{bmatrix}
+1 &amp; 0 &amp; -5 &amp; 1 &amp; \\
+0 &amp; 1 &amp; 1 &amp; 4 &amp; \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}$$</span><!-- Has MathJax -->
+<p>&#x8FD9;&#x4E2A;&#x77E9;&#x9635;&#x6709; 4 &#x5217;&#xFF0C;&#x6545;&#x800C;&#x6709; 3 &#x4E2A;&#x53D8;&#x91CF;&#x3002;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x7A0B;&#x7EC4;&#x4E3A;&#xFF1A;</p>
+<span>$$\left\{
+\begin{array}{cccl}
+x_1 &amp;&amp; &amp;-&amp; 5x_3 &amp;= 1 \\
+&amp;&amp; x_2 &amp;+&amp; x_3 &amp;= 4\\
+&amp;&amp; &amp;&amp; 0 &amp;= 0
+\end{array}
+\right.$$</span><!-- Has MathJax -->
+<p>&#x89C2;&#x5BDF;&#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;&#x7EC4;&#xFF0C;$x_1$ &#x548C; $x_2$ &#x53EA;&#x5B58;&#x5728;&#x4E8E;&#x4E00;&#x4E2A;&#x65B9;&#x7A0B;&#x4E2D;&#xFF08;&#x5BF9;&#x5E94;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#x4E2D;&#x7684;&#x4E3B;&#x5143;&#x4F4D;&#x7F6E;&#xFF09;&#xFF0C;$x_3$ &#x5B58;&#x5728;&#x4E8E;&#x4E24;&#x4E2A;&#x65B9;&#x7A0B;&#x4E2D;&#x3002;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; $x_3$ &#x6765;&#x8868;&#x793A; $x_1$ &#x548C; $x_2$&#xFF1A;</p>
+<span>$$\left\{
+\begin{aligned}
+x_1 &amp;=\: 5x_3 \:+\: 1 \\
+x_2 &amp;=\: x_3 \:+\: 4 \\
+x_3 &amp;\: \text{&#x662F;&#x81EA;&#x7531;&#x53D8;&#x91CF;}
+\end{aligned}
+\right.$$</span><!-- Has MathJax -->
+<p>&#x4E0A;&#x9762;&#x5217;&#x51FA;&#x6765;&#x7684;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x89E3;&#x96C6;&#x4E86;&#x3002;<strong>$x_1$ &#x548C; $x_2$ &#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x57FA;&#x672C;&#x53D8;&#x91CF;&#x201D;&#xFF1B;$x_3$&#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5728;&#x89E3;&#x96C6;&#x91CC;&#x4E0D;&#x53D7;&#x4EFB;&#x4F55;&#x7EA6;&#x675F;&#xFF0C;&#x800C;&#x57FA;&#x672C;&#x53D8;&#x91CF;&#x9700;&#x8981;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x6765;&#x8868;&#x793A;&#xFF1B; &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x786E;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x57FA;&#x672C;&#x53D8;&#x91CF;&#x4E5F;&#x5C31;&#x968F;&#x4E4B;&#x786E;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x503C;&#x3002;&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x89E3;&#x96C6;&#x5F62;&#x5F0F;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x201C;&#x901A;&#x89E3;&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x7ED9;&#x51FA;&#x4E86;&#x65B9;&#x7A0B;&#x7EC4;&#x6240;&#x6709;&#x89E3;&#x7684;&#x663E;&#x793A;&#x8868;&#x793A;&#x3002;</strong></p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5148;&#x5C06;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x53D8;&#x6362;&#x4E3A;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#xFF0C;&#x624D;&#x80FD;&#x77E5;&#x9053;&#x8C01;&#x662F;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#xFF0C;&#x8C01;&#x662F;&#x57FA;&#x672C;&#x53D8;&#x91CF;&#x3002;</p>
+<p><strong>&#x56E0;&#x4E3A;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x80FD;&#x53D6;&#x4EFB;&#x610F;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5B58;&#x5728;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x7684;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x6709;&#x65E0;&#x7A77;&#x591A;&#x89E3;&#xFF0C;&#x800C;&#x6CA1;&#x6709;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x7684;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x5219;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x89E3;&#xFF08;&#x5C31;&#x50CF;&#x672C;&#x6587;&#x7B2C;&#x4E00;&#x4E2A;&#x65B9;&#x7A0B;&#x7EC4;&#x90A3;&#x6837;&#xFF09;&#x3002;</strong></p>
+<p>&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x5F53;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x7684;&#x884C;&#x9636;&#x68AF;&#x5F62;&#x5F0F;&#xFF08;&#x5F53;&#x7136;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#x4E5F;&#x53EF;&#x4EE5;&#xFF09;<strong>&#x5B58;&#x5728;$[0\ \cdots\ 0\ b]$ &#x5F62;&#x5F0F;</strong>&#x65F6;&#xFF0C;&#x65B9;&#x7A0B;&#x7EC4;&#x65E0;&#x89E3;&#xFF1B;</li>
+<li>&#x5F53;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x7684;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;<strong>&#x4E0D;&#x5B58;&#x5728;&#x81EA;&#x7531;&#x53D8;&#x91CF;</strong>&#x65F6;&#xFF0C;&#x65B9;&#x7A0B;&#x7EC4;&#x6709;&#x552F;&#x4E00;&#x89E3;&#xFF1B;</li>
+<li>&#x5F53;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x7684;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;<strong>&#x5B58;&#x5728;&#x81EA;&#x7531;&#x53D8;&#x91CF;</strong>&#x65F6;&#xFF0C;&#x65B9;&#x7A0B;&#x7EC4;&#x6709;&#x65E0;&#x7A77;&#x591A;&#x89E3;&#xFF1B;</li>
+</ul>
+<h2 id="&#x4E8C;-&#x5411;&#x91CF;&#x65B9;&#x7A0B;"><a href="#&#x4E8C;&#x3001;&#x5411;&#x91CF;&#x65B9;&#x7A0B;" class="headerlink" title="&#x4E8C;&#x3001;&#x5411;&#x91CF;&#x65B9;&#x7A0B;"></a>&#x4E8C;&#x3001;&#x5411;&#x91CF;&#x65B9;&#x7A0B;</h2><p>n &#x7EF4;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x70B9;&#x53EF;&#x7528; n &#x7EF4;&#x5411;&#x91CF;&#x8868;&#x793A;&#x3002;</p>
+<p>&#x5411;&#x91CF;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#xFF1A;<br><span>$$\begin{equation}
+\mathbf{y} = c_1 \mathbf{v_1} + \cdots + c_p \mathbf{v_p}
+\end{equation}$$</span><!-- Has MathJax --></p>
+<p>&#x90A3;&#x4E48;&#xFF0C;&#x5047;&#x5982;&#x6709;&#x4E09;&#x4E2A;&#x5411;&#x91CF;&#xFF1A;$\mathbf{a_1} = [1, -2, -5]^T, \mathbf{a_2} = [2, 5, 6]^T, \mathbf{b} = [7, 4, -3]^T$&#xFF0C;&#x60F3;&#x8981;&#x77E5;&#x9053; $\mathbf{b}$ &#x662F;&#x5426;&#x80FD;&#x901A;&#x8FC7; $\mathbf{a_1}$ &#x548C; $\mathbf{a_2}$ &#x7EBF;&#x6027;&#x8868;&#x793A;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x6C42;&#x7EBF;&#x6027;&#x65B9;&#x7A0B; $x_1 \mathbf{a_1} + x_2 \mathbf{a_2} = \mathbf{b}$ &#x662F;&#x5426;&#x6709;&#x89E3;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x628A;&#x8FD9;&#x4E2A;&#x65B9;&#x7A0B;&#x5C55;&#x5F00;&#x6765;&#x770B;&#xFF0C;&#x5C31;&#x662F;&#xFF1A;<br><span>$$\begin{equation}
+x_1 \begin{bmatrix}1\\-2\\-5\end{bmatrix} + x_2 \begin{bmatrix}2\\5\\6\end{bmatrix}
+= \begin{bmatrix}7\\4\\-3\end{bmatrix}
+\end{equation}$$</span><!-- Has MathJax --></p>
+<p>&#x7B49;&#x540C;&#x4E8E;<br><span>$$\begin{equation}
+\begin{bmatrix}x_1\\-2x_1\\-5x_1\end{bmatrix} +  \begin{bmatrix}2x_2\\5x_2\\6x_2\end{bmatrix}
+= \begin{bmatrix}7\\4\\-3\end{bmatrix}
+\end{equation}$$</span><!-- Has MathJax --></p>
+<p>&#x548C;<br><span>$$\begin{equation}
+\begin{bmatrix}x_1 + 2x_2\\-2x_1+5x_2\\-5x_1+6x_2\end{bmatrix}
+= \begin{bmatrix}7\\4\\-3\end{bmatrix}
+\end{equation}$$</span><!-- Has MathJax --></p>
+<p>&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5176;&#x5B9E;&#x548C;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x5BF9;&#x5E94;&#x7684;&#x5897;&#x5E7F;&#x77E9;&#x9635;&#x5C31;&#x662F;&#xFF08;<span>$[\mathbf{a_1}, \mathbf{a_2}, \mathbf{b}]$</span><!-- Has MathJax -->&#xFF09;&#xFF1A;</p>
+<span>$$\begin{bmatrix}
+1 &amp; 2 &amp; 7 \\
+-2 &amp; 5 &amp; 4 \\
+-5 &amp; -6 &amp; -3
+\end{bmatrix}$$</span><!-- Has MathJax -->
+<p>&#x5316;&#x7B80;&#x4E3A;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#x5C31;&#x662F;&#xFF1A;</p>
+<span>$$\begin{bmatrix}
+1 &amp; 0 &amp; 3 \\
+0 &amp; 1 &amp; 2 \\
+0 &amp; 0 &amp; 0
+\end{bmatrix}$$</span><!-- Has MathJax -->
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x89E3;&#x4E3A; $x_1 = 3$ &#x548C; $x_2 = 2$&#x3002;&#x7EE7;&#x800C;&#x6211;&#x4EEC;&#x5C31;&#x77E5;&#x9053;&#x4E86; $\bf{b}$ &#x548C; $\bf{a_1}$, $\bf{a_2}$ &#x7684;&#x5173;&#x7CFB;&#xFF1A;</p>
+<span>$$\begin{equation}
+3 \begin{bmatrix}1\\-2\\-5\end{bmatrix} + 2 \begin{bmatrix}2\\5\\6\end{bmatrix}
+= \begin{bmatrix}7\\4\\-3\end{bmatrix}
+\end{equation}$$</span><!-- Has MathJax -->
+<p>&#x6211;&#x4EEC;&#x53CD;&#x8FC7;&#x6765;&#x56DE;&#x987E;&#x8FD9;&#x4E00;&#x8FC7;&#x7A0B;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x7684;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#xFF0C;&#x5176;&#x5B9E;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x505A;&#x662F;&#x5217;&#x5411;&#x91CF;&#x7EC4;&#x6210;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A; <span>$[\mathbf{a_1}, \mathbf{a_2}, \mathbf{b}]$</span><!-- Has MathJax -->&#x3002;<strong>&#x628A;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x6309;&#x5217;&#x62C6;&#x5F00;&#x770B;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x5411;&#x91CF;&#x65B9;&#x7A0B;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#x3002;</strong></p>
+<p>&#x5411;&#x91CF;&#x65B9;&#x7A0B;&#x662F;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x53E6;&#x4E00;&#x79CD;&#x91CD;&#x8981;&#x7684;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#xFF0C;&#x5B83;&#x80FD;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5C06;&#x77E9;&#x9635;&#x3001;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x62BD;&#x8C61;&#x6982;&#x5FF5;&#x540C;&#x51E0;&#x4F55;&#x7684;&#x76F4;&#x89C2;&#x8054;&#x7CFB;&#x8D77;&#x6765;&#x3002;</p>
+<p>&#x5728;&#x51E0;&#x4F55;&#x4E2D;&#xFF0C;n &#x4E2A;&#x5411;&#x91CF; $\mathbf{v_1}, \mathbf{v_2}, \cdots, \mathbf{v_p}$ &#x7684;&#x6240;&#x6709;&#x7EBF;&#x6027;&#x7EC4;&#x5408; $c_1 \mathbf{v_1} + c_2 \mathbf{v_2} + \cdots + c_p \mathbf{v_p}$ &#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x7A7A;&#x95F4;&#xFF0C;&#x79F0;&#x4F5C;&#x7531; $\mathbf{v_1}, \mathbf{v_2}, \cdots, \mathbf{v_p}$ &#x5F20;&#x6210;&#x7684; $R^n$ &#x7684;&#x5B50;&#x7A7A;&#x95F4;&#xFF0C;&#x8BB0;&#x4F5C; <span>$\operatorname{Span}\left\{\mathbf{v_1}, \cdots, \mathbf{v_p}\right\}$</span><!-- Has MathJax -->&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#x5F20;&#x6210;&#x7684;&#x7A7A;&#x95F4;&#x662F;&#x4E00;&#x6839;&#x76F4;&#x7EBF;&#xFF0C;&#x4E24;&#x4E2A;&#x5411;&#x91CF;&#x5F20;&#x6210;&#x7684;&#x7A7A;&#x95F4;&#x662F;&#x4E00;&#x4E2A;&#x5E73;&#x9762;&#x3002;</p>
+<h2 id="&#x4E09;-&#x77E9;&#x9635;&#x65B9;&#x7A0B;"><a href="#&#x4E09;&#x3001;&#x77E9;&#x9635;&#x65B9;&#x7A0B;" class="headerlink" title="&#x4E09;&#x3001;&#x77E9;&#x9635;&#x65B9;&#x7A0B;"></a>&#x4E09;&#x3001;&#x77E9;&#x9635;&#x65B9;&#x7A0B;</h2><p>&#x5411;&#x91CF;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x5411;&#x91CF;&#x4E0E;&#x77E9;&#x9635;&#x7684;&#x4E58;&#x79EF;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x4E2A; $m\times n$ &#x7684;&#x77E9;&#x9635; $\mathbf{A}$&#xFF0C;&#x5404;&#x5217;&#x4E3A; $\mathbf{a_1}, \cdots, \mathbf{a_n}$&#xFF0C;&#x800C; $x$ &#x4E3A; $n$ &#x7EF4;&#x5411;&#x91CF;&#xFF0C;&#x5219;&#x6709;&#xFF1A;</p>
+<span>$$\begin{equation}
+\mathbf{A}\mathbf{x} = [\mathbf{a_1}\ \mathbf{a_2}\ \cdots \mathbf{a_n}]
+\begin{bmatrix}x_1\\ \vdots\\ x_n\end{bmatrix}
+= x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n}
+\end{equation}$$</span><!-- Has MathJax -->
+<p>&#x8FD9;&#x79CD;&#x5F62;&#x5982; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x5C31;&#x79F0;&#x4E3A;&#x77E9;&#x9635;&#x65B9;&#x7A0B;&#x3002;</p>
+<p>&#x7531;&#x77E9;&#x9635;&#x65B9;&#x7A0B;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x51FA;&#xFF1A;<strong>&#x65B9;&#x7A0B;$\mathbf{A}\mathbf{x}=\mathbf{b}$&#x6709;&#x89E3;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;$\mathbf{b}$&#x4E3A;$\mathbf{A}$&#x4E2D;&#x5217;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x3002;</strong>&#x53C8;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x63D0;&#x5230;&#xFF0C;&#x8FD9;&#x4E9B;&#x5217;&#x5411;&#x91CF;&#x7684;&#x6240;&#x6709;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x6784;&#x6210;&#x4E86;<span>$\operatorname{Span}\left\{\mathbf{a_1}, \cdots, \mathbf{a_n}\right\}$</span><!-- Has MathJax -->&#xFF0C;&#x5411;&#x91CF; $\mathbf{b}$  &#x662F;&#x5426;&#x5B58;&#x5728;&#x4E8E;&#x8FD9;&#x4E2A;&#x7A7A;&#x95F4;&#xFF0C;&#x5C31;&#x7B49;&#x4EF7;&#x4E8E; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x6709;&#x89E3;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x8BA8;&#x8BBA;&#x4E0B;&#x4EFB;&#x610F; $\mathbf{b} \in R^m$ &#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<p>&#x8BBE;<br><span>$$\begin{equation}
+\mathbf{A} = \begin{bmatrix}1&amp;3&amp;4\\ -4&amp;2&amp;-6\\ -3&amp;-2&amp;-7\end{bmatrix}, \mathbf{b} = \begin{bmatrix}b1\\b2\\b3\end{bmatrix}
+\end{equation}$$</span><!-- Has MathJax --></p>
+<p>&#x6C42;&#x65B9;&#x7A0B; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x662F;&#x5426;&#x5BF9; $b_1, b_2, b_3$ &#x7684;&#x6240;&#x6709;&#x53D6;&#x503C;&#x90FD;&#x6709;&#x89E3;&#xFF1F;</p>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x5BF9;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x5316;&#x7B80;&#xFF1A;<br><span>$$\begin{bmatrix}
+1 &amp; 3 &amp; 4 &amp; b_1 \\
+-4 &amp; 2 &amp; -6 &amp; b_2 \\
+-3 &amp; -2 &amp; -7 &amp; b_3
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1 &amp; 3 &amp; 4 &amp; b_1 \\
+0 &amp; 14 &amp; 10 &amp; b_2+4b_1 \\
+0 &amp; 0 &amp; 0 &amp; b_1-\frac{1}{2}b_2+b_3
+\end{bmatrix}$$</span><!-- Has MathJax --></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5F53;$\mathbf{b}$ &#x53D6;&#x67D0;&#x4E9B;&#x503C;&#x65F6;&#xFF0C;$b_1-\frac{1}{2}b_2+b_3$ &#x4E0D;&#x7B49;&#x4E8E;0&#xFF0C;&#x4E8E;&#x662F;&#x5C31;&#x4F1A;&#x6709;&#x65E0;&#x89E3;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x53EA;&#x6709;&#x5F53;<br>$$b_1-\frac{1}{2}b_2+b_3=0$$<br>&#x65F6;&#x65B9;&#x7A0B;&#x624D;&#x6709;&#x89E3;&#x3002;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F0F;&#x5B50;&#x5728;&#x51E0;&#x4F55;&#x4E2D;&#x8868;&#x793A;&#x4E09;&#x7EF4;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5E73;&#x9762;&#xFF0C; &#x7ED3;&#x5408;$\mathbf{A}\mathbf{x}=\mathbf{b}$&#xFF0C;&#x8FD9;&#x4E2A;&#x5E73;&#x9762;&#x5C31;&#x662F;$\mathbf{A}$ &#x4E2D;&#x5217;&#x5411;&#x91CF;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#x3002;</p>
+<p>&#x672C;&#x6765; $\mathbf{b}$ &#x662F;&#x4E09;&#x7EF4;&#x7684;&#x5411;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9650;&#x5236;&#x7684;&#x8BDD;&#x5B83;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x6574;&#x4E2A;&#x4E09;&#x7EF4;&#x7A7A;&#x95F4;&#xFF0C;&#x7136;&#x800C;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x4E00;&#x5927;&#x90E8;&#x5206;&#x90FD;&#x4E0D;&#x6EE1;&#x8DB3;&#x4F7F; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x6709;&#x89E3;&#x3002;&#x8FD9;&#x4EC5;&#x5269;&#x7684;&#x4E00;&#x4E2A;&#x5E73;&#x9762;&#x5C31;&#x662F; $\mathbf{A}$ &#x7684;&#x5217;&#x5411;&#x91CF;&#x6240;&#x80FD;&#x5F20;&#x6210;&#x7684;&#x5168;&#x90E8;&#x7A7A;&#x95F4;&#x3002;  &#x8FD9;&#x4E9B;&#x4E09;&#x7EF4;&#x5217;&#x5411;&#x91CF;&#x6700;&#x7EC8;&#x5F20;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x5E73;&#x9762;&#x3002;</p>
+<p>&#x89C2;&#x5BDF;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#x77E9;&#x9635;&#xFF0C;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x4E4B;&#x6240;&#x4EE5; $\mathbf{b}$ &#x7684;&#x4E00;&#x4E9B;&#x53D6;&#x503C;&#x9020;&#x6210;&#x77E9;&#x9635;&#x65B9;&#x7A0B;&#x65E0;&#x89E3;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x7CFB;&#x6570;&#x77E9;&#x9635; $\mathbf{A}$ &#x4E2D;&#x6700;&#x540E;&#x4E00;&#x884C;&#x6CA1;&#x6709;&#x4E3B;&#x5143;&#xFF0C;&#x5728;&#x884C;&#x6700;&#x7B80;&#x5F62;&#x5F0F;&#x4E2D;&#x53D8;&#x6210;&#x4E86;&#x5F62;&#x5982; [0 0 0 b] &#x7684;&#x884C;&#x3002;<strong>&#x5982;&#x679C;&#x7CFB;&#x6570;&#x77E9;&#x9635; $\mathbf{A}$ &#x4E2D;&#x6BCF;&#x4E00;&#x884C;&#x90FD;&#x6709;&#x4E3B;&#x5143;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x65E0;&#x89E3;&#x7684;&#x60C5;&#x51B5;&#x3002;</strong></p>
+<p>&#x53CD;&#x8FC7;&#x6765;&#x770B;&#xFF0C;&#x5F53; n &#x4E2A; m &#x7EF4;&#x5217;&#x5411;&#x91CF;&#x80FD;&#x5F20;&#x6210; $R^m$ &#x65F6;&#xFF0C;&#x5C31;&#x8BF4;&#x660E;&#x5BF9;&#x4EFB;&#x610F; $\mathbf{b} \in R^m$&#xFF0C;&#x65B9;&#x7A0B; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x90FD;&#x6709;&#x89E3;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;$R^m$ &#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x5411;&#x91CF;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x7531; $\mathbf{A}$ &#x7684;&#x5217;&#x7EBF;&#x6027;&#x8868;&#x793A;&#x3002;</p>
+<p>&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#xFF0C;&#x5C31;&#x662F;&#x4EE5;&#x4E0B;&#x56DB;&#x70B9;&#x76F8;&#x4E92;&#x7B49;&#x4EF7;&#x3002;</p>
+<ol>
+<li>&#x5BF9;&#x4EFB;&#x610F; $\mathbf{b}\in R^m$&#xFF0C;&#x65B9;&#x7A0B; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x90FD;&#x6709;&#x89E3;&#x3002;</li>
+<li>&#x4EFB;&#x610F; $\mathbf{b}\in R^m$ &#x90FD;&#x662F;$\mathbf{A}$ &#x4E2D;&#x5217;&#x7684;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x3002;</li>
+<li>$\mathbf{A}$ &#x7684;&#x5217;&#x5F20;&#x6210; $R^m$&#x3002;</li>
+<li>$\mathbf{A}$ &#x4E2D;&#x6BCF;&#x4E00;&#x884C;&#x90FD;&#x6709;&#x4E3B;&#x5143;&#x4F4D;&#x7F6E;&#x3002;</li>
+</ol>
+<h2 id="&#x56DB;-&#x4E09;&#x79CD;&#x7B49;&#x4EF7;&#x5F62;&#x5F0F;"><a href="#&#x56DB;&#x3001;&#x4E09;&#x79CD;&#x7B49;&#x4EF7;&#x5F62;&#x5F0F;" class="headerlink" title="&#x56DB;&#x3001;&#x4E09;&#x79CD;&#x7B49;&#x4EF7;&#x5F62;&#x5F0F;"></a>&#x56DB;&#x3001;&#x4E09;&#x79CD;&#x7B49;&#x4EF7;&#x5F62;&#x5F0F;</h2><p>&#x77E9;&#x9635;&#x65B9;&#x7A0B;<br><span>$$\begin{equation}
+\mathbf{A}\mathbf{x} = \mathbf{b}
+\end{equation}$$</span><!-- Has MathJax --></p>
+<p>&#x548C;&#x5411;&#x91CF;&#x65B9;&#x7A0B;<br><span>$$\begin{equation}
+x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
+\end{equation}$$</span><!-- Has MathJax --></p>
+<p>&#x4EE5;&#x53CA;&#x4E0B;&#x5217;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x5BF9;&#x5E94;&#x7684;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x89E3;&#x96C6;<br><span>$$\begin{equation}
+[\mathbf{a_1}\ \mathbf{a_2}\ \cdots\ \mathbf{a_n}\ \mathbf{b}]
+\end{equation}$$</span><!-- Has MathJax --></p>
+<blockquote>
+<p>&#x77E9;&#x9635;&#x65B9;&#x7A0B;&#x3001;&#x5411;&#x91CF;&#x65B9;&#x7A0B;&#x548C;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x662F;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x4F46;&#x5374;&#x76F8;&#x4E92;&#x7B49;&#x4EF7;&#x7684;&#x5F62;&#x5F0F;&#x3002;&#x5728;&#x73B0;&#x5B9E;&#x751F;&#x6D3B;&#x4E2D;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x6570;&#x5B66;&#x6A21;&#x578B;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x60C5;&#x51B5;&#x4E0B;&#x81EA;&#x7531;&#x9009;&#x62E9;&#x5176;&#x4E2D;&#x4EFB;&#x4F55;&#x4E00;&#x79CD;&#x6700;&#x81EA;&#x7136;&#x3001;&#x6700;&#x4FBF;&#x5229;&#x7684;&#x9648;&#x8FF0;&#x5F62;&#x5F0F;&#x3002;</p>
+</blockquote>
+<p>&#x4EE5;&#x4E0A;&#x4E09;&#x79CD;&#x5F62;&#x5F0F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5728;&#x89E3;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x65F6;&#x7684;&#x4E09;&#x4E2A;&#x5DE5;&#x5177;&#xFF0C;&#x7ED3;&#x5408;&#x5177;&#x4F53;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0D;&#x540C;&#x89D2;&#x5EA6;&#x89C2;&#x5BDF;&#x95EE;&#x9898;&#xFF0C;&#x8FDB;&#x800C;&#x6C42;&#x89E3;&#x3002; &#x53E6;&#x5916;&#xFF0C;&#x8FD9;&#x4E09;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x6C42;&#x89E3;&#xFF0C;&#x90FD;&#x662F;&#x5BF9;&#x589E;&#x5E7F;&#x77E9;&#x9635;&#x8FDB;&#x884C;&#x884C;&#x5316;&#x7B80;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5897;&#x5E7F;&#x77E9;&#x9635;&#x7684;&#x884C;&#x53D8;&#x6362;&#x662F;&#x4E00;&#x5207;&#x7684;&#x57FA;&#x7840;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</h2><ul>
+<li>&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x53CA;&#x5176;&#x5E94;&#x7528;&#xFF1A;&#x7B2C;3&#x7248;/&#xFF08;&#x7F8E;&#xFF09;&#x83B1;&#xFF08;Lay, D.C.&#xFF09;&#x8457;&#xFF1B;&#x6C88;&#x590D;&#x5174;&#x7B49;&#x8BD1;. &#x2014;&#x2014;&#x5317;&#x4EAC;&#xFF1A;&#x4EBA;&#x6C11;&#x90AE;&#x7535;&#x51FA;&#x7248;&#x793E;&#xFF0C;2007.7</li>
+</ul>
+<h2 id="&#x7248;&#x6743;&#x58F0;&#x660E;"><a href="#&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;" class="headerlink" title="&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;"></a>&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;</h2><p>&#x672C;&#x6587;&#x4E2D;&#x6240;&#x6709;&#x6587;&#x5B57;&#x3001;&#x56FE;&#x7247;&#x7248;&#x6743;&#x5747;&#x5C5E;&#x672C;&#x4EBA;&#x6240;&#x6709;&#xFF0C;&#x5982;&#x9700;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x6765;&#x6E90;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础概念/" rel="tag">#基础概念</a>
+          
+            <a href="/tags/数学/" rel="tag">#数学</a>
+          
+            <a href="/tags/线性代数/" rel="tag">#线性代数</a>
+          
+            <a href="/tags/线性代数拾遗/" rel="tag">#线性代数拾遗</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/13/Ein-Eout/" rel="next" title="Ein 和 Eout，假设模型以及开放思维">
+                <i class="fa fa-chevron-left"></i> Ein 和 Eout，假设模型以及开放思维
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/14/linear-algebra-2/" rel="prev" title="线性代数拾遗（二）：线性方程组的解集及其几何意义">
+                线性代数拾遗（二）：线性方程组的解集及其几何意义 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=2099805" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2099805" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/03/linear-algebra-1/"
+           data-title="线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程" data-url="http://mengqi92.github.io/2016/05/03/linear-algebra-1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Mengqi" />
+          <p class="site-author-name" itemprop="name">Mengqi</p>
+          <p class="site-description motion-element" itemprop="description">机器学习、图像处理、统计分析、函数式编程</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mengqi92" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/mengqipei" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:mengqipei@gmail.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2264422383" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.fuzihao.org" title="切问录" target="_blank">切问录</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性方程组-向量方程和矩阵方程"><span class="nav-number">2.</span> <span class="nav-text">线性方程组、向量方程和矩阵方程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-线性方程组"><span class="nav-number">2.1.</span> <span class="nav-text">一、线性方程组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-线性方程组的矩阵形式"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 线性方程组的矩阵形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-线性方程组的解"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 线性方程组的解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-解的存在性和唯一性"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3 解的存在性和唯一性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#131-无解"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">1.3.1 无解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#132-有解"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">1.3.2 有解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-向量方程"><span class="nav-number">2.2.</span> <span class="nav-text">二、向量方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-矩阵方程"><span class="nav-number">2.3.</span> <span class="nav-text">三、矩阵方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-三种等价形式"><span class="nav-number">2.4.</span> <span class="nav-text">四、三种等价形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">2.5.</span> <span class="nav-text">参考资料：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版权声明"><span class="nav-number">2.6.</span> <span class="nav-text">版权声明：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015.1 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mengqi</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mengqipei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>
