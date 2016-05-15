@@ -108,9 +108,9 @@
       <category term="线性代数" scheme="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
     
-      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    
       <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     
       <category term="线性代数" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
@@ -340,9 +340,9 @@ x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
       <category term="线性代数" scheme="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
     
-      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    
       <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     
       <category term="线性代数" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
@@ -480,11 +480,11 @@ x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
     
       <category term="机器学习" scheme="http://mengqi92.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="傅里叶变换" scheme="http://mengqi92.github.io/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
-    
       <category term="图像处理" scheme="http://mengqi92.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="Gabor 特征" scheme="http://mengqi92.github.io/tags/Gabor-%E7%89%B9%E5%BE%81/"/>
+    
+      <category term="傅里叶变换" scheme="http://mengqi92.github.io/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
     
       <category term="特征提取" scheme="http://mengqi92.github.io/tags/%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/"/>
     
@@ -578,15 +578,15 @@ x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
     
       <category term="机器学习" scheme="http://mengqi92.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
+      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="卷积" scheme="http://mengqi92.github.io/tags/%E5%8D%B7%E7%A7%AF/"/>
+    
       <category term="图像处理" scheme="http://mengqi92.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     
       <category term="Gabor 特征" scheme="http://mengqi92.github.io/tags/Gabor-%E7%89%B9%E5%BE%81/"/>
-    
-      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="卷积" scheme="http://mengqi92.github.io/tags/%E5%8D%B7%E7%A7%AF/"/>
     
   </entry>
   
@@ -641,6 +641,12 @@ x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
       <category term="图像处理" scheme="http://mengqi92.github.io/categories/cv/"/>
     
     
+      <category term="图像处理" scheme="http://mengqi92.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
+    
+      <category term="Gabor 特征" scheme="http://mengqi92.github.io/tags/Gabor-%E7%89%B9%E5%BE%81/"/>
+    
       <category term="傅里叶变换" scheme="http://mengqi92.github.io/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
     
       <category term="欧拉公式" scheme="http://mengqi92.github.io/tags/%E6%AC%A7%E6%8B%89%E5%85%AC%E5%BC%8F/"/>
@@ -648,12 +654,6 @@ x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
       <category term="复数" scheme="http://mengqi92.github.io/tags/%E5%A4%8D%E6%95%B0/"/>
     
       <category term="数字信号处理" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
-    
-      <category term="图像处理" scheme="http://mengqi92.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    
-      <category term="Gabor 特征" scheme="http://mengqi92.github.io/tags/Gabor-%E7%89%B9%E5%BE%81/"/>
     
   </entry>
   
