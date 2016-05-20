@@ -4,29 +4,51 @@
 
     
   <url>
-    <loc>http://mengqi92.github.io/2015/10/06/convolution/</loc>
-    <lastmod>2016-05-15T11:33:58.000Z</lastmod>
+    <loc>http://mengqi92.github.io/2016/05/20/linear-algebra-3/</loc>
+    <lastmod>2016-05-20T18:02:33.000Z</lastmod>
     <data>
         <display>
-        <title>我对卷积的理解</title>
-        <pubTime>2015-10-06T12:05:00.000Z</pubTime>
+        <title>线性代数拾遗（三）：线性变换以及矩阵的意义</title>
+        <pubTime>2016-05-20T13:11:00.000Z</pubTime>
         
-        <tag>机器学习</tag>
-         
-        <tag>图像处理</tag>
-         
         <tag>基础概念</tag>
-         
-        <tag>Gabor 特征</tag>
          
         <tag>数学</tag>
          
-        <tag>卷积</tag>
+        <tag>线性代数</tag>
+         
+        <tag>线性代数拾遗</tag>
          
          
            
              
-              <breadCrumb title="图像处理" url="http://mengqi92.github.io/categories/cv/"/>
+              <breadCrumb title="线性代数" url="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mengqi92.github.io/2016/05/14/linear-algebra-2/</loc>
+    <lastmod>2016-05-20T18:02:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>线性代数拾遗（二）：线性方程组的解集及其几何意义</title>
+        <pubTime>2016-05-14T10:11:25.000Z</pubTime>
+        
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
+         
+        <tag>线性代数</tag>
+         
+        <tag>线性代数拾遗</tag>
+         
+         
+           
+             
+              <breadCrumb title="线性代数" url="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
           
         </display>
     </data>
@@ -35,7 +57,7 @@
     
   <url>
     <loc>http://mengqi92.github.io/2016/05/03/linear-algebra-1/</loc>
-    <lastmod>2016-05-14T10:12:36.000Z</lastmod>
+    <lastmod>2016-05-20T15:06:05.000Z</lastmod>
     <data>
         <display>
         <title>线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程</title>
@@ -60,25 +82,29 @@
 
     
   <url>
-    <loc>http://mengqi92.github.io/2016/05/14/linear-algebra-2/</loc>
-    <lastmod>2016-05-14T10:11:25.000Z</lastmod>
+    <loc>http://mengqi92.github.io/2015/10/06/convolution/</loc>
+    <lastmod>2016-05-15T11:33:58.000Z</lastmod>
     <data>
         <display>
-        <title>线性代数拾遗（二）：线性方程组的解集及其几何意义</title>
-        <pubTime>2016-05-14T10:11:25.000Z</pubTime>
+        <title>我对卷积的理解</title>
+        <pubTime>2015-10-06T12:05:00.000Z</pubTime>
         
+        <tag>机器学习</tag>
+         
+        <tag>图像处理</tag>
+         
         <tag>基础概念</tag>
+         
+        <tag>Gabor 特征</tag>
          
         <tag>数学</tag>
          
-        <tag>线性代数</tag>
-         
-        <tag>线性代数拾遗</tag>
+        <tag>卷积</tag>
          
          
            
              
-              <breadCrumb title="线性代数" url="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+              <breadCrumb title="图像处理" url="http://mengqi92.github.io/categories/cv/"/>
           
         </display>
     </data>

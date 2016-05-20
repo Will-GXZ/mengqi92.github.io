@@ -1,0 +1,821 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="4Fw5av3MAK9VoBQQanNGeiDwK9jEJjQBL6jk3PSY-B4" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="基础概念,数学,线性代数,线性代数拾遗," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mengqi's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="上一章我们讨论了齐次和非齐次两种线性方程组的解集，以及它们的几何意义。由齐次线性方程组，我们引入了零空间的概念；而由非齐次线性方程组，我们引入了列空间的概念。这两个空间目前是我们理解线性方程组的桥梁，未来还会对这些空间进行更进一步的讨论。在这之前，让我们先来研究一下矩阵的意义。之前的两章中，矩阵是在矩阵方程中出现的，当时我们理解它的意义为“对向量的一种封装”，也就是一种“数据”的形式理解矩阵的。这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数拾遗（三）：线性变换以及矩阵的意义">
+<meta property="og:url" content="http://mengqi92.github.io/2016/05/20/linear-algebra-3/index.html">
+<meta property="og:site_name" content="Mengqi's blog">
+<meta property="og:description" content="上一章我们讨论了齐次和非齐次两种线性方程组的解集，以及它们的几何意义。由齐次线性方程组，我们引入了零空间的概念；而由非齐次线性方程组，我们引入了列空间的概念。这两个空间目前是我们理解线性方程组的桥梁，未来还会对这些空间进行更进一步的讨论。在这之前，让我们先来研究一下矩阵的意义。之前的两章中，矩阵是在矩阵方程中出现的，当时我们理解它的意义为“对向量的一种封装”，也就是一种“数据”的形式理解矩阵的。这">
+<meta property="og:image" content="http://mengqi92.github.io/2016/05/20/linear-algebra-3/linear-transformation.png">
+<meta property="og:image" content="http://mengqi92.github.io/2016/05/20/linear-algebra-3/rotation.png">
+<meta property="og:image" content="http://mengqi92.github.io/2016/05/20/linear-algebra-3/existence.png">
+<meta property="og:image" content="http://mengqi92.github.io/2016/05/20/linear-algebra-3/uniqueness.png">
+<meta property="og:updated_time" content="2016-05-20T18:02:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="线性代数拾遗（三）：线性变换以及矩阵的意义">
+<meta name="twitter:description" content="上一章我们讨论了齐次和非齐次两种线性方程组的解集，以及它们的几何意义。由齐次线性方程组，我们引入了零空间的概念；而由非齐次线性方程组，我们引入了列空间的概念。这两个空间目前是我们理解线性方程组的桥梁，未来还会对这些空间进行更进一步的讨论。在这之前，让我们先来研究一下矩阵的意义。之前的两章中，矩阵是在矩阵方程中出现的，当时我们理解它的意义为“对向量的一种封装”，也就是一种“数据”的形式理解矩阵的。这">
+<meta name="twitter:image" content="http://mengqi92.github.io/2016/05/20/linear-algebra-3/linear-transformation.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 12217047,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 线性代数拾遗（三）：线性变换以及矩阵的意义 | Mengqi's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68396368-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8800f71adfa983d80f6c943ceb1ee330";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mengqi's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">a paranoid android.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                线性代数拾遗（三）：线性变换以及矩阵的意义
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-20T21:11:00+08:00" content="2016-05-20">
+              2016-05-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/线性代数/" itemprop="url" rel="index">
+                    <span itemprop="name">线性代数</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/20/linear-algebra-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/20/linear-algebra-3/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a href="/2016/05/14/linear-algebra-2/" title="&#x4E0A;&#x4E00;&#x7AE0;">&#x4E0A;&#x4E00;&#x7AE0;</a>&#x6211;&#x4EEC;&#x8BA8;&#x8BBA;&#x4E86;&#x9F50;&#x6B21;&#x548C;&#x975E;&#x9F50;&#x6B21;&#x4E24;&#x79CD;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x89E3;&#x96C6;&#xFF0C;&#x4EE5;&#x53CA;&#x5B83;&#x4EEC;&#x7684;&#x51E0;&#x4F55;&#x610F;&#x4E49;&#x3002;&#x7531;&#x9F50;&#x6B21;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#xFF0C;&#x6211;&#x4EEC;&#x5F15;&#x5165;&#x4E86;&#x96F6;&#x7A7A;&#x95F4;&#x7684;&#x6982;&#x5FF5;&#xFF1B;&#x800C;&#x7531;&#x975E;&#x9F50;&#x6B21;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#xFF0C;&#x6211;&#x4EEC;&#x5F15;&#x5165;&#x4E86;&#x5217;&#x7A7A;&#x95F4;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x7A7A;&#x95F4;&#x76EE;&#x524D;&#x662F;&#x6211;&#x4EEC;&#x7406;&#x89E3;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x6865;&#x6881;&#xFF0C;&#x672A;&#x6765;&#x8FD8;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E9B;&#x7A7A;&#x95F4;&#x8FDB;&#x884C;&#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x8BA8;&#x8BBA;&#x3002;&#x5728;&#x8FD9;&#x4E4B;&#x524D;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x7814;&#x7A76;&#x4E00;&#x4E0B;&#x77E9;&#x9635;&#x7684;&#x610F;&#x4E49;&#x3002;<br><br>&#x4E4B;&#x524D;&#x7684;&#x4E24;&#x7AE0;&#x4E2D;&#xFF0C;&#x77E9;&#x9635;&#x662F;&#x5728;&#x77E9;&#x9635;&#x65B9;&#x7A0B;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#xFF0C;&#x5F53;&#x65F6;&#x6211;&#x4EEC;&#x7406;&#x89E3;&#x5B83;&#x7684;&#x610F;&#x4E49;&#x4E3A;&#x201C;&#x5BF9;&#x5411;&#x91CF;&#x7684;&#x4E00;&#x79CD;&#x5C01;&#x88C5;&#x201D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x201C;&#x6570;&#x636E;&#x201D;&#x7684;&#x5F62;&#x5F0F;&#x7406;&#x89E3;&#x77E9;&#x9635;&#x7684;&#x3002;&#x8FD9;&#x4E00;&#x7AE0;&#xFF0C;&#x6211;&#x4EEC;&#x5F15;&#x5165;&#x77E9;&#x9635;&#x7684;&#x53E6;&#x4E00;&#x5C42;&#x610F;&#x4E49;&#xFF1A;<code>&#x7EBF;&#x6027;&#x53D8;&#x6362;</code>&#x3002;<br><br><a id="more"></a>
+<h1 id="&#x53D8;&#x6362;"><a href="#&#x53D8;&#x6362;" class="headerlink" title="&#x53D8;&#x6362;"></a>&#x53D8;&#x6362;</h1><p>&#x5047;&#x5982;&#x6709;&#x5982; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x5F62;&#x5F0F;&#x7684;&#x65B9;&#x7A0B;&#xFF1A;<br><span>$$\begin{bmatrix}
+4 &amp; -3 &amp; 1 &amp; 3 \\
+2 &amp; 0 &amp; 5 &amp; 1
+\end{bmatrix}
+\begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}
+=
+\begin{bmatrix} 5 \\ 8 \end{bmatrix}$$</span><!-- Has MathJax --><br>&#x4EE5;&#x5F80;&#x6211;&#x4EEC;&#x90FD;&#x662F;&#x5C06;&#x5176;&#x770B;&#x6210;&#x662F;&#x51E0;&#x4E2A;&#x5217;&#x5411;&#x91CF;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#xFF0C;&#x5373;<span>$1\begin{bmatrix}4 \\ 2\end{bmatrix} + 1\begin{bmatrix}-3 \\ 0\end{bmatrix} + 1\begin{bmatrix}1 \\ 5\end{bmatrix} + 1\begin{bmatrix}3 \\ 1\end{bmatrix} = \begin{bmatrix} 5 \\ 8 \end{bmatrix}$</span><!-- Has MathJax -->&#xFF0C;&#x8FD9;&#x6B21;&#x6211;&#x4EEC;&#x6362;&#x4E2A;&#x89D2;&#x5EA6;&#xFF0C;&#x628A; $\mathbf{A}$ &#x770B;&#x4F5C;&#x4E00;&#x4E2A;&#x6574;&#x4F53;&#xFF0C;&#x6574;&#x4E2A;&#x65B9;&#x7A0B;&#x5C31;&#x662F;&#x4E00;&#x4E2A; 4 &#x7EF4;&#x5411;&#x91CF; $\mathbf{x}$ &#x4E58;&#x4EE5;&#x77E9;&#x9635; $\mathbf{A}$ &#x540E;&#x5F97;&#x5230;&#x4E00;&#x4E2A; 2 &#x7EF4;&#x5411;&#x91CF; $\mathbf{b}$&#x3002; &#x4EE5;&#x8FD9;&#x4E2A;&#x89C2;&#x70B9;&#x6765;&#x770B;&#x7684;&#x8BDD;&#xFF0C;<strong>&#x77E9;&#x9635; $\mathbf{A}$ &#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x4ECE;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#x96C6;&#x6620;&#x5C04;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#x96C6;&#x7684;&#x51FD;&#x6570;&#xFF01;</strong>&#x3002;</p>
+<p>&#x5047;&#x8BBE; $\mathbf{x}$ &#x662F; $n$ &#x7EF4;&#x5411;&#x91CF;&#xFF0C;$\mathbf{b}$ &#x662F; $m$ &#x7EF4;&#x5411;&#x91CF;&#xFF0C;&#x5219; $\mathbf{A}$ &#x5C31;&#x662F;&#x4E00;&#x4E2A; $R^n$ &#x5230; $R^m$ &#x7684;&#x53D8;&#x6362;&#x3002;&#x8FD9;&#x4E2A;&#x53D8;&#x6362;&#x7684;<code>&#x5B9A;&#x4E49;&#x57DF;</code>&#x662F; $R^n$&#xFF0C;<code>&#x4E0A;&#x57DF;</code>&#x662F; $R^m$&#xFF0C;&#x8BB0;&#x4F5C; $T: R^n \rightarrow R^m$&#x3002;$\mathbf{x}$ &#x662F; $R^n$ &#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#xFF0C;$T(\mathbf{x})$ &#x5C31;&#x662F;&#x5176;&#x53D8;&#x6362;&#x5230; $R^m$ &#x7A7A;&#x95F4;&#x4E2D;&#x7684;<code>&#x50CF;</code>&#xFF0C;&#x800C;&#x5168;&#x4F53;&#x50CF; $T(\mathbf{x})$ &#x7684;&#x96C6;&#x5408;&#x5C31;&#x79F0;&#x4E3A;&#x53D8;&#x6362; $T$ &#x7684;<code>&#x503C;&#x57DF;</code>&#x3002;&#x56FE;&#x793A;&#x5982;&#x4E0B;&#xFF1A;</p>
+<img src="/2016/05/20/linear-algebra-3/linear-transformation.png" alt="&#x53D8;&#x6362;$T$" title="&#x53D8;&#x6362;$T$">
+<p>&#x4ECE;&#x8FD9;&#x79CD;&#x89C2;&#x70B9;&#x6765;&#x770B;&#xFF0C;&#x77E9;&#x9635;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF1A;$\mathbf{x}\mapsto\mathbf{A}{x}$&#xFF01;&#x77E9;&#x9635;&#x65E2;&#x53EF;&#x770B;&#x4F5C;&#x662F;&#x6570;&#x636E;&#x7684;&#x8868;&#x793A;&#xFF0C;&#x53C8;&#x53EF;&#x770B;&#x4F5C;&#x662F;&#x8868;&#x793A;&#x53D8;&#x6362;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E0D;&#x7981;&#x8BA9;&#x6211;&#x8054;&#x60F3;&#x8D77;&#x4E86; lisp &#x91CC;&#x7684;&#x201C;&#x540C;&#x50CF;&#x6027;&#x201D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x201C;&#x4EE3;&#x7801;&#x5373;&#x6570;&#x636E;&#x201D;&#x3002;&#x6211;&#x4E0D;&#x77E5;&#x9053;&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x6709;&#x6CA1;&#x6709;&#x66F4;&#x6DF1;&#x4E00;&#x5C42;&#x7684;&#x8054;&#x7CFB;&#xFF0C;&#x4E0D;&#x8FC7;&#x4ECE;&#x8FD9;&#x4E00;&#x5C42;&#x9762;&#x518D;&#x6765;&#x770B;&#x77E9;&#x9635;&#xFF0C;&#x611F;&#x89C9;&#x53C8;&#x591A;&#x4E86;&#x4E00;&#x5C42;&#x8DA3;&#x5473;&#x2026;&#x2026;</p>
+<p>&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x4EE5;&#x52A8;&#x6001;&#x7684;&#x773C;&#x5149;&#x6765;&#x770B;&#x5F85;&#x77E9;&#x9635;&#xFF0C;&#x4E5F;&#x6709;&#x52A9;&#x4E8E;&#x6211;&#x4EEC;&#x7406;&#x89E3;&#x4E3A;&#x4EC0;&#x4E48;&#x4E00;&#x4E9B;&#x968F;&#x65F6;&#x95F4;&#x53D8;&#x5316;&#x7684;&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x7528;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x6765;&#x5EFA;&#x6A21;&#x3002;&#x6BD4;&#x5982;&#x9A6C;&#x5C14;&#x79D1;&#x592B;&#x94FE;&#x4E2D;&#x7684;&#x8F6C;&#x79FB;&#x77E9;&#x9635;&#xFF0C;&#x5C31;&#x662F;&#x7528;&#x9759;&#x6001;&#x7684;&#x77E9;&#x9635;&#x6765;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x53D8;&#x6362;&#x7684;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>&#x4E0D;&#x96BE;&#x53D1;&#x73B0;&#xFF0C;&#x5F53;&#x53D8;&#x6362; $T$ &#x4E3A; $\mathbf{x}\mapsto\mathbf{A}\mathbf{x}$ &#xFF0C;&#x5411;&#x91CF; $\mathbf{x}$ &#x82E5;&#x6709; n &#x7EF4;&#xFF0C;&#x5219;&#x53D8;&#x6362;&#x7684;&#x5B9A;&#x4E49;&#x57DF;&#x5C31;&#x662F; $R^n$&#xFF0C;$\mathbf{A}$ &#x5C31;&#x6709; n &#x5217;&#xFF1B;&#x5411;&#x91CF; $\mathbf{b}$  &#x82E5;&#x6709; m &#x7EF4;&#xFF0C;&#x5219;&#x53D8;&#x6362;&#x7684;&#x4E0A;&#x57DF;&#x5C31;&#x662F; $R^m$&#xFF0C;$\mathbf{A}$ &#x5C31;&#x6709; m &#x884C;&#xFF08;$\mathbf{A}$ &#x6BCF;&#x4E00;&#x5217;&#x6709; m &#x4E2A;&#x5143;&#x7D20;&#xFF09;&#x3002;&#x800C;&#x53D8;&#x6362;&#x7684;&#x503C;&#x57DF;&#x5C31;&#x662F; $\mathbf{A}$ &#x4E2D;&#x5217;&#x7684;&#x6240;&#x6709;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x7EC4;&#x6210;&#x7684;&#x96C6;&#x5408;&#x3002;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x50CF; <span>$\begin{bmatrix}1 &amp; -3 \\ 3 &amp; 5 \\ -1 &amp; 7\end{bmatrix}$</span><!-- Has MathJax -->&#x8FD9;&#x6837;&#x7684;&#x77E9;&#x9635;&#xFF0C;&#x6240;&#x8868;&#x8FBE;&#x7684;&#x53D8;&#x6362;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x5230;&#x4E09;&#x7EF4;&#x7684;&#x6620;&#x5C04; $T:R^2\rightarrow R^3$&#x3002;</p>
+<p>&#x518D;&#x4F8B;&#x5982;&#xFF0C;&#x77E9;&#x9635;<span>$\begin{bmatrix}1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0\end{bmatrix}$</span><!-- Has MathJax --> &#x6240;&#x8868;&#x8FBE;&#x7684;&#x53D8;&#x6362;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6295;&#x5F71;&#xFF1A;&#x628A; $R^3$ &#x4E2D;&#x7684;&#x70B9;&#x6295;&#x5F71;&#x5230; $x_1 x_2$&#x5E73;&#x9762;&#xFF0C;&#x56E0;&#x4E3A;&#xFF1A;<br><span>$$\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0
+\end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+=
+\begin{bmatrix} x_1 \\ x_2 \\ 0 \end{bmatrix}$$</span><!-- Has MathJax --> </p>
+<h1 id="&#x7EBF;&#x6027;&#x53D8;&#x6362;"><a href="#&#x7EBF;&#x6027;&#x53D8;&#x6362;" class="headerlink" title="&#x7EBF;&#x6027;&#x53D8;&#x6362;"></a>&#x7EBF;&#x6027;&#x53D8;&#x6362;</h1><p>&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x662F;&#x4E00;&#x7C7B;&#x6EE1;&#x8DB3;&#x7EBF;&#x6027;&#x6761;&#x4EF6;&#x7684;&#x53D8;&#x6362;&#x3002;&#x6240;&#x8C13;&#x7684;&#x7EBF;&#x6027;&#x6761;&#x4EF6;&#x5C31;&#x662F;&#xFF1A;<br>$$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v}) \ \text{&#x548C;}\ T(c \mathbf{u}) = c T(\mathbf{u})$$</p>
+<p>&#x6CE8;&#x610F;&#x5230;&#xFF0C;&#x5411;&#x91CF;&#x7684;&#x52A0;&#x6CD5;&#x548C;&#x6570;&#x4E58;&#x8FD0;&#x7B97;&#x5728;&#x53D8;&#x6362;&#x524D;&#x548C;&#x53D8;&#x6362;&#x540E;&#x7684;&#x6548;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684;&#x7EBF;&#x6027;&#x53D8;&#x6362;<em>&#x4FDD;&#x6301;&#x4E86;</em>&#x5411;&#x91CF;&#x7684;&#x52A0;&#x6CD5;&#x548C;&#x6570;&#x4E58;&#x8FD0;&#x7B97;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x6709;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x5411;&#x91CF; $\mathbf{x}=\begin{bmatrix}x_1\ x_2 \end{bmatrix}= x_1 \mathbf{e}_1 + x_2 \mathbf{e}_2$&#xFF0C;&#x5176;&#x4E2D; <span>$\mathbf{e}_1=\begin{bmatrix}1\\ 0\end{bmatrix}, \mathbf{e}_2=\begin{bmatrix}0\\ 1\end{bmatrix}$</span><!-- Has MathJax --> &#x662F; 2$\times$ 2 &#x5355;&#x4F4D;&#x77E9;&#x9635; $\mathbf{I}_n$ &#x7684;&#x5217;&#x5411;&#x91CF;&#x3002;&#x7531;&#x4E8E;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x4FDD;&#x6301;&#x52A0;&#x6CD5;&#x548C;&#x6570;&#x4E58;&#x8FD0;&#x7B97;&#xFF0C;&#x6240;&#x4EE5;</p>
+<span>$$\begin{equation*}
+T(\mathbf{x})=x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) = \begin{bmatrix}T(\mathbf{e}_1) &amp; T(\mathbf{e}_2)\end{bmatrix} \begin{bmatrix} x_1\\ x_2 \end{bmatrix} = \mathbf{A}\mathbf{x}
+\end{equation}$$</span><!-- Has MathJax -->
+<p>&#x8FD9;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x53D8;&#x6362;$T: R^n \rightarrow R^m$&#xFF0C;&#x90FD;&#x6709;&#x552F;&#x4E00;&#x4E00;&#x4E2A;&#x77E9;&#x9635; $\mathbf{A}$&#xFF0C;&#x4F7F;&#x5F97; $T(\mathbf{x})=\mathbf{A}\mathbf{x}$&#xFF0C;&#x5176;&#x4E2D; $ \mathbf{A} = [ T(\mathbf{e}_1) \cdots T(\mathbf{e}_1) ] $&#x3002;$ \mathbf{A} $ &#x88AB;&#x79F0;&#x4E3A;&#x662F;&#x7EBF;&#x6027;&#x53D8;&#x6362; $T$ &#x7684;<code>&#x6807;&#x51C6;&#x77E9;&#x9635;</code>&#x3002;</p>
+<p>&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#xFF0C;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x662F;&#x6EE1;&#x8DB3;&#x7EBF;&#x6027;&#x6761;&#x4EF6;&#x7684;&#x53D8;&#x6362;&#xFF0C;&#x6240;&#x8C13;&#x7EBF;&#x6027;&#x6761;&#x4EF6;&#x5C31;&#x8981;&#x6C42;&#x53D8;&#x6362;&#x524D;&#x540E;&#x7684;&#x52A0;&#x6CD5;&#x548C;&#x6570;&#x4E58;&#x8FD0;&#x7B97;&#x4E0D;&#x53D8;&#xFF08;&#x53D8;&#x6362;&#x524D; a+b &#x7B49;&#x4E8E; c&#xFF0C;&#x5219;&#x53D8;&#x6362;&#x540E; a&#x2019;+b&#x2019; &#x4E5F;&#x7B49;&#x4E8E; c&#x2019;&#xFF09;&#x3002; &#x7EBF;&#x6027;&#x53D8;&#x6362;&#x6709;&#x4E24;&#x79CD;&#x63CF;&#x8FF0;&#x5F62;&#x5F0F;&#xFF1A;$T:R^n \rightarrow R^m$ &#x548C; $ \mathbf{x} \mapsto \mathbf{A}\mathbf{x} $&#xFF0C;&#x540E;&#x8005;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;<code>&#x77E9;&#x9635;&#x53D8;&#x6362;</code></p>
+<blockquote>
+<p>&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x5F3A;&#x8C03;&#x5B83;&#x4F5C;&#x4E3A;&#x6620;&#x5C04;&#x7684;&#x6027;&#x8D28;&#xFF0C;&#x800C;&#x77E9;&#x9635;&#x53D8;&#x6362;&#x5219;&#x63CF;&#x8FF0;&#x4E86;&#x6620;&#x5C04;&#x662F;&#x600E;&#x6837;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+</blockquote>
+<h1 id="&#x51E0;&#x4F55;&#x4E2D;&#x7684;&#x7EBF;&#x6027;&#x53D8;&#x6362;"><a href="#&#x51E0;&#x4F55;&#x4E2D;&#x7684;&#x7EBF;&#x6027;&#x53D8;&#x6362;" class="headerlink" title="&#x51E0;&#x4F55;&#x4E2D;&#x7684;&#x7EBF;&#x6027;&#x53D8;&#x6362;"></a>&#x51E0;&#x4F55;&#x4E2D;&#x7684;&#x7EBF;&#x6027;&#x53D8;&#x6362;</h1><p>&#x501F;&#x52A9;&#x4E0A;&#x9762;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x7684;&#x6027;&#x8D28;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x56FE;&#x5F62;&#x5B66;&#x4E2D;&#x4E00;&#x4E9B;&#x4E13;&#x95E8;&#x7528;&#x4E8E;&#x53D8;&#x6362;&#x7684;&#x77E9;&#x9635;&#x4E86;&#xFF0C;&#x6BD4;&#x5982; 2 &#x7EF4;&#x5E73;&#x9762;&#x4E0A;&#x7684;&#x65CB;&#x8F6C;&#x77E9;&#x9635;&#xFF1A;<br><span>$$\begin{equation*}
+\mathbf{A}=
+\begin{bmatrix}
+\cos\varphi &amp; -\sin\varphi \\
+\sin\varphi &amp; \cos\varphi
+\end{bmatrix}
+\end{equation}$$</span><!-- Has MathJax --></p>
+<p>&#x628A;&#x5B83;&#x7684;&#x5217;&#x5411;&#x91CF;&#x62C6;&#x5F00;&#xFF0C;&#x5C31;&#x662F; <span>$T(\mathbf{e}_1) = \begin{bmatrix}\cos\varphi \\ \sin\varphi \end{bmatrix}$</span><!-- Has MathJax -->&#xFF0C;<span>$T(\mathbf{e}_2) = \begin{bmatrix}-\sin\varphi \\ \cos\varphi \end{bmatrix}$</span><!-- Has MathJax -->&#x4E5F;&#x5C31;&#x662F; <span>$\begin{bmatrix}1\\ 0\end{bmatrix}$</span><!-- Has MathJax --> &#x65CB;&#x8F6C;&#x5230; <span>$\begin{bmatrix}\cos\varphi \\ \sin\varphi\end{bmatrix}$</span><!-- Has MathJax --> &#xFF0C;<span>$\begin{bmatrix}0\\ 1\end{bmatrix}$</span><!-- Has MathJax --> &#x65CB;&#x8F6C;&#x5230; <span>$\begin{bmatrix}-\sin\varphi \\ \cos\varphi\end{bmatrix}$</span><!-- Has MathJax --> &#x3002;</p>
+<p>&#x65CB;&#x8F6C;&#x53D8;&#x6362;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<img src="/2016/05/20/linear-algebra-3/rotation.png" alt="&#x65CB;&#x8F6C;&#x53D8;&#x6362;" title="&#x65CB;&#x8F6C;&#x53D8;&#x6362;">
+<h1 id="&#x5B58;&#x5728;&#x6027;&#x548C;&#x552F;&#x4E00;&#x6027;&#x95EE;&#x9898;"><a href="#&#x5B58;&#x5728;&#x6027;&#x548C;&#x552F;&#x4E00;&#x6027;&#x95EE;&#x9898;" class="headerlink" title="&#x5B58;&#x5728;&#x6027;&#x548C;&#x552F;&#x4E00;&#x6027;&#x95EE;&#x9898;"></a>&#x5B58;&#x5728;&#x6027;&#x548C;&#x552F;&#x4E00;&#x6027;&#x95EE;&#x9898;</h1><p>&#x6709;&#x4E86;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x6765;&#x56DE;&#x987E;&#x4E4B;&#x524D;&#x4E24;&#x7AE0;&#x8BA8;&#x8BBA;&#x7684;&#x89E3;&#x7684;&#x5B58;&#x5728;&#x6027;&#x548C;&#x552F;&#x4E00;&#x6027;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x89E3;&#x7684;&#x5B58;&#x5728;&#x6027;"><a href="#&#x89E3;&#x7684;&#x5B58;&#x5728;&#x6027;" class="headerlink" title="&#x89E3;&#x7684;&#x5B58;&#x5728;&#x6027;"></a>&#x89E3;&#x7684;&#x5B58;&#x5728;&#x6027;</h2><p>&#x975E;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x53EF;&#x4EE5;&#x770B;&#x505A;&#x662F;&#x4E00;&#x4E2A; $ \mathbf{x} $ &#x6240;&#x5728;&#x7A7A;&#x95F4;&#x5230; $ \mathbf{b} $ &#x6240;&#x5728;&#x7A7A;&#x95F4;&#x7684;&#x6620;&#x5C04;&#x3002;<br>&#x5BF9;&#x6620;&#x5C04; $T=R^n\rightarrow R^m$ &#xFF0C;&#x5982;&#x679C; $R^n$ &#x4E2D;&#x4EFB;&#x610F;&#x5411;&#x91CF; $\mathbf{b}$ &#x90FD;&#x662F; $R^n$ &#x4E2D;&#x81F3;&#x5C11;&#x4E00;&#x4E2A; $\mathbf{x}$ &#x7684;&#x50CF;&#xFF0C;&#x5219;&#x79F0; $T$ &#x662F; $R^n$ &#x5230; $R^m$ &#x4E0A;&#x7684;&#x6620;&#x5C04;&#xFF08;&#x6216;&#x53EB;<code>&#x6EE1;&#x5C04;</code>&#xFF09;&#xFF0C;&#x8FD9;&#x65F6;&#xFF0C;&#x975E;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x7684; $ \mathbf{b} $ &#x90FD;&#x6709;&#x89E3;&#x3002;&#x53CD;&#x8FC7;&#x6765;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728; $ \mathbf{b} $ &#x4F7F;&#x5F97;&#x975E;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x65E0;&#x89E3;&#xFF0C;&#x90A3;&#x4E48; $T$ &#x5C31;&#x4E0D;&#x662F; $R^n$ &#x5230; $R^m$ &#x4E0A;&#x7684;&#x6EE1;&#x5C04;&#x3002;&#x5B83;&#x4EEC;&#x7684;&#x51E0;&#x4F55;&#x8868;&#x793A;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<img src="/2016/05/20/linear-algebra-3/existence.png" alt="&#x6EE1;&#x5C04;" title="&#x6EE1;&#x5C04;">
+<h2 id="&#x89E3;&#x7684;&#x552F;&#x4E00;&#x6027;"><a href="#&#x89E3;&#x7684;&#x552F;&#x4E00;&#x6027;" class="headerlink" title="&#x89E3;&#x7684;&#x552F;&#x4E00;&#x6027;"></a>&#x89E3;&#x7684;&#x552F;&#x4E00;&#x6027;</h2><p>&#x5982;&#x679C;&#x4EFB;&#x610F;&#x7684; $ \mathbf{b}\in R^m $ &#x90FD;&#x662F; $R^n$ &#x4E2D;&#x6700;&#x591A;&#x4E00;&#x4E2A;&#x5411;&#x91CF; $ \mathbf{x} $ &#x7684;&#x50CF;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x79F0; $T$ &#x662F;<code>&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;</code>&#x3002;</p>
+<p>&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;&#x4E5F;&#x5C31;&#x662F;&#x975E;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x5BF9;&#x4EFB;&#x610F; $ \mathbf{b} $ &#x8981;&#x4E48;&#x65E0;&#x89E3;&#xFF0C;&#x8981;&#x4E48;&#x6709;&#x552F;&#x4E00;&#x89E3;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5F53; &#x65B9;&#x7A0B; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x6709;&#x65E0;&#x7A77;&#x591A;&#x89E3;&#x65F6;&#xFF08;&#x5373;&#x65B9;&#x7A0B;&#x542B;&#x6709;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#xFF0C;&#x5373;&#x4E0D;&#x6EE1;&#x79E9;&#xFF0C;&#x5373;&#x5404;&#x5217;&#x7EBF;&#x6027;&#x76F8;&#x5173;&#xFF09; &#xFF0C;$T$ &#x5C31;&#x4E0D;&#x662F;&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;&#xFF0C;&#x8FD9;&#x65F6;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4; $\mathbf{A}\mathbf{x}=\mathbf{0}$ &#x53EA;&#x6709;&#x5E73;&#x51E1;&#x89E3;&#x3002;</p>
+<img src="/2016/05/20/linear-algebra-3/uniqueness.png" alt="&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;" title="&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;">
+<h2 id="&#x53C2;&#x8003;&#x6587;&#x732E;"><a href="#&#x53C2;&#x8003;&#x6587;&#x732E;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x732E;:"></a>&#x53C2;&#x8003;&#x6587;&#x732E;:</h2><ul>
+<li>&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x53CA;&#x5176;&#x5E94;&#x7528;&#xFF1A;&#x7B2C;3&#x7248;/&#xFF08;&#x7F8E;&#xFF09;&#x83B1;&#xFF08;Lay, D.C.&#xFF09;&#x8457;&#xFF1B;&#x6C88;&#x590D;&#x5174;&#x7B49;&#x8BD1;. &#x2014;&#x2014;&#x5317;&#x4EAC;&#xFF1A;&#x4EBA;&#x6C11;&#x90AE;&#x7535;&#x51FA;&#x7248;&#x793E;&#xFF0C;2007.7</li>
+</ul>
+<h2 id="&#x7248;&#x6743;&#x58F0;&#x660E;"><a href="#&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;" class="headerlink" title="&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;"></a>&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;</h2><p>&#x672C;&#x6587;&#x4E2D;&#x6240;&#x6709;&#x6587;&#x5B57;&#x3001;&#x56FE;&#x7247;&#x7248;&#x6743;&#x5747;&#x5C5E;&#x672C;&#x4EBA;&#x6240;&#x6709;&#xFF0C;&#x5982;&#x9700;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x6765;&#x6E90;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础概念/" rel="tag">#基础概念</a>
+          
+            <a href="/tags/数学/" rel="tag">#数学</a>
+          
+            <a href="/tags/线性代数/" rel="tag">#线性代数</a>
+          
+            <a href="/tags/线性代数拾遗/" rel="tag">#线性代数拾遗</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/14/linear-algebra-2/" rel="next" title="线性代数拾遗（二）：线性方程组的解集及其几何意义">
+                <i class="fa fa-chevron-left"></i> 线性代数拾遗（二）：线性方程组的解集及其几何意义
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt">分享到：</span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=2099805" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2099805" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/20/linear-algebra-3/"
+           data-title="线性代数拾遗（三）：线性变换以及矩阵的意义" data-url="http://mengqi92.github.io/2016/05/20/linear-algebra-3/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Mengqi" />
+          <p class="site-author-name" itemprop="name">Mengqi</p>
+          <p class="site-description motion-element" itemprop="description">机器学习、图像处理、统计分析、函数式编程</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mengqi92" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/mengqipei" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:mengqipei@gmail.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2264422383" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.fuzihao.org" title="切问录" target="_blank">切问录</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变换"><span class="nav-number">1.</span> <span class="nav-text">变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性变换"><span class="nav-number">2.</span> <span class="nav-text">线性变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#几何中的线性变换"><span class="nav-number">3.</span> <span class="nav-text">几何中的线性变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#存在性和唯一性问题"><span class="nav-number">4.</span> <span class="nav-text">存在性和唯一性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解的存在性"><span class="nav-number">4.1.</span> <span class="nav-text">解的存在性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解的唯一性"><span class="nav-number">4.2.</span> <span class="nav-text">解的唯一性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.3.</span> <span class="nav-text">参考文献:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版权声明"><span class="nav-number">4.4.</span> <span class="nav-text">版权声明：</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mengqi</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mengqipei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>
