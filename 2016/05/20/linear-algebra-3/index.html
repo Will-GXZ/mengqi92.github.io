@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://mengqi92.github.io/2016/05/20/linear-algebra-3/rotation.png">
 <meta property="og:image" content="http://mengqi92.github.io/2016/05/20/linear-algebra-3/existence.png">
 <meta property="og:image" content="http://mengqi92.github.io/2016/05/20/linear-algebra-3/uniqueness.png">
-<meta property="og:updated_time" content="2016-05-20T18:09:06.000Z">
+<meta property="og:updated_time" content="2016-05-21T03:36:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数拾遗（三）：线性变换以及矩阵的意义">
 <meta name="twitter:description" content="上一章我们讨论了齐次和非齐次两种线性方程组的解集，以及它们的几何意义。由齐次线性方程组，我们引入了零空间的概念；而由非齐次线性方程组，我们引入了列空间的概念。这两个空间目前是我们理解线性方程组的桥梁，未来还会对这些空间进行更进一步的讨论。在这之前，让我们先来研究一下矩阵的意义。之前的两章中，矩阵是在矩阵方程中出现的，当时我们理解它的意义为“对向量的一种封装”，也就是一种“数据”的形式理解矩阵的。">
@@ -386,10 +386,12 @@ T(\mathbf{x})=x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) = \begin{bmatrix}T(\math
 <h2 id="42-&#x89E3;&#x7684;&#x552F;&#x4E00;&#x6027;"><a href="#4-2-&#x89E3;&#x7684;&#x552F;&#x4E00;&#x6027;" class="headerlink" title="4.2 &#x89E3;&#x7684;&#x552F;&#x4E00;&#x6027;"></a>4.2 &#x89E3;&#x7684;&#x552F;&#x4E00;&#x6027;</h2><p>&#x5982;&#x679C;&#x4EFB;&#x610F;&#x7684; $ \mathbf{b}\in R^m $ &#x90FD;&#x662F; $R^n$ &#x4E2D;&#x6700;&#x591A;&#x4E00;&#x4E2A;&#x5411;&#x91CF; $ \mathbf{x} $ &#x7684;&#x50CF;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x79F0; $T$ &#x662F;<code>&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;</code>&#x3002;</p>
 <p>&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;&#x4E5F;&#x5C31;&#x662F;&#x975E;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x5BF9;&#x4EFB;&#x610F; $ \mathbf{b} $ &#x8981;&#x4E48;&#x65E0;&#x89E3;&#xFF0C;&#x8981;&#x4E48;&#x6709;&#x552F;&#x4E00;&#x89E3;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5F53; &#x65B9;&#x7A0B; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &#x6709;&#x65E0;&#x7A77;&#x591A;&#x89E3;&#x65F6;&#xFF08;&#x5373;&#x65B9;&#x7A0B;&#x542B;&#x6709;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#xFF0C;&#x5373;&#x4E0D;&#x6EE1;&#x79E9;&#xFF0C;&#x5373;&#x5404;&#x5217;&#x7EBF;&#x6027;&#x76F8;&#x5173;&#xFF09; &#xFF0C;$T$ &#x5C31;&#x4E0D;&#x662F;&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;&#xFF0C;&#x8FD9;&#x65F6;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4; $\mathbf{A}\mathbf{x}=\mathbf{0}$ &#x53EA;&#x6709;&#x5E73;&#x51E1;&#x89E3;&#x3002;</p>
 <img src="/2016/05/20/linear-algebra-3/uniqueness.png" alt="&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;" title="&#x4E00;&#x5BF9;&#x4E00;&#x6620;&#x5C04;">
-<h2 id="&#x53C2;&#x8003;&#x6587;&#x732E;"><a href="#&#x53C2;&#x8003;&#x6587;&#x732E;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x732E;:"></a>&#x53C2;&#x8003;&#x6587;&#x732E;:</h2><ul>
+<h1 id="&#x53C2;&#x8003;&#x6587;&#x732E;"><a href="#&#x53C2;&#x8003;&#x6587;&#x732E;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x732E;:"></a>&#x53C2;&#x8003;&#x6587;&#x732E;:</h1><hr>
+<ul>
 <li>&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x53CA;&#x5176;&#x5E94;&#x7528;&#xFF1A;&#x7B2C;3&#x7248;/&#xFF08;&#x7F8E;&#xFF09;&#x83B1;&#xFF08;Lay, D.C.&#xFF09;&#x8457;&#xFF1B;&#x6C88;&#x590D;&#x5174;&#x7B49;&#x8BD1;. &#x2014;&#x2014;&#x5317;&#x4EAC;&#xFF1A;&#x4EBA;&#x6C11;&#x90AE;&#x7535;&#x51FA;&#x7248;&#x793E;&#xFF0C;2007.7</li>
 </ul>
-<h2 id="&#x7248;&#x6743;&#x58F0;&#x660E;"><a href="#&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;" class="headerlink" title="&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;"></a>&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;</h2><p>&#x672C;&#x6587;&#x4E2D;&#x6240;&#x6709;&#x6587;&#x5B57;&#x3001;&#x56FE;&#x7247;&#x7248;&#x6743;&#x5747;&#x5C5E;&#x672C;&#x4EBA;&#x6240;&#x6709;&#xFF0C;&#x5982;&#x9700;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x6765;&#x6E90;&#x3002;</p>
+<h1 id="&#x7248;&#x6743;&#x58F0;&#x660E;"><a href="#&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;" class="headerlink" title="&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;"></a>&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;</h1><hr>
+<p>&#x672C;&#x6587;&#x4E2D;&#x6240;&#x6709;&#x6587;&#x5B57;&#x3001;&#x56FE;&#x7247;&#x7248;&#x6743;&#x5747;&#x5C5E;&#x672C;&#x4EBA;&#x6240;&#x6709;&#xFF0C;&#x5982;&#x9700;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x6765;&#x6E90;&#x3002;</p>
 
       
     </div>
@@ -448,13 +450,11 @@ T(\mathbf{x})=x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) = \begin{bmatrix}T(\math
     <div class="post-spread">
       
         <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-	<span class="jiathis_txt">分享到：</span>
-	<a class="jiathis_button_tools_1"></a>
-	<a class="jiathis_button_tools_2"></a>
-	<a class="jiathis_button_tools_3"></a>
-	<a class="jiathis_button_tools_4"></a>
-	<a href="http://www.jiathis.com/share?uid=2099805" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a href="http://www.jiathis.com/share?uid=2099805" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	<a class="jiathis_counter_style"></a>
 </div>
 <script type="text/javascript">
@@ -632,7 +632,7 @@ var jiathis_config = {data_track_clickback:'true'};
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-变换"><span class="nav-number">1.</span> <span class="nav-text">一、变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-线性变换"><span class="nav-number">2.</span> <span class="nav-text">二、线性变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-几何中的线性变换"><span class="nav-number">3.</span> <span class="nav-text">三、几何中的线性变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-存在性和唯一性问题"><span class="nav-number">4.</span> <span class="nav-text">四、存在性和唯一性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-解的存在性"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 解的存在性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-解的唯一性"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 解的唯一性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.3.</span> <span class="nav-text">参考文献:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版权声明"><span class="nav-number">4.4.</span> <span class="nav-text">版权声明：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-变换"><span class="nav-number">1.</span> <span class="nav-text">一、变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-线性变换"><span class="nav-number">2.</span> <span class="nav-text">二、线性变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-几何中的线性变换"><span class="nav-number">3.</span> <span class="nav-text">三、几何中的线性变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四-存在性和唯一性问题"><span class="nav-number">4.</span> <span class="nav-text">四、存在性和唯一性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-解的存在性"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 解的存在性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-解的唯一性"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 解的唯一性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版权声明"><span class="nav-number">6.</span> <span class="nav-text">版权声明：</span></a></li></ol></div>
             
           </div>
         </section>
