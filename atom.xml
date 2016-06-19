@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mengqi92.github.io/"/>
-  <updated>2016-05-21T03:36:34.000Z</updated>
+  <updated>2016-06-19T16:35:26.000Z</updated>
   <id>http://mengqi92.github.io/</id>
   
   <author>
@@ -16,14 +16,138 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>线性代数拾遗（四）：线性代数的应用</title>
+    <link href="http://mengqi92.github.io/2016/06/10/linear-algebra-4/"/>
+    <id>http://mengqi92.github.io/2016/06/10/linear-algebra-4/</id>
+    <published>2016-06-09T16:00:00.000Z</published>
+    <updated>2016-06-19T16:35:26.000Z</updated>
+    
+    <content type="html">&lt;img src=&quot;/2016/06/10/linear-algebra-4/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
+&lt;p&gt;&amp;#x7531;&amp;#x4E8E;&amp;#x8FD9;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x79D1;&amp;#x7814;&amp;#x4EFB;&amp;#x52A1;&amp;#x8F83;&amp;#x91CD;&amp;#xFF0C;&amp;#x52A0;&amp;#x4E0A; hexo &amp;#x5347;&amp;#x7EA7;&amp;#x540E;&amp;#x603B;&amp;#x51FA;&amp;#x73B0;&amp;#x4E00;&amp;#x4E9B;&amp;#x5947;&amp;#x602A;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x6709;&amp;#x4E00;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x6CA1;&amp;#x66F4;&amp;#x65B0;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7CFB;&amp;#x5217;&amp;#x4E86;&amp;#xFF0C;&amp;#x4ECA;&amp;#x5929;&amp;#x5FD9;&amp;#x91CC;&amp;#x5077;&amp;#x95F2;&amp;#x8865;&amp;#x4E0A;&amp;#x4E00;&amp;#x7BC7;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x524D;&amp;#x9762;&amp;#x51E0;&amp;#x7AE0;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x56DE;&amp;#x987E;&amp;#x4E86;&amp;#x4E00;&amp;#x904D;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x548C;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x6982;&amp;#x5FF5;&amp;#x3002;&amp;#x7EBF;&amp;#x6027;&amp;#x4EE3;&amp;#x6570;&amp;#x7684;&amp;#x6700;&amp;#x539F;&amp;#x59CB;&amp;#x95EE;&amp;#x9898;&amp;#x662F;&amp;#x89E3;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#xFF0C;&amp;#x4E3A;&amp;#x4E86;&amp;#x89E3;&amp;#x51B3;&amp;#x8FD9;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5F15;&amp;#x5165;&amp;#x4E86;&amp;#x5411;&amp;#x91CF;&amp;#x548C;&amp;#x77E9;&amp;#x9635;&amp;#xFF0C;&amp;#x7EE7;&amp;#x800C;&amp;#x5BF9;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x7279;&amp;#x6027;&amp;#x4E5F;&amp;#x8FDB;&amp;#x884C;&amp;#x4E86;&amp;#x4E00;&amp;#x756A;&amp;#x5206;&amp;#x6790;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x53C8;&amp;#x53D1;&amp;#x73B0;&amp;#x77E9;&amp;#x9635;&amp;#x4E0D;&amp;#x4F46;&amp;#x53EF;&amp;#x4EE5;&amp;#x8868;&amp;#x793A;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x8868;&amp;#x793A;&amp;#x53D8;&amp;#x6362;&amp;#x3002;&amp;#x7136;&amp;#x800C;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E9B;&amp;#x6982;&amp;#x5FF5;&amp;#x662F;&amp;#x5982;&amp;#x4F55;&amp;#x5E94;&amp;#x7528;&amp;#x4E8E;&amp;#x73B0;&amp;#x5B9E;&amp;#x751F;&amp;#x6D3B;&amp;#x5462;&amp;#xFF0C;&amp;#x5B9E;&amp;#x9645;&amp;#x751F;&amp;#x6D3B;&amp;#x4E2D;&amp;#x6709;&amp;#x54EA;&amp;#x4E9B;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x7684;&amp;#x4F8B;&amp;#x5B50;&amp;#xFF1F;&amp;#x8FD9;&amp;#x4E00;&amp;#x7AE0;&amp;#x6211;&amp;#x4EEC;&amp;#x6765;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E00;&amp;#x4E9B;&amp;#x7EBF;&amp;#x6027;&amp;#x4EE3;&amp;#x6570;&amp;#x7684;&amp;#x5B9E;&amp;#x9645;&amp;#x5E94;&amp;#x7528;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x603B;&amp;#x4F53;&amp;#x4E0A;&amp;#x6765;&amp;#x8BF4;&amp;#xFF0C;&amp;#x7275;&amp;#x6D89;&amp;#x5230;&amp;#x591A;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x7684;&amp;#x76F8;&amp;#x4E92;&amp;#x7EA6;&amp;#x675F;&amp;#xFF0C;&amp;#x800C;&amp;#x4E14;&amp;#x8FD9;&amp;#x4E9B;&amp;#x7EA6;&amp;#x675F;&amp;#x662F;&amp;#x201C;&amp;#x7EBF;&amp;#x6027;&amp;#x201D;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#x65F6;&amp;#xFF0C;&amp;#x5C31;&amp;#x6709;&amp;#x53EF;&amp;#x80FD;&amp;#x901A;&amp;#x8FC7;&amp;#x5EFA;&amp;#x7ACB;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x4ECE;&amp;#x800C;&amp;#x5F97;&amp;#x5230;&amp;#x89E3;&amp;#x3002;&lt;/p&gt;
+&lt;h1 id=&quot;&amp;#x4E00;-&amp;#x7ECF;&amp;#x6D4E;&amp;#x5B66;&amp;#x4F8B;&amp;#x5B50;&quot;&gt;&lt;a href=&quot;#&amp;#x4E00;&amp;#x3001;&amp;#x7ECF;&amp;#x6D4E;&amp;#x5B66;&amp;#x4F8B;&amp;#x5B50;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E00;&amp;#x3001;&amp;#x7ECF;&amp;#x6D4E;&amp;#x5B66;&amp;#x4F8B;&amp;#x5B50;&quot;&gt;&lt;/a&gt;&amp;#x4E00;&amp;#x3001;&amp;#x7ECF;&amp;#x6D4E;&amp;#x5B66;&amp;#x4F8B;&amp;#x5B50;&lt;/h1&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x662F;&amp;#x6765;&amp;#x81EA;&amp;#x300A;&amp;#x7EBF;&amp;#x6027;&amp;#x4EE3;&amp;#x6570;&amp;#x53CA;&amp;#x5176;&amp;#x5E94;&amp;#x7528;&amp;#x300B;&amp;#x4E2D;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F8B;&amp;#x5B50;&amp;#xFF0C;&amp;#x5F88;&amp;#x597D;&amp;#x5730;&amp;#x5C55;&amp;#x793A;&amp;#x4E86;&amp;#x7EBF;&amp;#x6027;&amp;#x4EE3;&amp;#x6570;&amp;#x5728;&amp;#x7ECF;&amp;#x6D4E;&amp;#x5B66;&amp;#x4E2D;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#xFF1A;&lt;/p&gt;
+&lt;p&gt;&amp;#x6BD4;&amp;#x5982;&amp;#x4E00;&amp;#x4E2A;&amp;#x56FD;&amp;#x5BB6;&amp;#x5305;&amp;#x62EC;&amp;#x7164;&amp;#x70AD;&amp;#x3001;&amp;#x7535;&amp;#x529B;&amp;#x3001;&amp;#x94A2;&amp;#x94C1;&amp;#x4E09;&amp;#x4E2A;&amp;#x90E8;&amp;#x95E8;&amp;#xFF0C;&amp;#x5404;&amp;#x90E8;&amp;#x95E8;&amp;#x90FD;&amp;#x4EA7;&amp;#x51FA;&amp;#x4E00;&amp;#x5B9A;&amp;#x7684;&amp;#x8D44;&amp;#x6E90;&amp;#xFF0C;&amp;#x540C;&amp;#x65F6;&amp;#x4E5F;&amp;#x6D88;&amp;#x8017;&amp;#x4E00;&amp;#x5B9A;&amp;#x7684;&amp;#x8D44;&amp;#x6E90;&amp;#xFF08;&amp;#x4E3A;&amp;#x65B9;&amp;#x4FBF;&amp;#x8BA8;&amp;#x8BBA;&amp;#xFF0C;&amp;#x672C;&amp;#x4F8B;&amp;#x4E2D;&amp;#x53EA;&amp;#x8003;&amp;#x8651;&amp;#x7164;&amp;#x70AD;&amp;#x3001;&amp;#x7535;&amp;#x529B;&amp;#x3001;&amp;#x94A2;&amp;#x94C1;&amp;#x8FD9;&amp;#x4E09;&amp;#x79CD;&amp;#x8D44;&amp;#x6E90;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E14;&amp;#x5047;&amp;#x8BBE;&amp;#x6240;&amp;#x6709;&amp;#x4EA7;&amp;#x51FA;&amp;#x7684;&amp;#x8D44;&amp;#x6E90;&amp;#x90FD;&amp;#x4F1A;&amp;#x88AB;&amp;#x6D88;&amp;#x8017;&amp;#xFF09;&amp;#x3002;&amp;#x6BD4;&amp;#x5982;&amp;#xFF0C;&amp;#x7164;&amp;#x70AD;&amp;#x90E8;&amp;#x95E8;&amp;#x751F;&amp;#x4EA7;&amp;#x7684;&amp;#x6BCF; 100 &amp;#x4EFD;&amp;#x7164;&amp;#x70AD;&amp;#x4E2D;&amp;#xFF0C;60 &amp;#x4EFD;&amp;#x88AB; &amp;#x7535;&amp;#x529B;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#xFF0C;40 &amp;#x4EFD;&amp;#x88AB;&amp;#x94A2;&amp;#x94C1;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#xFF1B;&amp;#x7535;&amp;#x529B;&amp;#x90E8;&amp;#x95E8;&amp;#x6BCF;&amp;#x751F;&amp;#x4EA7; 100 &amp;#x4EFD;&amp;#x7164;&amp;#x70AD;&amp;#xFF0C;40 &amp;#x4EFD;&amp;#x88AB;&amp;#x7164;&amp;#x70AD;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#xFF0C;10 &amp;#x4EFD;&amp;#x88AB;&amp;#x81EA;&amp;#x5DF1;&amp;#x6D88;&amp;#x8017;&amp;#xFF0C;&amp;#x8FD8;&amp;#x6709; 50 &amp;#x4EFD;&amp;#x88AB;&amp;#x94A2;&amp;#x94C1;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#xFF1B;&amp;#x94A2;&amp;#x94C1;&amp;#x90E8;&amp;#x95E8;&amp;#x6BCF;&amp;#x751F;&amp;#x4EA7; 100 &amp;#x4EFD;&amp;#x94A2;&amp;#x94C1;&amp;#xFF0C;60 &amp;#x4EFD;&amp;#x88AB;&amp;#x7164;&amp;#x70AD;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#xFF0C;20 &amp;#x4EFD;&amp;#x88AB;&amp;#x7535;&amp;#x529B;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#xFF0C;&amp;#x8FD8;&amp;#x6709; 20 &amp;#x4EFD;&amp;#x88AB;&amp;#x81EA;&amp;#x5DF1;&amp;#x6D88;&amp;#x8017;&amp;#x3002;&amp;#x90A3;&amp;#x4E48;&amp;#xFF0C;&amp;#x5982;&amp;#x4F55;&amp;#x7ED9;&amp;#x8FD9;&amp;#x4E09;&amp;#x79CD;&amp;#x8D44;&amp;#x6E90;&amp;#x5B9A;&amp;#x4EF7;&amp;#xFF0C;&amp;#x4F7F;&amp;#x5F97;&amp;#x5404;&amp;#x90E8;&amp;#x95E8;&amp;#x7684;&amp;#x6536;&amp;#x652F;&amp;#x8FBE;&amp;#x5230;&amp;#x5E73;&amp;#x8861;&amp;#xFF1F;&lt;/p&gt;
+&lt;p&gt;&amp;#x9996;&amp;#x5148;&amp;#xFF0C;&amp;#x4E0A;&amp;#x9762;&amp;#x6240;&amp;#x8FF0;&amp;#x7684;&amp;#x5404;&amp;#x90E8;&amp;#x95E8;&amp;#x4EA7;&amp;#x51FA;&amp;#x4E0E;&amp;#x6D88;&amp;#x8017;&amp;#x60C5;&amp;#x51B5;&amp;#x53EF;&amp;#x4EE5;&amp;#x7528;&amp;#x4E00;&amp;#x4E2A;&amp;#x8868;&amp;#x683C;&amp;#x6765;&amp;#x8868;&amp;#x793A;&amp;#xFF1A;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&amp;#x7164;&amp;#x70AD;&amp;#x4EA7;&amp;#x51FA;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&amp;#x7535;&amp;#x529B;&amp;#x4EA7;&amp;#x51FA;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&amp;#x94A2;&amp;#x94C1;&amp;#x4EA7;&amp;#x51FA;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&amp;#x7164;&amp;#x70AD;&amp;#x90E8;&amp;#x95E8;&amp;#x7684;&amp;#x6D88;&amp;#x8017;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.4&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&amp;#x7535;&amp;#x529B;&amp;#x90E8;&amp;#x95E8;&amp;#x7684;&amp;#x6D88;&amp;#x8017;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.6&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&amp;#x94A2;&amp;#x94C1;&amp;#x90E8;&amp;#x95E8;&amp;#x7684;&amp;#x6D88;&amp;#x8017;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.4&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.5&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&amp;#x8868;&amp;#x4E2D;&amp;#x6BCF;&amp;#x4E00;&amp;#x884C;&amp;#x8868;&amp;#x793A;&amp;#x67D0;&amp;#x90E8;&amp;#x4EEC;&amp;#x6D88;&amp;#x8017;&amp;#x5404;&amp;#x8D44;&amp;#x6E90;&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&amp;#xFF0C;&amp;#x5404;&amp;#x5217;&amp;#x8868;&amp;#x793A;&amp;#x67D0;&amp;#x8D44;&amp;#x6E90;&amp;#x88AB;&amp;#x5404;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&amp;#x3002;&amp;#x4F8B;&amp;#x5982;&amp;#xFF0C;&amp;#x7164;&amp;#x70AD;&amp;#x90E8;&amp;#x95E8;&amp;#x6BCF;&amp;#x751F;&amp;#x4EA7; 1 &amp;#x5355;&amp;#x4F4D;&amp;#x7684;&amp;#x7164;&amp;#x70AD;&amp;#xFF0C;&amp;#x5C31;&amp;#x6709; 0.6 &amp;#x5355;&amp;#x4F4D;&amp;#x88AB;&amp;#x7535;&amp;#x529B;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#xFF0C;0.4 &amp;#x5355;&amp;#x4F4D;&amp;#x88AB;&amp;#x94A2;&amp;#x94C1;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#xFF1B;&amp;#x540C;&amp;#x65F6;&amp;#xFF0C;&amp;#x7164;&amp;#x70AD;&amp;#x90E8;&amp;#x95E8;&amp;#x4E5F;&amp;#x4F1A;&amp;#x6D88;&amp;#x8017; 0.4 &amp;#x5355;&amp;#x4F4D;&amp;#x7684;&amp;#x7535;&amp;#x529B;&amp;#x548C; 0.6 &amp;#x5355;&amp;#x4F4D;&amp;#x7684;&amp;#x94A2;&amp;#x94C1;&amp;#x6765;&amp;#x4FDD;&amp;#x8BC1;&amp;#x751F;&amp;#x4EA7;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x5F53;&amp;#x7136;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x8003;&amp;#x8651;&amp;#x7528;&amp;#x5411;&amp;#x91CF;&amp;#x6765;&amp;#x8868;&amp;#x793A;&amp;#x8FD9;&amp;#x4E2A;&amp;#x8868;&amp;#x683C;&amp;#x3002;&amp;#x5C06;&amp;#x8868;&amp;#x683C;&amp;#x4E2D;&amp;#x7684;&amp;#x5404;&amp;#x884C;&lt;code&gt;&amp;#x5411;&amp;#x91CF;&amp;#x5316;&lt;/code&gt;&amp;#xFF0C;&amp;#x5F97;&amp;#x5230;&amp;#xFF1A;&lt;/p&gt;
+&lt;span&gt;$$\begin{align}
+O_c &amp;amp;= [0, 0.4, 0.6] \\
+O_e &amp;amp;= [0.6, 0.1, 0.2] \\
+O_s &amp;amp;= [0.4, 0.5, 0.2]
+\end{align}$$&lt;/span&gt;&lt;!-- Has MathJax --&gt;
+&lt;p&gt;&amp;#x5176;&amp;#x4E2D;&amp;#xFF0C;$O_c$, $O_e$, $O_s$ &amp;#x5206;&amp;#x522B;&amp;#x8868;&amp;#x793A;&amp;#x7164;&amp;#x70AD;&amp;#x3001;&amp;#x7535;&amp;#x529B;&amp;#x3001;&amp;#x94A2;&amp;#x94C1;&amp;#x5404;&amp;#x4E2A;&amp;#x90E8;&amp;#x95E8;&amp;#x6D88;&amp;#x8017;&amp;#x4E09;&amp;#x79CD;&amp;#x8D44;&amp;#x6E90;&amp;#x7684;&amp;#x91CF;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x5404;&amp;#x79CD;&amp;#x8D44;&amp;#x6E90;&amp;#x7684;&amp;#x5355;&amp;#x4F4D;&amp;#x4EF7;&amp;#x683C;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x7528;&amp;#x7B26;&amp;#x53F7;&amp;#x5B9A;&amp;#x4E49;&amp;#x3002;&amp;#x4F8B;&amp;#x5982;&amp;#x7528; $p_c$, $p_e$, $p_s$ &amp;#x5206;&amp;#x522B;&amp;#x6765;&amp;#x8868;&amp;#x793A;&amp;#x7164;&amp;#x70AD;&amp;#x3001;&amp;#x7535;&amp;#x529B;&amp;#x3001;&amp;#x94A2;&amp;#x94C1;&amp;#x4E09;&amp;#x79CD;&amp;#x8D44;&amp;#x6E90;&amp;#x7684;&amp;#x4EF7;&amp;#x683C;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x7164;&amp;#x70AD;&amp;#x90E8;&amp;#x95E8;&amp;#x7684;&amp;#x603B;&amp;#x652F;&amp;#x51FA;&amp;#x5C31;&amp;#x662F; &lt;span&gt;$0 \cdot p_c+0.6 p_e+0.4 p_s = O_c \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix}$&lt;/span&gt;&lt;!-- Has MathJax --&gt;. &amp;#x540C;&amp;#x7406;&amp;#xFF0C;&amp;#x7535;&amp;#x529B;&amp;#x90E8;&amp;#x95E8;&amp;#x548C;&amp;#x94A2;&amp;#x94C1;&amp;#x90E8;&amp;#x95E8;&amp;#x7684;&amp;#x603B;&amp;#x6536;&amp;#x5165;&amp;#x662F; &lt;span&gt;$O_e \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix}, O_s \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix}$&lt;/span&gt;&lt;!-- Has MathJax --&gt;. &lt;/p&gt;
+&lt;p&gt;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x8BF4;&amp;#xFF0C;&amp;#x7164;&amp;#x70AD;&amp;#x90E8;&amp;#x95E8;&amp;#x6BCF;&amp;#x751F;&amp;#x4EA7;&amp;#x51FA; 1 &amp;#x5355;&amp;#x4F4D;&amp;#x4EF7;&amp;#x503C;&amp;#x4E3A; $p_c$ &amp;#x7684;&amp;#x7164;&amp;#x70AD;&amp;#xFF0C;&amp;#x5B83;&amp;#x5C31;&amp;#x9700;&amp;#x8981;&amp;#x6D88;&amp;#x8017;&amp;#x4EF7;&amp;#x503C;&amp;#x4E3A; $O_c \cdot \begin{bmatrix}p_c\ p_e\ p_s\end{bmatrix}$ &amp;#x7684;&amp;#x8D44;&amp;#x6E90;&amp;#x3002;&amp;#x8981;&amp;#x4F7F;&amp;#x7164;&amp;#x70AD;&amp;#x90E8;&amp;#x95E8;&amp;#x6536;&amp;#x652F;&amp;#x5E73;&amp;#x8861;&amp;#xFF0C;&amp;#x5C31;&amp;#x9700;&amp;#x8981;&amp;#xFF1A;&lt;/p&gt;
+&lt;span&gt;$$\begin{equation}
+O_c \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} = p_c
+\end{equation}$$&lt;/span&gt;&lt;!-- Has MathJax --&gt;
+&lt;p&gt;&amp;#x540C;&amp;#x7406;&amp;#xFF0C;&amp;#x8981;&amp;#x4F7F;&amp;#x4E09;&amp;#x4E2A;&amp;#x90E8;&amp;#x95E8;&amp;#x90FD;&amp;#x8FBE;&amp;#x5230;&amp;#x6536;&amp;#x652F;&amp;#x5E73;&amp;#x8861;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#xFF1A;&lt;/p&gt;
+&lt;span&gt;$$\begin{align}
+O_c \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;amp;= [0  , 0.4, 0.6] \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;amp;= p_c \\
+O_e \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;amp;= [0.6, 0.1, 0.2] \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;amp;= p_e \\
+O_s \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;amp;= [0.4, 0.5, 0.2] \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;amp;= p_s
+\end{align}$$&lt;/span&gt;&lt;!-- Has MathJax --&gt;
+&lt;p&gt;&amp;#x501F;&amp;#x52A9;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x5C01;&amp;#x88C5;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x628A;&amp;#x8FD9;&amp;#x4E09;&amp;#x4E2A;&amp;#x5F0F;&amp;#x5B50;&amp;#x5408;&amp;#x5E76;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x5F0F;&amp;#x5B50;&amp;#xFF1A;&lt;br&gt;&lt;span&gt;$$\begin{eqnarray}
+\mathbf{A} \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;amp;= \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} \\
+\left( \mathbf{A} - \mathbf{I} \right) \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;amp;= \begin{bmatrix}0\\ 0\\ 0\end{bmatrix} \label{homogeneous}\\
+\end{eqnarray}$$&lt;/span&gt;&lt;!-- Has MathJax --&gt;&lt;br&gt;&amp;#x5176;&amp;#x4E2D;&amp;#xFF0C;3 x 3 &amp;#x77E9;&amp;#x9635; $\mathbf{A}$ &amp;#x5C31;&amp;#x662F;&amp;#x4E0A;&amp;#x9762;&amp;#x7684;&amp;#x90A3;&amp;#x4E2A;&amp;#x8868;&amp;#x683C;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x5F0F;&amp;#x5B50; $\eqref{homogeneous}$ &amp;#x662F;&amp;#x6211;&amp;#x4EEC;&amp;#x719F;&amp;#x6089;&amp;#x7684;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&amp;#x3002;&amp;#x6309;&amp;#x7167;&amp;#x5957;&amp;#x8DEF;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5316;&amp;#x7B80;&amp;#x589E;&amp;#x5E7F;&amp;#x77E9;&amp;#x9635;&amp;#xFF1A;&lt;br&gt;&lt;span&gt;$$\begin{equation}
+\begin{bmatrix}
+-1 &amp;amp; 0.4 &amp;amp; 0.6 &amp;amp; 0 \\
+0.6 &amp;amp; -0.9 &amp;amp; 0.2 &amp;amp; 0 \\
+0.4 &amp;amp; 0.5 &amp;amp; -0.8 &amp;amp; 0
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1 &amp;amp; -0.4 &amp;amp; -0.6 &amp;amp; 0 \\
+0 &amp;amp; 1 &amp;amp; -0.85 &amp;amp; 0 \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1 &amp;amp; 0 &amp;amp; -0.94 &amp;amp; 0 \\
+0 &amp;amp; 1 &amp;amp; -0.85 &amp;amp; 0 \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0
+\end{bmatrix}
+\end{equation}$$&lt;/span&gt;&lt;!-- Has MathJax --&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x7531;&amp;#x6B64;&amp;#x5F97;&amp;#x5230;&amp;#x901A;&amp;#x89E3;&amp;#xFF1A;$p_c = 0.94 p_s$, $p_e = 0.85 p_s$&amp;#xFF0C;$p_s$ &amp;#x4E3A;&amp;#x81EA;&amp;#x7531;&amp;#x53D8;&amp;#x91CF;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x6240;&amp;#x4EE5;&amp;#xFF0C;&amp;#x5404;&amp;#x90E8;&amp;#x95E8;&amp;#x8FBE;&amp;#x5230;&amp;#x6536;&amp;#x652F;&amp;#x5E73;&amp;#x8861;&amp;#x65F6;&amp;#x7684;&amp;#x5E73;&amp;#x8861;&amp;#x4EF7;&amp;#x683C;&amp;#x5411;&amp;#x91CF;&amp;#x4E3A;&amp;#xFF1A;&lt;br&gt;&lt;span&gt;$$\begin{equation}
+\mathbf{p} = p_s
+\begin{bmatrix}
+0.94 \\
+0.85 \\
+1
+\end{bmatrix}
+\end{equation}$$&lt;/span&gt;&lt;!-- Has MathJax --&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x8BF4;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x94A2;&amp;#x94C1;&amp;#x4EF7;&amp;#x683C;&amp;#x4E3A;100&amp;#x5143;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x7164;&amp;#x70AD;&amp;#x548C;&amp;#x7535;&amp;#x7684;&amp;#x4EF7;&amp;#x683C;&amp;#x5206;&amp;#x522B;&amp;#x4E3A;94&amp;#x5143;&amp;#x548C;&amp;#x548C;85&amp;#x5143;&amp;#x65F6;&amp;#xFF0C;&amp;#x6574;&amp;#x4E2A;&amp;#x7ECF;&amp;#x6D4E;&amp;#x7CFB;&amp;#x7EDF;&amp;#x53EF;&amp;#x4EE5;&amp;#x8FBE;&amp;#x5230;&amp;#x5E73;&amp;#x8861;&amp;#x3002;&lt;/p&gt;
+&lt;h1 id=&quot;&amp;#x4E8C;-&amp;#x603B;&amp;#x7ED3;&quot;&gt;&lt;a href=&quot;#&amp;#x4E8C;&amp;#x3001;&amp;#x603B;&amp;#x7ED3;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E8C;&amp;#x3001;&amp;#x603B;&amp;#x7ED3;&quot;&gt;&lt;/a&gt;&amp;#x4E8C;&amp;#x3001;&amp;#x603B;&amp;#x7ED3;&lt;/h1&gt;&lt;p&gt;&amp;#x4ECE;&amp;#x4E0A;&amp;#x9762;&amp;#x7684;&amp;#x4F8B;&amp;#x5B50;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x53D1;&amp;#x73B0;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x5F53;&amp;#x4E00;&amp;#x4E2A;&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E2D;&amp;#x5404;&amp;#x4E2A;&amp;#x90E8;&amp;#x5206;&amp;#x4E4B;&amp;#x95F4;&amp;#x5B58;&amp;#x5728;&lt;strong&gt;&amp;#x7EBF;&amp;#x6027;&amp;#x7EA6;&amp;#x675F;&lt;/strong&gt;&amp;#x65F6;&amp;#xFF0C;&amp;#x5C31;&amp;#x6709;&amp;#x53EF;&amp;#x80FD;&amp;#x501F;&amp;#x52A9;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x6765;&amp;#x5EFA;&amp;#x6A21;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x5F53;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#x63CF;&amp;#x8FF0;&amp;#x7684;&amp;#x662F;&amp;#x4E00;&amp;#x5F20;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x8868;&amp;#x683C;&amp;#x65F6;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x5C06;&amp;#x5176;&lt;code&gt;&amp;#x5411;&amp;#x91CF;&amp;#x5316;&lt;/code&gt;&amp;#x4E3A;&amp;#x4E00;&amp;#x7CFB;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#xFF0C;&amp;#x6216;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x77E9;&amp;#x9635;&amp;#xFF0C;&amp;#x8FDB;&amp;#x800C;&amp;#x8FDB;&amp;#x884C;&amp;#x201C;&amp;#x6279;&amp;#x91CF;&amp;#x201D;&amp;#x8BA1;&amp;#x7B97;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x8FD9;&amp;#x91CC;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x518D;&amp;#x6B21;&amp;#x53D1;&amp;#x73B0;&amp;#x4E86;&amp;#x77E9;&amp;#x9635;&amp;#x201C;&amp;#x5C01;&amp;#x88C5;&amp;#x201D;&amp;#x8BA1;&amp;#x7B97;&amp;#x7684;&amp;#x7279;&amp;#x70B9;&amp;#x3002;&amp;#x501F;&amp;#x52A9;&lt;code&gt;&amp;#x5411;&amp;#x91CF;&amp;#x5316;&lt;/code&gt;&amp;#x548C;&lt;code&gt;&amp;#x77E9;&amp;#x9635;&amp;#x5316;&lt;/code&gt;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x5C06;&amp;#x4F20;&amp;#x7EDF;&amp;#x7684;&amp;#x6570;&amp;#x5B66;&amp;#x95EE;&amp;#x9898;&amp;#x8F6C;&amp;#x5316;&amp;#x4E3A;&amp;#x7EBF;&amp;#x6027;&amp;#x4EE3;&amp;#x6570;&amp;#x95EE;&amp;#x9898;&amp;#xFF08;&amp;#x5982;&amp;#x672C;&amp;#x6587;&amp;#x7684;&amp;#x4F8B;&amp;#x5B50;&amp;#x5C31;&amp;#x8F6C;&amp;#x5316;&amp;#x4E3A;&amp;#x4E86;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#xFF09;&amp;#x3002;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2016/06/10/linear-algebra-4/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
+&lt;p&gt;&amp;#x7531;&amp;#x4E8E;&amp;#x8FD9;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x79D1;&amp;
+    
+    </summary>
+    
+      <category term="线性代数" scheme="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+    
+      <category term="线性代数拾遗" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%8B%BE%E9%81%97/"/>
+    
+      <category term="线性代数" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>线性代数拾遗（三）：线性变换以及矩阵的意义</title>
     <link href="http://mengqi92.github.io/2016/05/20/linear-algebra-3/"/>
     <id>http://mengqi92.github.io/2016/05/20/linear-algebra-3/</id>
     <published>2016-05-20T13:11:00.000Z</published>
-    <updated>2016-05-21T03:36:34.000Z</updated>
+    <updated>2016-05-21T15:27:53.000Z</updated>
     
     <content type="html">&lt;img src=&quot;/2016/05/20/linear-algebra-3/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
-&lt;a href=&quot;/2016/05/14/linear-algebra-2/&quot; title=&quot;&amp;#x4E0A;&amp;#x4E00;&amp;#x7AE0;&quot;&gt;&amp;#x4E0A;&amp;#x4E00;&amp;#x7AE0;&lt;/a&gt;&amp;#x6211;&amp;#x4EEC;&amp;#x8BA8;&amp;#x8BBA;&amp;#x4E86;&amp;#x9F50;&amp;#x6B21;&amp;#x548C;&amp;#x975E;&amp;#x9F50;&amp;#x6B21;&amp;#x4E24;&amp;#x79CD;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x7684;&amp;#x89E3;&amp;#x96C6;&amp;#xFF0C;&amp;#x4EE5;&amp;#x53CA;&amp;#x5B83;&amp;#x4EEC;&amp;#x7684;&amp;#x51E0;&amp;#x4F55;&amp;#x610F;&amp;#x4E49;&amp;#x3002;&amp;#x7531;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5F15;&amp;#x5165;&amp;#x4E86;&amp;#x96F6;&amp;#x7A7A;&amp;#x95F4;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#xFF1B;&amp;#x800C;&amp;#x7531;&amp;#x975E;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5F15;&amp;#x5165;&amp;#x4E86;&amp;#x5217;&amp;#x7A7A;&amp;#x95F4;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x3002;&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A;&amp;#x7A7A;&amp;#x95F4;&amp;#x76EE;&amp;#x524D;&amp;#x662F;&amp;#x6211;&amp;#x4EEC;&amp;#x7406;&amp;#x89E3;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x7684;&amp;#x6865;&amp;#x6881;&amp;#xFF0C;&amp;#x672A;&amp;#x6765;&amp;#x8FD8;&amp;#x4F1A;&amp;#x5BF9;&amp;#x8FD9;&amp;#x4E9B;&amp;#x7A7A;&amp;#x95F4;&amp;#x8FDB;&amp;#x884C;&amp;#x66F4;&amp;#x8FDB;&amp;#x4E00;&amp;#x6B65;&amp;#x7684;&amp;#x8BA8;&amp;#x8BBA;&amp;#x3002;&amp;#x5728;&amp;#x8FD9;&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x8BA9;&amp;#x6211;&amp;#x4EEC;&amp;#x5148;&amp;#x6765;&amp;#x7814;&amp;#x7A76;&amp;#x4E00;&amp;#x4E0B;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x610F;&amp;#x4E49;&amp;#x3002;&lt;br&gt;&lt;br&gt;&amp;#x4E4B;&amp;#x524D;&amp;#x7684;&amp;#x4E24;&amp;#x7AE0;&amp;#x4E2D;&amp;#xFF0C;&amp;#x77E9;&amp;#x9635;&amp;#x662F;&amp;#x5728;&amp;#x77E9;&amp;#x9635;&amp;#x65B9;&amp;#x7A0B;&amp;#x4E2D;&amp;#x51FA;&amp;#x73B0;&amp;#x7684;&amp;#xFF0C;&amp;#x5F53;&amp;#x65F6;&amp;#x6211;&amp;#x4EEC;&amp;#x7406;&amp;#x89E3;&amp;#x5B83;&amp;#x7684;&amp;#x610F;&amp;#x4E49;&amp;#x4E3A;&amp;#x201C;&amp;#x5BF9;&amp;#x5411;&amp;#x91CF;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x5C01;&amp;#x88C5;&amp;#x201D;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x201C;&amp;#x6570;&amp;#x636E;&amp;#x201D;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&amp;#x7406;&amp;#x89E3;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x3002;&amp;#x8FD9;&amp;#x4E00;&amp;#x7AE0;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5F15;&amp;#x5165;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x53E6;&amp;#x4E00;&amp;#x5C42;&amp;#x610F;&amp;#x4E49;&amp;#xFF1A;&lt;code&gt;&amp;#x7EBF;&amp;#x6027;&amp;#x53D8;&amp;#x6362;&lt;/code&gt;&amp;#x3002;&lt;br&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;/2016/05/13/linear-algebra-2/&quot; title=&quot;&amp;#x4E0A;&amp;#x4E00;&amp;#x7AE0;&quot;&gt;&amp;#x4E0A;&amp;#x4E00;&amp;#x7AE0;&lt;/a&gt;&amp;#x6211;&amp;#x4EEC;&amp;#x8BA8;&amp;#x8BBA;&amp;#x4E86;&amp;#x9F50;&amp;#x6B21;&amp;#x548C;&amp;#x975E;&amp;#x9F50;&amp;#x6B21;&amp;#x4E24;&amp;#x79CD;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x7684;&amp;#x89E3;&amp;#x96C6;&amp;#xFF0C;&amp;#x4EE5;&amp;#x53CA;&amp;#x5B83;&amp;#x4EEC;&amp;#x7684;&amp;#x51E0;&amp;#x4F55;&amp;#x610F;&amp;#x4E49;&amp;#x3002;&amp;#x7531;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5F15;&amp;#x5165;&amp;#x4E86;&amp;#x96F6;&amp;#x7A7A;&amp;#x95F4;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#xFF1B;&amp;#x800C;&amp;#x7531;&amp;#x975E;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5F15;&amp;#x5165;&amp;#x4E86;&amp;#x5217;&amp;#x7A7A;&amp;#x95F4;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#x3002;&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A;&amp;#x7A7A;&amp;#x95F4;&amp;#x76EE;&amp;#x524D;&amp;#x662F;&amp;#x6211;&amp;#x4EEC;&amp;#x7406;&amp;#x89E3;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x7684;&amp;#x6865;&amp;#x6881;&amp;#xFF0C;&amp;#x672A;&amp;#x6765;&amp;#x8FD8;&amp;#x4F1A;&amp;#x5BF9;&amp;#x8FD9;&amp;#x4E9B;&amp;#x7A7A;&amp;#x95F4;&amp;#x8FDB;&amp;#x884C;&amp;#x66F4;&amp;#x8FDB;&amp;#x4E00;&amp;#x6B65;&amp;#x7684;&amp;#x8BA8;&amp;#x8BBA;&amp;#x3002;&amp;#x5728;&amp;#x8FD9;&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x8BA9;&amp;#x6211;&amp;#x4EEC;&amp;#x5148;&amp;#x6765;&amp;#x7814;&amp;#x7A76;&amp;#x4E00;&amp;#x4E0B;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x610F;&amp;#x4E49;&amp;#x3002;&lt;br&gt;&lt;br&gt;&amp;#x4E4B;&amp;#x524D;&amp;#x7684;&amp;#x4E24;&amp;#x7AE0;&amp;#x4E2D;&amp;#xFF0C;&amp;#x77E9;&amp;#x9635;&amp;#x662F;&amp;#x5728;&amp;#x77E9;&amp;#x9635;&amp;#x65B9;&amp;#x7A0B;&amp;#x4E2D;&amp;#x51FA;&amp;#x73B0;&amp;#x7684;&amp;#xFF0C;&amp;#x5F53;&amp;#x65F6;&amp;#x6211;&amp;#x4EEC;&amp;#x7406;&amp;#x89E3;&amp;#x5B83;&amp;#x7684;&amp;#x610F;&amp;#x4E49;&amp;#x4E3A;&amp;#x201C;&amp;#x5BF9;&amp;#x5411;&amp;#x91CF;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x5C01;&amp;#x88C5;&amp;#x201D;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x201C;&amp;#x6570;&amp;#x636E;&amp;#x201D;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&amp;#x7406;&amp;#x89E3;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x3002;&amp;#x8FD9;&amp;#x4E00;&amp;#x7AE0;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5F15;&amp;#x5165;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x53E6;&amp;#x4E00;&amp;#x5C42;&amp;#x610F;&amp;#x4E49;&amp;#xFF1A;&lt;code&gt;&amp;#x7EBF;&amp;#x6027;&amp;#x53D8;&amp;#x6362;&lt;/code&gt;&amp;#x3002;&lt;br&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h1 id=&quot;&amp;#x4E00;-&amp;#x53D8;&amp;#x6362;&quot;&gt;&lt;a href=&quot;#&amp;#x4E00;&amp;#x3001;&amp;#x53D8;&amp;#x6362;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E00;&amp;#x3001;&amp;#x53D8;&amp;#x6362;&quot;&gt;&lt;/a&gt;&amp;#x4E00;&amp;#x3001;&amp;#x53D8;&amp;#x6362;&lt;/h1&gt;&lt;p&gt;&amp;#x5047;&amp;#x5982;&amp;#x6709;&amp;#x5982; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &amp;#x5F62;&amp;#x5F0F;&amp;#x7684;&amp;#x65B9;&amp;#x7A0B;&amp;#xFF1A;&lt;br&gt;&lt;span&gt;$$\begin{bmatrix}
 4 &amp;amp; -3 &amp;amp; 1 &amp;amp; 3 \\
 2 &amp;amp; 0 &amp;amp; 5 &amp;amp; 1
@@ -83,20 +207,20 @@ T(\mathbf{x})=x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) = \begin{bmatrix}T(\math
     <summary type="html">
     
       &lt;img src=&quot;/2016/05/20/linear-algebra-3/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
-&lt;a href=&quot;/2016/05/14/linear-algebra-2/&quot; title=&quot;上一章&quot;&gt;上一章&lt;/a&gt;我们讨论了齐次和非齐次两种线性方程组的解集，以及它们的几何意义。由齐次线性方程组，我们引入了零空间的概念；而由非齐次线性方程组，我们引入了列空间的概念。这两个空间目前是我们理解线性方程组的桥梁，未来还会对这些空间进行更进一步的讨论。在这之前，让我们先来研究一下矩阵的意义。&lt;br&gt;&lt;br&gt;之前的两章中，矩阵是在矩阵方程中出现的，当时我们理解它的意义为“对向量的一种封装”，也就是一种“数据”的形式理解矩阵的。这一章，我们引入矩阵的另一层意义：&lt;code&gt;线性变换&lt;/code&gt;。&lt;br&gt;&lt;br&gt;
+&lt;a href=&quot;/2016/05/13/linear-algebra-2/&quot; title=&quot;上一章&quot;&gt;上一章&lt;/a&gt;我们讨论了齐次和非齐次两种线性方程组的解集，以及它们的几何意义。由齐次线性方程组，我们引入了零空间的概念；而由非齐次线性方程组，我们引入了列空间的概念。这两个空间目前是我们理解线性方程组的桥梁，未来还会对这些空间进行更进一步的讨论。在这之前，让我们先来研究一下矩阵的意义。&lt;br&gt;&lt;br&gt;之前的两章中，矩阵是在矩阵方程中出现的，当时我们理解它的意义为“对向量的一种封装”，也就是一种“数据”的形式理解矩阵的。这一章，我们引入矩阵的另一层意义：&lt;code&gt;线性变换&lt;/code&gt;。&lt;br&gt;&lt;br&gt;
     
     </summary>
     
       <category term="线性代数" scheme="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
     
-      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    
-      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+      <category term="线性代数拾遗" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%8B%BE%E9%81%97/"/>
     
       <category term="线性代数" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
-      <category term="线性代数拾遗" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%8B%BE%E9%81%97/"/>
+      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     
   </entry>
   
@@ -104,10 +228,10 @@ T(\mathbf{x})=x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) = \begin{bmatrix}T(\math
     <title>线性代数拾遗（二）：线性方程组的解集及其几何意义</title>
     <link href="http://mengqi92.github.io/2016/05/14/linear-algebra-2/"/>
     <id>http://mengqi92.github.io/2016/05/14/linear-algebra-2/</id>
-    <published>2016-05-14T10:11:25.000Z</published>
-    <updated>2016-05-21T03:36:43.000Z</updated>
+    <published>2016-05-13T16:00:00.000Z</published>
+    <updated>2016-05-21T14:19:53.000Z</updated>
     
-    <content type="html">&lt;img src=&quot;/2016/05/14/linear-algebra-2/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
+    <content type="html">&lt;img src=&quot;/2016/05/13/linear-algebra-2/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
 &lt;a href=&quot;/2016/05/03/linear-algebra-1/&quot; title=&quot;&amp;#x4E0A;&amp;#x4E00;&amp;#x7AE0;&quot;&gt;&amp;#x4E0A;&amp;#x4E00;&amp;#x7AE0;&lt;/a&gt;&amp;#x6211;&amp;#x4EEC;&amp;#x8BB2;&amp;#x5230;&amp;#x4E09;&amp;#x79CD;&amp;#x7B49;&amp;#x4EF7;&amp;#x5F62;&amp;#x5F0F;&amp;#xFF1A;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x3001;&amp;#x5411;&amp;#x91CF;&amp;#x65B9;&amp;#x7A0B;&amp;#x548C;&amp;#x77E9;&amp;#x9635;&amp;#x65B9;&amp;#x7A0B;&amp;#x3002;&amp;#x7531;&amp;#x4E8E;&amp;#x8FD9;&amp;#x4E09;&amp;#x8005;&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x7B49;&amp;#x4EF7;&amp;#x5173;&amp;#x7CFB;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x89E3;&amp;#x51B3;&amp;#x73B0;&amp;#x5B9E;&amp;#x95EE;&amp;#x9898;&amp;#x65F6;&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x7531;&amp;#x9009;&amp;#x53D6;&amp;#x5176;&amp;#x4E2D;&amp;#x4EFB;&amp;#x610F;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F5C;&amp;#x4E3A;&amp;#x6A21;&amp;#x578B;&amp;#x3002;&amp;#x6211;&amp;#x4E2A;&amp;#x4EBA;&amp;#x8BA4;&amp;#x4E3A;&amp;#xFF0C;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x662F;&amp;#x6700;&amp;#x201C;&amp;#x8D28;&amp;#x6734;&amp;#x201D;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&amp;#xFF1B;&amp;#x5411;&amp;#x91CF;&amp;#x65B9;&amp;#x7A0B;&amp;#x5219;&amp;#x662F;&amp;#x4E0E;&amp;#x51E0;&amp;#x4F55;&amp;#x5EFA;&amp;#x7ACB;&amp;#x4E86;&amp;#x5173;&amp;#x7CFB;&amp;#xFF0C;&amp;#x8FD9;&amp;#x5C06;&amp;#x65B9;&amp;#x4FBF;&amp;#x6211;&amp;#x4EEC;&amp;#x8FDB;&amp;#x884C;&amp;#x66F4;&amp;#x76F4;&amp;#x89C2;&amp;#x7684;&amp;#x63A8;&amp;#x7406;&amp;#xFF1B;&amp;#x77E9;&amp;#x9635;&amp;#x65B9;&amp;#x7A0B;&amp;#x5219;&amp;#x662F;&amp;#x5411;&amp;#x91CF;&amp;#x65B9;&amp;#x7A0B;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x201C;&amp;#x5C01;&amp;#x88C5;&amp;#x201D;&amp;#xFF0C;&amp;#x662F;&amp;#x5411;&amp;#x91CF;&amp;#x65B9;&amp;#x7A0B;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x62BD;&amp;#x8C61;&amp;#xFF0C;&amp;#x5B83;&amp;#x5C06;&amp;#x5177;&amp;#x4F53;&amp;#x7684;&amp;#x5411;&amp;#x91CF;&amp;#x5F62;&amp;#x5F0F;&amp;#x9690;&amp;#x85CF;&amp;#xFF0C;&amp;#x63D0;&amp;#x4F9B;&amp;#x7ED9;&amp;#x6211;&amp;#x4EEC;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x6D01;&amp;#x7684; API &amp;#x5F62;&amp;#x5F0F;&amp;#x2014;&amp;#x2014;&amp;#x77E9;&amp;#x9635;&amp;#x3002;&amp;#x672A;&amp;#x6765;&amp;#x5C06;&amp;#x8981;&amp;#x4ECB;&amp;#x7ECD;&amp;#x7684;&amp;#x5F88;&amp;#x591A;&amp;#x6982;&amp;#x5FF5;&amp;#x5C31;&amp;#x662F;&amp;#x57FA;&amp;#x4E8E;&amp;#x5BF9;&amp;#x8FD9;&amp;#x4E00;&amp;#x5C42;&amp;#x5C01;&amp;#x88C5;&amp;#x7684;&amp;#x7814;&amp;#x7A76;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x5230;&amp;#x65F6;&amp;#x5019;&amp;#x6211;&amp;#x4EEC;&amp;#x53D1;&amp;#x73B0;&amp;#x67D0;&amp;#x4E2A;&amp;#x6982;&amp;#x5FF5;&amp;#x7406;&amp;#x89E3;&amp;#x6709;&amp;#x56F0;&amp;#x96BE;&amp;#xFF0C;&amp;#x4E0D;&amp;#x59A8;&amp;#x8F6C;&amp;#x6362;&amp;#x601D;&amp;#x8DEF;&amp;#x5230;&amp;#x5411;&amp;#x91CF;&amp;#x65B9;&amp;#x7A0B;&amp;#x6216;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&amp;#x8FDB;&amp;#x884C;&amp;#x5206;&amp;#x6790;&amp;#x3002;&lt;br&gt;&lt;br&gt;&amp;#x6B64;&amp;#x5916;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x4E4B;&amp;#x524D;&amp;#x8FD8;&amp;#x8FDB;&amp;#x884C;&amp;#x4E86;&amp;#x5173;&amp;#x4E8E;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x89E3;&amp;#x96C6;&amp;#x7684;&amp;#x8BA8;&amp;#x8BBA;&amp;#xFF0C;&amp;#x5728;&amp;#x8FD9;&amp;#x7AE0;&amp;#x6211;&amp;#x4EEC;&amp;#x5BF9;&amp;#x5176;&amp;#x8FDB;&amp;#x4E00;&amp;#x6B65;&amp;#x63A2;&amp;#x8BA8;&amp;#x3002;&lt;br&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h1 id=&quot;&amp;#x4E00;-&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&quot;&gt;&lt;a href=&quot;#&amp;#x4E00;&amp;#x3001;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E00;&amp;#x3001;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&quot;&gt;&lt;/a&gt;&amp;#x4E00;&amp;#x3001;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&lt;/h1&gt;&lt;p&gt;&amp;#x5F62;&amp;#x5982; $\mathbf{A}\mathbf{x}=\mathbf{0}$ &amp;#x7684;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x79F0;&amp;#x4E3A;&lt;code&gt;&amp;#x9F50;&amp;#x6B21;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&lt;/code&gt;&amp;#x3002;&amp;#x663E;&amp;#x7136;&amp;#xFF0C;$\mathbf{x}=\mathbf{0}$ &amp;#x662F;&amp;#x65B9;&amp;#x7A0B;&amp;#x7684;&amp;#x89E3;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E2A;&amp;#x89E3;&amp;#x592A;&amp;#x5E73;&amp;#x51E1;&amp;#x4E86;&amp;#xFF0C;&amp;#x4EE5;&amp;#x81F4;&amp;#x4E8E;&amp;#x5C31;&amp;#x53EB;&lt;code&gt;&amp;#x5E73;&amp;#x51E1;&amp;#x89E3;&lt;/code&gt;&amp;#x3002;&amp;#x6211;&amp;#x4EEC;&amp;#x5E73;&amp;#x5E38;&amp;#x66F4;&amp;#x5173;&amp;#x5FC3;&amp;#x7684;&amp;#x662F;&amp;#x5B83;&amp;#x8FD8;&amp;#x6709;&amp;#x6CA1;&amp;#x6709;&amp;#x522B;&amp;#x7684;&amp;#x89E3;&amp;#xFF0C;&amp;#x5373;&lt;code&gt;&amp;#x975E;&amp;#x5E73;&amp;#x51E1;&amp;#x89E3;&lt;/code&gt;&amp;#x3002;&amp;#x4E0B;&amp;#x9762;&amp;#x4EE5;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F8B;&amp;#x5B50;&amp;#x5206;&amp;#x6790;&amp;#x4E00;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
 &lt;p&gt;&amp;#x4F8B;&amp;#xFF1A;&amp;#x5224;&amp;#x65AD;&amp;#x4E0B;&amp;#x5217;&amp;#x9F50;&amp;#x6B21;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x662F;&amp;#x5426;&amp;#x6709;&amp;#x975E;&amp;#x5E73;&amp;#x51E1;&amp;#x89E3;&amp;#xFF0C;&amp;#x8868;&amp;#x793A;&amp;#x5176;&amp;#x89E3;&amp;#x96C6;&amp;#x3002;&lt;br&gt;&lt;span&gt;$$\begin{array}
@@ -169,7 +293,7 @@ T(\mathbf{x})=x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) = \begin{bmatrix}T(\math
 \end{equation*}$$&lt;/span&gt;&lt;!-- Has MathJax --&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5217;&amp;#x7A7A;&amp;#x95F4;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5E94;&amp;#x8BE5;&amp;#x4E0D;&amp;#x964C;&amp;#x751F;&amp;#x4E86;&amp;#xFF0C;&amp;#x4E0A;&amp;#x4E00;&amp;#x7AE0;&amp;#x4E2D;&amp;#x5F88;&amp;#x591A;&amp;#x65F6;&amp;#x5019;&amp;#x90FD;&amp;#x662F;&amp;#x628A;&amp;#x77E9;&amp;#x9635;&amp;#x770B;&amp;#x6210;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x7684;&amp;#x6392;&amp;#x5217;&amp;#xFF0C;&amp;#x8003;&amp;#x8651; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &amp;#x7684;&amp;#x89E3;&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&amp;#x65F6;&amp;#x5176;&amp;#x5B9E;&amp;#x5C31;&amp;#x662F;&amp;#x5728;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x4E2D;&amp;#x8FDB;&amp;#x884C;&amp;#x5206;&amp;#x6790;&amp;#x7684;&amp;#x3002;&amp;#x5217;&amp;#x7A7A;&amp;#x95F4;&amp;#x5728;&amp;#x5206;&amp;#x6790;&amp;#x77E9;&amp;#x9635;&amp;#x4E2D;&amp;#x5404;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x7684;&amp;#x7EBF;&amp;#x6027;&amp;#x76F8;&amp;#x5173;&amp;#x6027;&amp;#x65F6;&amp;#x5F88;&amp;#x6709;&amp;#x5E2E;&amp;#x52A9;&amp;#xFF1A;&amp;#x53EA;&amp;#x6709;&amp;#x5404;&amp;#x5217;&amp;#x7EBF;&amp;#x6027;&amp;#x65E0;&amp;#x5173;&amp;#x65F6;&amp;#xFF0C;&amp;#x8FD9; $n$ &amp;#x4E2A;&amp;#x5217;&amp;#x624D;&amp;#x80FD;&amp;#x5F20;&amp;#x6210; $n$ &amp;#x7EF4;&amp;#x7A7A;&amp;#x95F4;&amp;#xFF0C;&amp;#x8FD9;&amp;#x65F6;&amp;#x5C31;&amp;#x8BF4;&amp;#x8FD9;&amp;#x4E2A;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x79E9;&amp;#x4E3A; $n$&amp;#xFF1B;&amp;#x800C;&amp;#x5047;&amp;#x5982;&amp;#x8FD9;&amp;#x91CC;&amp;#x9762;&amp;#x6709; 1 &amp;#x5217;&amp;#x548C;&amp;#x5176;&amp;#x4ED6;&amp;#x67D0;&amp;#x5217;&amp;#x7EBF;&amp;#x6027;&amp;#x76F8;&amp;#x5173;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x8FD9; $n$ &amp;#x4E2A;&amp;#x5217;&amp;#x5C31;&amp;#x53EA;&amp;#x80FD;&amp;#x5F20;&amp;#x6210; $n-1$ &amp;#x7EF4;&amp;#x7A7A;&amp;#x95F4;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E2A;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x79E9;&amp;#x5C31;&amp;#x662F; $n-1$&amp;#xFF1B;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x8BF4;&amp;#xFF0C;&lt;strong&gt;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x79E9;&amp;#x8BF4;&amp;#x660E;&amp;#x4E86;&amp;#x8FD9;&amp;#x4E2A;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x6700;&amp;#x591A;&amp;#x80FD;&amp;#x5F20;&amp;#x6210;&amp;#x591A;&amp;#x5C11;&amp;#x7EF4;&lt;/strong&gt;&amp;#x3002;&lt;/p&gt;
 &lt;p&gt;&amp;#x5982;&amp;#x4E0B;&amp;#x56FE;&amp;#x4E2D;&amp;#xFF0C;$\mathbf{A} = [\mathbf{a_1}\ \mathbf{a_2}\ \mathbf{a_3}]$&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x6709;&amp;#x4E24;&amp;#x4E2A;&amp;#x5411;&amp;#x91CF;&amp;#x7EBF;&amp;#x6027;&amp;#x76F8;&amp;#x5173;&amp;#xFF0C;&amp;#x5BFC;&amp;#x81F4; 3 &amp;#x4E2A;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x53EA;&amp;#x80FD;&amp;#x5F20;&amp;#x6210; 2 &amp;#x7EF4;&amp;#xFF0C;&amp;#x56E0;&amp;#x6B64; $\mathbf{A}$ &amp;#x7684;&amp;#x79E9;&amp;#x4E3A; 2&amp;#x3002;&amp;#x6240;&amp;#x4EE5; $\mathbf{A}\mathbf{x}$ &amp;#x5F97;&amp;#x4E0D;&amp;#x5230;&amp;#x4EFB;&amp;#x610F;&amp;#x4E09;&amp;#x7EF4;&amp;#x5411;&amp;#x91CF; $\mathbf{b}$&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &amp;#x5E76;&amp;#x4E0D;&amp;#x5BF9;&amp;#x6240;&amp;#x6709; $\mathbf{b}$ &amp;#x6210;&amp;#x7ACB;&amp;#xFF08;&amp;#x53EA;&amp;#x6709;$\mathbf{b}$ &amp;#x662F; $\mathbf{A}$ &amp;#x5217;&amp;#x7A7A;&amp;#x95F4;&amp;#x4E2D;&amp;#x7684;&amp;#x5411;&amp;#x91CF;&amp;#x65F6;&amp;#x624D;&amp;#x6210;&amp;#x7ACB;&amp;#xFF09;&amp;#x3002;&lt;/p&gt;
-&lt;img src=&quot;/2016/05/14/linear-algebra-2/r_less_than_n.png&quot; alt=&quot;&amp;#x79E9;&amp;#x5C0F;&amp;#x4E8E;n&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&quot; title=&quot;&amp;#x79E9;&amp;#x5C0F;&amp;#x4E8E;n&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&quot;&gt;
+&lt;img src=&quot;/2016/05/13/linear-algebra-2/r_less_than_n.png&quot; alt=&quot;&amp;#x79E9;&amp;#x5C0F;&amp;#x4E8E;n&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&quot; title=&quot;&amp;#x79E9;&amp;#x5C0F;&amp;#x4E8E;n&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&quot;&gt;
 &lt;p&gt;&amp;#x66F4;&amp;#x8FDB;&amp;#x4E00;&amp;#x6B65;&amp;#xFF0C;&amp;#x975E;&amp;#x9F50;&amp;#x6B21;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4; $\mathbf{A}\mathbf{x}=\mathbf{b}$ &amp;#x4E2D;&amp;#xFF0C;&amp;#x5982;&amp;#x679C; $\mathbf{A}$&amp;#x5DF2;&amp;#x77E5;&amp;#xFF0C;$\mathbf{x}$&amp;#x548C;$\mathbf{b}$ &amp;#x672A;&amp;#x77E5;&amp;#xFF0C;&amp;#x6B64;&amp;#x65F6;&amp;#x6211;&amp;#x4EEC;&amp;#x5173;&amp;#x6CE8;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#x662F; $\mathbf{A}$ &amp;#x7684;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x80FD;&amp;#x5F20;&amp;#x6210;&amp;#x591A;&amp;#x5C11;&amp;#x7EF4;&amp;#xFF1B;&amp;#x5982;&amp;#x679C; $\mathbf{A}$ &amp;#x548C; $\mathbf{b}$ &amp;#x5DF2;&amp;#x77E5;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5173;&amp;#x6CE8;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#x5C31;&amp;#x662F; $\mathbf{A}$ &amp;#x4E2D; $n$ &amp;#x4E2A;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x5982;&amp;#x4F55;&amp;#x7EBF;&amp;#x6027;&amp;#x8868;&amp;#x793A;&amp;#x80FD;&amp;#x8868;&amp;#x793A;&amp;#x6210; $\mathbf{b}$&amp;#xFF0C;&amp;#x8FD9;&amp;#x65F6;&amp;#x5019;&amp;#x6211;&amp;#x4EEC;&amp;#x5982;&amp;#x679C;&amp;#x63D0;&amp;#x524D;&amp;#x77E5;&amp;#x9053; $\mathbf{A}$ &amp;#x7684;&amp;#x5217;&amp;#x7A7A;&amp;#x95F4;&amp;#x8FBE;&amp;#x4E0D;&amp;#x5230; $\mathbf{b}$ &amp;#x7684;&amp;#x7EF4;&amp;#x6570;&amp;#xFF0C;&amp;#x90A3;&amp;#x4E48;&amp;#x8FD9;&amp;#x4E9B;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x5C31;&amp;#x4E00;&amp;#x5B9A;&amp;#x65E0;&amp;#x6CD5;&amp;#x7EBF;&amp;#x6027;&amp;#x7EC4;&amp;#x5408;&amp;#x51FA; $\mathbf{b}$&amp;#x3002;&lt;/p&gt;
 &lt;h1 id=&quot;&amp;#x56DB;-&amp;#x96F6;&amp;#x7A7A;&amp;#x95F4;&quot;&gt;&lt;a href=&quot;#&amp;#x56DB;&amp;#x3001;&amp;#x96F6;&amp;#x7A7A;&amp;#x95F4;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x56DB;&amp;#x3001;&amp;#x96F6;&amp;#x7A7A;&amp;#x95F4;&quot;&gt;&lt;/a&gt;&amp;#x56DB;&amp;#x3001;&amp;#x96F6;&amp;#x7A7A;&amp;#x95F4;&lt;/h1&gt;&lt;p&gt;&amp;#x9F50;&amp;#x6B21;&amp;#x65B9;&amp;#x7A0B; $\mathbf{A}\mathbf{x}=\mathbf{0}$ &amp;#x7684;&amp;#x5168;&amp;#x90E8;&amp;#x89E3;&amp;#x7EC4;&amp;#x6210;&amp;#x7684;&amp;#x96C6;&amp;#x5408;&amp;#xFF0C;&amp;#x79F0;&amp;#x4E3A;&amp;#x77E9;&amp;#x9635; $\mathbf{A}$ &amp;#x7684;&amp;#x96F6;&amp;#x7A7A;&amp;#x95F4;&amp;#xFF0C;&amp;#x8BB0;&amp;#x4F5C; $\operatorname{Nul} \mathbf{A}$&amp;#x3002;&lt;/p&gt;
 &lt;p&gt;&amp;#x5F53; $\mathbf{A}$ &amp;#x4E2D;&amp;#x7684;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x7EBF;&amp;#x6027;&amp;#x65E0;&amp;#x5173;&amp;#x65F6;&amp;#xFF0C;$\mathbf{A}\mathbf{x}=\mathbf{0}$ &amp;#x53EA;&amp;#x6709;&amp;#x96F6;&amp;#x89E3;&amp;#xFF0C;&amp;#x8FD9;&amp;#x65F6; $\mathbf{A}$ &amp;#x7684;&amp;#x96F6;&amp;#x7A7A;&amp;#x95F4;&amp;#x5C31;&amp;#x662F; $\mathbf{0}$&amp;#xFF1B;&amp;#x800C;&amp;#x53EA;&amp;#x8981; $\mathbf{A}$ &amp;#x4E2D;&amp;#x7684;&amp;#x5217;&amp;#x5411;&amp;#x91CF;&amp;#x7EBF;&amp;#x6027;&amp;#x76F8;&amp;#x5173;&amp;#xFF0C;$\mathbf{A}\mathbf{x}=\mathbf{0}$ &amp;#x5C31;&amp;#x5B58;&amp;#x5728;&amp;#x975E;&amp;#x96F6;&amp;#x89E3;&amp;#xFF0C;&amp;#x8FD9;&amp;#x65F6; $\mathbf{A}$ &amp;#x7684;&amp;#x96F6;&amp;#x7A7A;&amp;#x95F4;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7EF4;&amp;#x5EA6;&amp;#x5927;&amp;#x4E8E; 0 &amp;#x7684;&amp;#x7A7A;&amp;#x95F4;&amp;#x3002;&lt;/p&gt;
@@ -185,7 +309,7 @@ T(\mathbf{x})=x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) = \begin{bmatrix}T(\math
     
     <summary type="html">
     
-      &lt;img src=&quot;/2016/05/14/linear-algebra-2/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
+      &lt;img src=&quot;/2016/05/13/linear-algebra-2/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
 &lt;a href=&quot;/2016/05/03/linear-algebra-1/&quot; title=&quot;上一章&quot;&gt;上一章&lt;/a&gt;我们讲到三种等价形式：线性方程组、向量方程和矩阵方程。由于这三者之间的等价关系，我们解决现实问题时可以自由选取其中任意一个作为模型。我个人认为，线性方程组是最“质朴”的形式；向量方程则是与几何建立了关系，这将方便我们进行更直观的推理；矩阵方程则是向量方程的一种“封装”，是向量方程的一种抽象，它将具体的向量形式隐藏，提供给我们一个简洁的 API 形式——矩阵。未来将要介绍的很多概念就是基于对这一层封装的研究，如果到时候我们发现某个概念理解有困难，不妨转换思路到向量方程或线性方程组的形式进行分析。&lt;br&gt;&lt;br&gt;此外，我们之前还进行了关于线性方程组解集的讨论，在这章我们对其进一步探讨。&lt;br&gt;&lt;br&gt;
     
     </summary>
@@ -193,13 +317,13 @@ T(\mathbf{x})=x_1 T(\mathbf{e}_1) + x_2 T(\mathbf{e}_2) = \begin{bmatrix}T(\math
       <category term="线性代数" scheme="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
     
-      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    
-      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+      <category term="线性代数拾遗" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%8B%BE%E9%81%97/"/>
     
       <category term="线性代数" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
-      <category term="线性代数拾遗" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%8B%BE%E9%81%97/"/>
+      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     
   </entry>
   
@@ -427,13 +551,13 @@ x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
       <category term="线性代数" scheme="http://mengqi92.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
     
-      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    
-      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+      <category term="线性代数拾遗" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%8B%BE%E9%81%97/"/>
     
       <category term="线性代数" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
-      <category term="线性代数拾遗" scheme="http://mengqi92.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%8B%BE%E9%81%97/"/>
+      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     
   </entry>
   
@@ -665,13 +789,13 @@ x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
     
       <category term="机器学习" scheme="http://mengqi92.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="图像处理" scheme="http://mengqi92.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
       <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     
-      <category term="Gabor 特征" scheme="http://mengqi92.github.io/tags/Gabor-%E7%89%B9%E5%BE%81/"/>
+      <category term="图像处理" scheme="http://mengqi92.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
-      <category term="数学" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+      <category term="Gabor 特征" scheme="http://mengqi92.github.io/tags/Gabor-%E7%89%B9%E5%BE%81/"/>
     
       <category term="卷积" scheme="http://mengqi92.github.io/tags/%E5%8D%B7%E7%A7%AF/"/>
     
@@ -728,6 +852,8 @@ x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
       <category term="图像处理" scheme="http://mengqi92.github.io/categories/cv/"/>
     
     
+      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
+    
       <category term="傅里叶变换" scheme="http://mengqi92.github.io/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
     
       <category term="欧拉公式" scheme="http://mengqi92.github.io/tags/%E6%AC%A7%E6%8B%89%E5%85%AC%E5%BC%8F/"/>
@@ -737,8 +863,6 @@ x_1 \mathbf{a_1} + x_2 \mathbf{a_2} + \cdots + x_n \mathbf{a_n} = \mathbf{b}
       <category term="数字信号处理" scheme="http://mengqi92.github.io/tags/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
     
       <category term="图像处理" scheme="http://mengqi92.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    
-      <category term="基础概念" scheme="http://mengqi92.github.io/tags/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     
       <category term="Gabor 特征" scheme="http://mengqi92.github.io/tags/Gabor-%E7%89%B9%E5%BE%81/"/>
     
