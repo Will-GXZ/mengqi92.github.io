@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mengqi92.github.io/"/>
-  <updated>2016-06-19T16:38:19.000Z</updated>
+  <updated>2016-06-19T16:39:00.000Z</updated>
   <id>http://mengqi92.github.io/</id>
   
   <author>
@@ -17,12 +17,12 @@
   
   <entry>
     <title>线性代数拾遗（四）：线性代数的应用</title>
-    <link href="http://mengqi92.github.io/2016/06/10/linear-algebra-4/"/>
-    <id>http://mengqi92.github.io/2016/06/10/linear-algebra-4/</id>
-    <published>2016-06-09T16:00:00.000Z</published>
-    <updated>2016-06-19T16:38:19.000Z</updated>
+    <link href="http://mengqi92.github.io/2016/06/20/linear-algebra-4/"/>
+    <id>http://mengqi92.github.io/2016/06/20/linear-algebra-4/</id>
+    <published>2016-06-19T16:00:00.000Z</published>
+    <updated>2016-06-19T16:39:00.000Z</updated>
     
-    <content type="html">&lt;img src=&quot;/2016/06/10/linear-algebra-4/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
+    <content type="html">&lt;img src=&quot;/2016/06/20/linear-algebra-4/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
 &lt;p&gt;&amp;#x7531;&amp;#x4E8E;&amp;#x8FD9;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x79D1;&amp;#x7814;&amp;#x4EFB;&amp;#x52A1;&amp;#x8F83;&amp;#x91CD;&amp;#xFF0C;&amp;#x52A0;&amp;#x4E0A; hexo &amp;#x5347;&amp;#x7EA7;&amp;#x540E;&amp;#x603B;&amp;#x51FA;&amp;#x73B0;&amp;#x4E00;&amp;#x4E9B;&amp;#x5947;&amp;#x602A;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x6709;&amp;#x4E00;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x6CA1;&amp;#x66F4;&amp;#x65B0;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7CFB;&amp;#x5217;&amp;#x4E86;&amp;#xFF0C;&amp;#x4ECA;&amp;#x5929;&amp;#x5FD9;&amp;#x91CC;&amp;#x5077;&amp;#x95F2;&amp;#x8865;&amp;#x4E0A;&amp;#x4E00;&amp;#x7BC7;&amp;#x3002;&lt;/p&gt;
 &lt;p&gt;&amp;#x524D;&amp;#x9762;&amp;#x51E0;&amp;#x7AE0;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x56DE;&amp;#x987E;&amp;#x4E86;&amp;#x4E00;&amp;#x904D;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x548C;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x6982;&amp;#x5FF5;&amp;#x3002;&amp;#x7EBF;&amp;#x6027;&amp;#x4EE3;&amp;#x6570;&amp;#x7684;&amp;#x6700;&amp;#x539F;&amp;#x59CB;&amp;#x95EE;&amp;#x9898;&amp;#x662F;&amp;#x89E3;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#xFF0C;&amp;#x4E3A;&amp;#x4E86;&amp;#x89E3;&amp;#x51B3;&amp;#x8FD9;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5F15;&amp;#x5165;&amp;#x4E86;&amp;#x5411;&amp;#x91CF;&amp;#x548C;&amp;#x77E9;&amp;#x9635;&amp;#xFF0C;&amp;#x7EE7;&amp;#x800C;&amp;#x5BF9;&amp;#x77E9;&amp;#x9635;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x7279;&amp;#x6027;&amp;#x4E5F;&amp;#x8FDB;&amp;#x884C;&amp;#x4E86;&amp;#x4E00;&amp;#x756A;&amp;#x5206;&amp;#x6790;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x53C8;&amp;#x53D1;&amp;#x73B0;&amp;#x77E9;&amp;#x9635;&amp;#x4E0D;&amp;#x4F46;&amp;#x53EF;&amp;#x4EE5;&amp;#x8868;&amp;#x793A;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x8868;&amp;#x793A;&amp;#x53D8;&amp;#x6362;&amp;#x3002;&amp;#x7136;&amp;#x800C;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E9B;&amp;#x6982;&amp;#x5FF5;&amp;#x662F;&amp;#x5982;&amp;#x4F55;&amp;#x5E94;&amp;#x7528;&amp;#x4E8E;&amp;#x73B0;&amp;#x5B9E;&amp;#x751F;&amp;#x6D3B;&amp;#x5462;&amp;#xFF0C;&amp;#x5B9E;&amp;#x9645;&amp;#x751F;&amp;#x6D3B;&amp;#x4E2D;&amp;#x6709;&amp;#x54EA;&amp;#x4E9B;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x7684;&amp;#x4F8B;&amp;#x5B50;&amp;#xFF1F;&amp;#x8FD9;&amp;#x4E00;&amp;#x7AE0;&amp;#x6211;&amp;#x4EEC;&amp;#x6765;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E00;&amp;#x4E9B;&amp;#x7EBF;&amp;#x6027;&amp;#x4EE3;&amp;#x6570;&amp;#x7684;&amp;#x5B9E;&amp;#x9645;&amp;#x5E94;&amp;#x7528;&amp;#x3002;&lt;/p&gt;
 &lt;p&gt;&amp;#x603B;&amp;#x4F53;&amp;#x4E0A;&amp;#x6765;&amp;#x8BF4;&amp;#xFF0C;&amp;#x7275;&amp;#x6D89;&amp;#x5230;&amp;#x591A;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x7684;&amp;#x76F8;&amp;#x4E92;&amp;#x7EA6;&amp;#x675F;&amp;#xFF0C;&amp;#x800C;&amp;#x4E14;&amp;#x8FD9;&amp;#x4E9B;&amp;#x7EA6;&amp;#x675F;&amp;#x662F;&amp;#x201C;&amp;#x7EBF;&amp;#x6027;&amp;#x201D;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#x65F6;&amp;#xFF0C;&amp;#x5C31;&amp;#x6709;&amp;#x53EF;&amp;#x80FD;&amp;#x901A;&amp;#x8FC7;&amp;#x5EFA;&amp;#x7ACB;&amp;#x7EBF;&amp;#x6027;&amp;#x65B9;&amp;#x7A0B;&amp;#x7EC4;&amp;#x4ECE;&amp;#x800C;&amp;#x5F97;&amp;#x5230;&amp;#x89E3;&amp;#x3002;&lt;/p&gt;
@@ -122,7 +122,7 @@ O_s \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;amp;= [0.4, 0.5, 0.2]
     
     <summary type="html">
     
-      &lt;img src=&quot;/2016/06/10/linear-algebra-4/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
+      &lt;img src=&quot;/2016/06/20/linear-algebra-4/banner.jpeg&quot; alt=&quot;banner.jpeg&quot; title=&quot;&quot;&gt;
 &lt;p&gt;由于这段时间科研任务较重，加上 hexo 升级后总出现一些奇怪的问题，所以有一段时间没更新这个系列了，今天忙里偷闲补上一篇。&lt;/p&gt;
 &lt;p&gt;前面几章，我们回顾了一遍线性方程组和矩阵的一些概念。线性代数的最原始问题是解线性方程组，为了解决这个问题，我们引入了向量和矩阵，继而对矩阵的一些特性也进行了一番分析，然后又发现矩阵不但可以表示数据，也可以表示变换。然而，这些概念是如何应用于现实生活呢，实际生活中有哪些线性方程组的例子？这一章我们来介绍一些线性代数的实际应用。&lt;/p&gt;
 &lt;p&gt;总体上来说，牵涉到多个变量的相互约束，而且这些约束是“线性”的问题时，就有可能通过建立线性方程组从而得到解。&lt;/p&gt;
