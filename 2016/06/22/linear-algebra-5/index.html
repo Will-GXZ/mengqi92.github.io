@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Mengqi's blog">
 <meta property="og:description" content="上一章用了一个经济学的例子，介绍了现实中的线性方程组，那个例子里，我们借助矩阵“封装”的作用，将解三个方程组的问题转换为解$\mathbf{A}\mathbf{x}=\mathbf{0}$。而我们知道，矩阵不仅可以封装数据，还可以表示线性变换，那这一章就来介绍一下矩阵变换在现实生活中的应用。">
 <meta property="og:image" content="http://mengqi92.github.io/2016/06/22/linear-algebra-5/banner.jpeg">
-<meta property="og:updated_time" content="2016-06-22T10:43:16.000Z">
+<meta property="og:updated_time" content="2016-06-22T10:43:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数拾遗（五）：矩阵变换的应用">
 <meta name="twitter:description" content="上一章用了一个经济学的例子，介绍了现实中的线性方程组，那个例子里，我们借助矩阵“封装”的作用，将解三个方程组的问题转换为解$\mathbf{A}\mathbf{x}=\mathbf{0}$。而我们知道，矩阵不仅可以封装数据，还可以表示线性变换，那这一章就来介绍一下矩阵变换在现实生活中的应用。">
@@ -398,7 +398,7 @@
 <p>&#x8FD9;&#x65F6;&#xFF08;&#x7B2C; $i+1$ &#x5E74;&#xFF09;&#xFF0C;&#x57CE;&#x533A;&#x4EBA;&#x53E3;&#x6709;&#x6765;&#x81EA;&#x4E00;&#x5E74;&#x524D;&#x57CE;&#x533A;&#x4EBA;&#x53E3;&#x7684; 95%&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x5E74;&#x524D;&#x90CA;&#x533A;&#x4EBA;&#x53E3;&#x7684; 3%&#xFF1B;&#x540C;&#x6837;&#xFF0C;&#x90CA;&#x533A;&#x4EBA;&#x53E3;&#x6709;&#x6765;&#x81EA;&#x4E00;&#x5E74;&#x524D;&#x57CE;&#x533A;&#x4EBA;&#x53E3;&#x7684; 5%&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x5E74;&#x524D;&#x90CA;&#x533A;&#x4EBA;&#x53E3;&#x7684; 97%&#x3002;&#x7528;&#x5411;&#x91CF;&#x8868;&#x793A;&#x5C31;&#x662F;&#xFF0C;&#x7B2C; $i+1$ &#x5E74;&#x7684;&#x57CE;&#x5E02;&#x4EBA;&#x53E3;&#x5206;&#x5E03;&#xFF1A;</p>
 <span>$$\begin{equation}
 \mathbf{x}_{i+1} = \begin{bmatrix} c_{i+1} \\ r_{i+1} \end{bmatrix}
-= c_0 \begin{bmatrix} 0.95 \\ 0.05 \end{bmatrix} + r_0 \begin{bmatrix} 0.95 \\ 0.05 \end{bmatrix}
+= c_i \begin{bmatrix} 0.95 \\ 0.05 \end{bmatrix} + r_i \begin{bmatrix} 0.95 \\ 0.05 \end{bmatrix}
 = \begin{bmatrix} 0.95 &amp; 0.03 \\ 0.05 &amp; 0.97 \end{bmatrix}\begin{bmatrix} c_i \\ r_i \end{bmatrix}
 \end{equation}$$</span><!-- Has MathJax -->
 <p>&#x4E5F;&#x5C31;&#x662F;&#x6BCF;&#x5E74;&#x4EBA;&#x53E3;&#x5206;&#x5E03;&#x662F;&#x7531;&#x4E0A;&#x4E00;&#x5E74;&#x4EBA;&#x53E3;&#x5206;&#x5E03;&#x5DE6;&#x4E58;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#xFF08;&#x8FD9;&#x4E2A;&#x77E9;&#x9635;&#x8868;&#x793A;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#xFF09;&#x5F97;&#x5230;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x7528; $\mathbf{M}$ &#x8868;&#x793A;&#x8FD9;&#x4E2A;&#x77E9;&#x9635;&#xFF0C;&#x5C31;&#x662F;&#xFF1A;</p>
