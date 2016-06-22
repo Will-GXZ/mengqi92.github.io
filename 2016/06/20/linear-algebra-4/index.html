@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="线性代数拾遗,线性代数,数学,基础概念," />
+  <meta name="keywords" content="基础概念,数学,线性代数,线性代数拾遗," />
 
 
 
@@ -97,7 +97,7 @@
 <meta property="og:description" content="由于这段时间科研任务较重，加上 hexo 升级后总出现一些奇怪的问题，所以有一段时间没更新这个系列了，今天忙里偷闲补上一篇。
 前面几章，我们回顾了一遍线性方程组和矩阵的一些概念。线性代数的最原始问题是解线性方程组，为了解决这个问题，我们引入了向量和矩阵，继而对矩阵的一些特性也进行了一番分析，然后又发现矩阵不但可以表示数据，也可以表示变换。然而，这些概念是如何应用于现实生活呢，实际生活中有哪些线性">
 <meta property="og:image" content="http://mengqi92.github.io/2016/06/20/linear-algebra-4/banner.jpeg">
-<meta property="og:updated_time" content="2016-06-20T13:08:56.000Z">
+<meta property="og:updated_time" content="2016-06-21T10:40:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数拾遗（四）：线性方程组的应用">
 <meta name="twitter:description" content="由于这段时间科研任务较重，加上 hexo 升级后总出现一些奇怪的问题，所以有一段时间没更新这个系列了，今天忙里偷闲补上一篇。
@@ -119,6 +119,9 @@
     }
   };
 </script>
+
+
+
 
   <title> 线性代数拾遗（四）：线性方程组的应用 | Mengqi's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
@@ -295,7 +298,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/线性代数/" itemprop="url" rel="index">
+                  <a href="/categories/linear-algebra/" itemprop="url" rel="index">
                     <span itemprop="name">线性代数</span>
                   </a>
                 </span>
@@ -340,7 +343,7 @@
 <p>&#x524D;&#x9762;&#x51E0;&#x7AE0;&#xFF0C;&#x6211;&#x4EEC;&#x56DE;&#x987E;&#x4E86;&#x4E00;&#x904D;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x548C;&#x77E9;&#x9635;&#x7684;&#x4E00;&#x4E9B;&#x6982;&#x5FF5;&#x3002;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x7684;&#x6700;&#x539F;&#x59CB;&#x95EE;&#x9898;&#x662F;&#x89E3;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#xFF0C;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x5F15;&#x5165;&#x4E86;&#x5411;&#x91CF;&#x548C;&#x77E9;&#x9635;&#xFF0C;&#x7EE7;&#x800C;&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x4E00;&#x4E9B;&#x7279;&#x6027;&#x4E5F;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x756A;&#x5206;&#x6790;&#xFF0C;&#x7136;&#x540E;&#x53C8;&#x53D1;&#x73B0;&#x77E9;&#x9635;&#x4E0D;&#x4F46;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x6570;&#x636E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x53D8;&#x6362;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x662F;&#x5982;&#x4F55;&#x5E94;&#x7528;&#x4E8E;&#x73B0;&#x5B9E;&#x751F;&#x6D3B;&#x5462;&#xFF0C;&#x5B9E;&#x9645;&#x751F;&#x6D3B;&#x4E2D;&#x6709;&#x54EA;&#x4E9B;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x4F8B;&#x5B50;&#xFF1F;&#x8FD9;&#x4E00;&#x7AE0;&#x6211;&#x4EEC;&#x6765;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x7684;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x3002;</p>
 <p>&#x603B;&#x4F53;&#x4E0A;&#x6765;&#x8BF4;&#xFF0C;&#x7275;&#x6D89;&#x5230;&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x76F8;&#x4E92;&#x7EA6;&#x675F;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E9B;&#x7EA6;&#x675F;&#x662F;&#x201C;&#x7EBF;&#x6027;&#x201D;&#x7684;&#x95EE;&#x9898;&#x65F6;&#xFF0C;&#x5C31;&#x6709;&#x53EF;&#x80FD;&#x901A;&#x8FC7;&#x5EFA;&#x7ACB;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#x4ECE;&#x800C;&#x5F97;&#x5230;&#x89E3;&#x3002;</p>
 <h1 id="&#x4E00;-&#x7ECF;&#x6D4E;&#x5B66;&#x4F8B;&#x5B50;"><a href="#&#x4E00;&#x3001;&#x7ECF;&#x6D4E;&#x5B66;&#x4F8B;&#x5B50;" class="headerlink" title="&#x4E00;&#x3001;&#x7ECF;&#x6D4E;&#x5B66;&#x4F8B;&#x5B50;"></a>&#x4E00;&#x3001;&#x7ECF;&#x6D4E;&#x5B66;&#x4F8B;&#x5B50;</h1><p>&#x8FD9;&#x662F;&#x6765;&#x81EA;&#x300A;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x53CA;&#x5176;&#x5E94;&#x7528;&#x300B;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5F88;&#x597D;&#x5730;&#x5C55;&#x793A;&#x4E86;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x5728;&#x7ECF;&#x6D4E;&#x5B66;&#x4E2D;&#x7684;&#x5E94;&#x7528;&#xFF1A;</p>
-<p>&#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x56FD;&#x5BB6;&#x5305;&#x62EC;&#x7164;&#x70AD;&#x3001;&#x7535;&#x529B;&#x3001;&#x94A2;&#x94C1;&#x4E09;&#x4E2A;&#x90E8;&#x95E8;&#xFF0C;&#x5404;&#x90E8;&#x95E8;&#x90FD;&#x4EA7;&#x51FA;&#x4E00;&#x5B9A;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x6D88;&#x8017;&#x4E00;&#x5B9A;&#x7684;&#x8D44;&#x6E90;&#xFF08;&#x4E3A;&#x65B9;&#x4FBF;&#x8BA8;&#x8BBA;&#xFF0C;&#x672C;&#x4F8B;&#x4E2D;&#x53EA;&#x8003;&#x8651;&#x7164;&#x70AD;&#x3001;&#x7535;&#x529B;&#x3001;&#x94A2;&#x94C1;&#x8FD9;&#x4E09;&#x79CD;&#x8D44;&#x6E90;&#xFF0C;&#x5E76;&#x4E14;&#x5047;&#x8BBE;&#x6240;&#x6709;&#x4EA7;&#x51FA;&#x7684;&#x8D44;&#x6E90;&#x90FD;&#x4F1A;&#x88AB;&#x6D88;&#x8017;&#xFF09;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x7164;&#x70AD;&#x90E8;&#x95E8;&#x751F;&#x4EA7;&#x7684;&#x6BCF; 100 &#x4EFD;&#x7164;&#x70AD;&#x4E2D;&#xFF0C;60 &#x4EFD;&#x88AB; &#x7535;&#x529B;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF0C;40 &#x4EFD;&#x88AB;&#x94A2;&#x94C1;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF1B;&#x7535;&#x529B;&#x90E8;&#x95E8;&#x6BCF;&#x751F;&#x4EA7; 100 &#x4EFD;&#x7164;&#x70AD;&#xFF0C;40 &#x4EFD;&#x88AB;&#x7164;&#x70AD;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF0C;10 &#x4EFD;&#x88AB;&#x81EA;&#x5DF1;&#x6D88;&#x8017;&#xFF0C;&#x8FD8;&#x6709; 50 &#x4EFD;&#x88AB;&#x94A2;&#x94C1;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF1B;&#x94A2;&#x94C1;&#x90E8;&#x95E8;&#x6BCF;&#x751F;&#x4EA7; 100 &#x4EFD;&#x94A2;&#x94C1;&#xFF0C;60 &#x4EFD;&#x88AB;&#x7164;&#x70AD;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF0C;20 &#x4EFD;&#x88AB;&#x7535;&#x529B;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF0C;&#x8FD8;&#x6709; 20 &#x4EFD;&#x88AB;&#x81EA;&#x5DF1;&#x6D88;&#x8017;&#x3002;&#x90A3;&#x4E48;&#xFF0C;&#x5982;&#x4F55;&#x7ED9;&#x8FD9;&#x4E09;&#x79CD;&#x8D44;&#x6E90;&#x5B9A;&#x4EF7;&#xFF0C;&#x4F7F;&#x5F97;&#x5404;&#x90E8;&#x95E8;&#x7684;&#x6536;&#x652F;&#x8FBE;&#x5230;&#x5E73;&#x8861;&#xFF1F;</p>
+<p>&#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x56FD;&#x5BB6;&#x5305;&#x62EC;&#x7164;&#x70AD;&#x3001;&#x7535;&#x529B;&#x3001;&#x94A2;&#x94C1;&#x4E09;&#x4E2A;&#x90E8;&#x95E8;&#xFF0C;&#x5404;&#x90E8;&#x95E8;&#x90FD;&#x4EA7;&#x51FA;&#x4E00;&#x5B9A;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x6D88;&#x8017;&#x4E00;&#x5B9A;&#x7684;&#x8D44;&#x6E90;&#xFF08;&#x4E3A;&#x65B9;&#x4FBF;&#x8BA8;&#x8BBA;&#xFF0C;&#x672C;&#x4F8B;&#x4E2D;&#x53EA;&#x8003;&#x8651;&#x7164;&#x70AD;&#x3001;&#x7535;&#x529B;&#x3001;&#x94A2;&#x94C1;&#x8FD9;&#x4E09;&#x79CD;&#x8D44;&#x6E90;&#xFF0C;&#x5E76;&#x4E14;&#x5047;&#x8BBE;&#x6240;&#x6709;&#x4EA7;&#x51FA;&#x7684;&#x8D44;&#x6E90;&#x90FD;&#x4F1A;&#x88AB;&#x6D88;&#x8017;&#xFF09;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x7164;&#x70AD;&#x90E8;&#x95E8;&#x751F;&#x4EA7;&#x7684;&#x6BCF; 100 &#x4EFD;&#x7164;&#x70AD;&#x4E2D;&#xFF0C;60 &#x4EFD;&#x88AB;&#x7535;&#x529B;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF0C;40 &#x4EFD;&#x88AB;&#x94A2;&#x94C1;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF1B;&#x7535;&#x529B;&#x90E8;&#x95E8;&#x6BCF;&#x751F;&#x4EA7; 100 &#x4EFD;&#x7164;&#x70AD;&#xFF0C;40 &#x4EFD;&#x88AB;&#x7164;&#x70AD;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF0C;10 &#x4EFD;&#x88AB;&#x81EA;&#x5DF1;&#x6D88;&#x8017;&#xFF0C;&#x8FD8;&#x6709; 50 &#x4EFD;&#x88AB;&#x94A2;&#x94C1;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF1B;&#x94A2;&#x94C1;&#x90E8;&#x95E8;&#x6BCF;&#x751F;&#x4EA7; 100 &#x4EFD;&#x94A2;&#x94C1;&#xFF0C;60 &#x4EFD;&#x88AB;&#x7164;&#x70AD;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF0C;20 &#x4EFD;&#x88AB;&#x7535;&#x529B;&#x90E8;&#x95E8;&#x6D88;&#x8017;&#xFF0C;&#x8FD8;&#x6709; 20 &#x4EFD;&#x88AB;&#x81EA;&#x5DF1;&#x6D88;&#x8017;&#x3002;&#x90A3;&#x4E48;&#xFF0C;&#x5982;&#x4F55;&#x7ED9;&#x8FD9;&#x4E09;&#x79CD;&#x8D44;&#x6E90;&#x5B9A;&#x4EF7;&#xFF0C;&#x4F7F;&#x5F97;&#x5404;&#x90E8;&#x95E8;&#x7684;&#x6536;&#x652F;&#x8FBE;&#x5230;&#x5E73;&#x8861;&#xFF1F;</p>
 <a id="more"></a>
 <p>&#x9996;&#x5148;&#xFF0C;&#x4E0A;&#x9762;&#x6240;&#x8FF0;&#x7684;&#x5404;&#x90E8;&#x95E8;&#x4EA7;&#x51FA;&#x4E0E;&#x6D88;&#x8017;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x8868;&#x683C;&#x6765;&#x8868;&#x793A;&#xFF1A;</p>
 <table>
@@ -458,13 +461,13 @@ O_s \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;= [0.4, 0.5, 0.2] \cd
       
         <div class="post-tags">
           
-            <a href="/tags/线性代数拾遗/" rel="tag">#线性代数拾遗</a>
-          
-            <a href="/tags/线性代数/" rel="tag">#线性代数</a>
+            <a href="/tags/基础概念/" rel="tag">#基础概念</a>
           
             <a href="/tags/数学/" rel="tag">#数学</a>
           
-            <a href="/tags/基础概念/" rel="tag">#基础概念</a>
+            <a href="/tags/线性代数/" rel="tag">#线性代数</a>
+          
+            <a href="/tags/线性代数拾遗/" rel="tag">#线性代数拾遗</a>
           
         </div>
       
@@ -481,6 +484,10 @@ O_s \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;= [0.4, 0.5, 0.2] \cd
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/06/22/linear-algebra-5/" rel="prev" title="线性代数拾遗（五）：矩阵变换的应用">
+                线性代数拾遗（五）：矩阵变换的应用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -495,17 +502,25 @@ O_s \cdot \begin{bmatrix}p_c\\ p_e\\ p_s\end{bmatrix} &amp;= [0.4, 0.5, 0.2] \cd
     <div class="post-spread">
       
         <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style_32x32">
-	<a class="jiathis_button_qzone"></a>
-	<a class="jiathis_button_tsina"></a>
-	<a class="jiathis_button_weixin"></a>
-	<a href="http://www.jiathis.com/share?uid=2099805" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
 </div>
-<script type="text/javascript">
-var jiathis_config = {data_track_clickback:'true'};
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
 </script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2099805" charset="utf-8"></script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 <!-- JiaThis Button END -->
 
       
@@ -566,7 +581,7 @@ var jiathis_config = {data_track_clickback:'true'};
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -831,6 +846,7 @@ var jiathis_config = {data_track_clickback:'true'};
       <script src="/js/src/hook-duoshuo.js"></script>
     
   
+
 
 
 

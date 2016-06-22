@@ -114,6 +114,9 @@
   };
 </script>
 
+
+
+
   <title> Mengqi's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
@@ -266,6 +269,129 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/22/linear-algebra-5/" itemprop="url">
+                  线性代数拾遗（五）：矩阵变换的应用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-22T17:53:00+08:00" content="2016-06-22">
+              2016-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linear-algebra/" itemprop="url" rel="index">
+                    <span itemprop="name">线性代数</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/22/linear-algebra-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/22/linear-algebra-5/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <img src="/2016/06/22/linear-algebra-5/banner.jpeg" alt="banner.jpeg" title="">
+<a href="/2016/05/14/linear-algebra-2/" title="上一章">上一章</a>用了一个经济学的例子，介绍了现实中的线性方程组，那个例子里，我们借助矩阵“封装”的作用，将解三个方程组的问题转换为解<span>$\mathbf{A}\mathbf{x}=\mathbf{0}$</span><!-- Has MathJax -->。而我们知道，矩阵不仅可以封装数据，还可以表示线性变换，那这一章就来介绍一下矩阵变换在现实生活中的应用。<br><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/22/linear-algebra-5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/20/linear-algebra-4/" itemprop="url">
                   线性代数拾遗（四）：线性方程组的应用
                 </a>
@@ -294,7 +420,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/线性代数/" itemprop="url" rel="index">
+                  <a href="/categories/linear-algebra/" itemprop="url" rel="index">
                     <span itemprop="name">线性代数</span>
                   </a>
                 </span>
@@ -340,7 +466,7 @@
 <p>前面几章，我们回顾了一遍线性方程组和矩阵的一些概念。线性代数的最原始问题是解线性方程组，为了解决这个问题，我们引入了向量和矩阵，继而对矩阵的一些特性也进行了一番分析，然后又发现矩阵不但可以表示数据，也可以表示变换。然而，这些概念是如何应用于现实生活呢，实际生活中有哪些线性方程组的例子？这一章我们来介绍一些线性代数的实际应用。</p>
 <p>总体上来说，牵涉到多个变量的相互约束，而且这些约束是“线性”的问题时，就有可能通过建立线性方程组从而得到解。</p>
 <h1 id="一、经济学例子"><a href="#一、经济学例子" class="headerlink" title="一、经济学例子"></a>一、经济学例子</h1><p>这是来自《线性代数及其应用》中的一个例子，很好地展示了线性代数在经济学中的应用：</p>
-<p>比如一个国家包括煤炭、电力、钢铁三个部门，各部门都产出一定的资源，同时也消耗一定的资源（为方便讨论，本例中只考虑煤炭、电力、钢铁这三种资源，并且假设所有产出的资源都会被消耗）。比如，煤炭部门生产的每 100 份煤炭中，60 份被 电力部门消耗，40 份被钢铁部门消耗；电力部门每生产 100 份煤炭，40 份被煤炭部门消耗，10 份被自己消耗，还有 50 份被钢铁部门消耗；钢铁部门每生产 100 份钢铁，60 份被煤炭部门消耗，20 份被电力部门消耗，还有 20 份被自己消耗。那么，如何给这三种资源定价，使得各部门的收支达到平衡？</p>
+<p>比如一个国家包括煤炭、电力、钢铁三个部门，各部门都产出一定的资源，同时也消耗一定的资源（为方便讨论，本例中只考虑煤炭、电力、钢铁这三种资源，并且假设所有产出的资源都会被消耗）。比如，煤炭部门生产的每 100 份煤炭中，60 份被电力部门消耗，40 份被钢铁部门消耗；电力部门每生产 100 份煤炭，40 份被煤炭部门消耗，10 份被自己消耗，还有 50 份被钢铁部门消耗；钢铁部门每生产 100 份钢铁，60 份被煤炭部门消耗，20 份被电力部门消耗，还有 20 份被自己消耗。那么，如何给这三种资源定价，使得各部门的收支达到平衡？</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/06/20/linear-algebra-4/#more" rel="contents">
               阅读全文 &raquo;
@@ -421,7 +547,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/线性代数/" itemprop="url" rel="index">
+                  <a href="/categories/linear-algebra/" itemprop="url" rel="index">
                     <span itemprop="name">线性代数</span>
                   </a>
                 </span>
@@ -544,7 +670,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/线性代数/" itemprop="url" rel="index">
+                  <a href="/categories/linear-algebra/" itemprop="url" rel="index">
                     <span itemprop="name">线性代数</span>
                   </a>
                 </span>
@@ -667,7 +793,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/线性代数/" itemprop="url" rel="index">
+                  <a href="/categories/linear-algebra/" itemprop="url" rel="index">
                     <span itemprop="name">线性代数</span>
                   </a>
                 </span>
@@ -1377,133 +1503,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/03/think-statistics-note/" itemprop="url">
-                  《统计思维：程序员数学之概率统计》读书摘录
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-03T15:20:00+08:00" content="2015-10-03">
-              2015-10-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/statistics/" itemprop="url" rel="index">
-                    <span itemprop="name">statistics</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/03/think-statistics-note/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/think-statistics-note/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="第一章-探索性数据分析"><a href="#第一章-探索性数据分析" class="headerlink" title="第一章 探索性数据分析"></a>第一章 探索性数据分析</h2><h3 id="重编码（recode）"><a href="#重编码（recode）" class="headerlink" title="重编码（recode）"></a>重编码（recode）</h3><p>不是调查收集的原始数据，而是使用原始数据计算得到的变量。<br>可用来检查数据的一致性和准确性</p>
-<hr>
-<h2 id="第二章-分布"><a href="#第二章-分布" class="headerlink" title="第二章 分布"></a>第二章 分布</h2><h3 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h3><p>直方图能判断分布的形状，容易发现最常出现的值，但不一定能看到很少出现的值（离群值）<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/03/think-statistics-note/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1542,7 +1548,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1792,6 +1798,7 @@
       <script src="/js/src/hook-duoshuo.js"></script>
     
   
+
 
 
 

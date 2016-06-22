@@ -1,0 +1,863 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="4Fw5av3MAK9VoBQQanNGeiDwK9jEJjQBL6jk3PSY-B4" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="基础概念,数学,线性代数,线性代数拾遗," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mengqi's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="上一章用了一个经济学的例子，介绍了现实中的线性方程组，那个例子里，我们借助矩阵“封装”的作用，将解三个方程组的问题转换为解$\mathbf{A}\mathbf{x}=\mathbf{0}$。而我们知道，矩阵不仅可以封装数据，还可以表示线性变换，那这一章就来介绍一下矩阵变换在现实生活中的应用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性代数拾遗（五）：矩阵变换的应用">
+<meta property="og:url" content="http://mengqi92.github.io/2016/06/22/linear-algebra-5/index.html">
+<meta property="og:site_name" content="Mengqi's blog">
+<meta property="og:description" content="上一章用了一个经济学的例子，介绍了现实中的线性方程组，那个例子里，我们借助矩阵“封装”的作用，将解三个方程组的问题转换为解$\mathbf{A}\mathbf{x}=\mathbf{0}$。而我们知道，矩阵不仅可以封装数据，还可以表示线性变换，那这一章就来介绍一下矩阵变换在现实生活中的应用。">
+<meta property="og:image" content="http://mengqi92.github.io/2016/06/22/linear-algebra-5/banner.jpeg">
+<meta property="og:updated_time" content="2016-06-22T09:53:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="线性代数拾遗（五）：矩阵变换的应用">
+<meta name="twitter:description" content="上一章用了一个经济学的例子，介绍了现实中的线性方程组，那个例子里，我们借助矩阵“封装”的作用，将解三个方程组的问题转换为解$\mathbf{A}\mathbf{x}=\mathbf{0}$。而我们知道，矩阵不仅可以封装数据，还可以表示线性变换，那这一章就来介绍一下矩阵变换在现实生活中的应用。">
+<meta name="twitter:image" content="http://mengqi92.github.io/2016/06/22/linear-algebra-5/banner.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 12217047,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> 线性代数拾遗（五）：矩阵变换的应用 | Mengqi's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68396368-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8800f71adfa983d80f6c943ceb1ee330";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mengqi's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">a paranoid android.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                线性代数拾遗（五）：矩阵变换的应用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-22T17:53:00+08:00" content="2016-06-22">
+              2016-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linear-algebra/" itemprop="url" rel="index">
+                    <span itemprop="name">线性代数</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/22/linear-algebra-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/22/linear-algebra-5/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2016/06/22/linear-algebra-5/banner.jpeg" alt="banner.jpeg" title="">
+<a href="/2016/05/14/linear-algebra-2/" title="&#x4E0A;&#x4E00;&#x7AE0;">&#x4E0A;&#x4E00;&#x7AE0;</a>&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x7ECF;&#x6D4E;&#x5B66;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x4ECB;&#x7ECD;&#x4E86;&#x73B0;&#x5B9E;&#x4E2D;&#x7684;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;&#xFF0C;&#x90A3;&#x4E2A;&#x4F8B;&#x5B50;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x501F;&#x52A9;&#x77E9;&#x9635;&#x201C;&#x5C01;&#x88C5;&#x201D;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x5C06;&#x89E3;&#x4E09;&#x4E2A;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x95EE;&#x9898;&#x8F6C;&#x6362;&#x4E3A;&#x89E3;<span>$\mathbf{A}\mathbf{x}=\mathbf{0}$</span><!-- Has MathJax -->&#x3002;&#x800C;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x77E9;&#x9635;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x5C01;&#x88C5;&#x6570;&#x636E;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#xFF0C;&#x90A3;&#x8FD9;&#x4E00;&#x7AE0;&#x5C31;&#x6765;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x77E9;&#x9635;&#x53D8;&#x6362;&#x5728;&#x73B0;&#x5B9E;&#x751F;&#x6D3B;&#x4E2D;&#x7684;&#x5E94;&#x7528;&#x3002;<br><br><a id="more"></a>
+<h1 id="&#x4E00;-&#x793E;&#x4F1A;&#x5B66;&#x4F8B;&#x5B50;"><a href="#&#x4E00;&#x3001;&#x793E;&#x4F1A;&#x5B66;&#x4F8B;&#x5B50;" class="headerlink" title="&#x4E00;&#x3001;&#x793E;&#x4F1A;&#x5B66;&#x4F8B;&#x5B50;"></a>&#x4E00;&#x3001;&#x793E;&#x4F1A;&#x5B66;&#x4F8B;&#x5B50;</h1><p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x540C;&#x6837;&#x6765;&#x81EA;&#x4E8E;&#x300A;&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x53CA;&#x5176;&#x5E94;&#x7528;&#x300B;&#x8FD9;&#x672C;&#x4E66;&#x3002;</p>
+<p>&#x5047;&#x5982;&#x6211;&#x4EEC;&#x8981;&#x7814;&#x7A76;&#x4E00;&#x4E2A;&#x57CE;&#x5E02;&#x7684;&#x4EBA;&#x53E3;&#x8FC1;&#x5165;&#x3001;&#x8FC1;&#x51FA;&#x7684;&#x95EE;&#x9898;&#x3002;&#x7528; $c_i$ &#x548C; $r_i$ &#x5206;&#x522B;&#x8868;&#x793A;&#x7B2C; $i$ &#x5E74;&#x8BE5;&#x57CE;&#x5E02;&#x5E02;&#x533A;&#x548C;&#x90CA;&#x533A;&#x7684;&#x4EBA;&#x53E3;&#x6570;&#xFF0C;$c_0$&#x548C;$r_0$&#x5C31;&#x662F;&#x521D;&#x59CB;&#x5E74;&#xFF08;&#x6700;&#x5F00;&#x59CB;&#x8FDB;&#x884C;&#x89C2;&#x6D4B;&#x7684;&#x90A3;&#x4E00;&#x5E74;&#xFF09;&#x5E02;&#x533A;&#x548C;&#x90CA;&#x533A;&#x7684;&#x4EBA;&#x53E3;&#x6570;&#x3002;&#x518D;&#x7528; $\mathbf{x}_i$ &#x8868;&#x793A;&#x7B2C; $i$ &#x5E74;&#x7684;&#x4EBA;&#x53E3;&#x5411;&#x91CF;&#xFF1A;<span>$x_i = \begin{bmatrix}c_i \\ r_i \end{bmatrix}$</span><!-- Has MathJax -->&#x3002;</p>
+<p>&#x8BBE;&#x4EBA;&#x53E3;&#x7EDF;&#x8BA1;&#x5B66;&#x7814;&#x7A76;&#x8868;&#x660E;&#xFF0C;&#x6BCF;&#x5E74;&#x6709; 5% &#x7684;&#x57CE;&#x5E02;&#x4EBA;&#x53E3;&#x8FC1;&#x79FB;&#x5230;&#x90CA;&#x533A;&#xFF08;&#x5176;&#x4F59; 95% &#x7EE7;&#x7EED;&#x7559;&#x5728;&#x57CE;&#x5E02;&#xFF09;&#xFF0C;&#x6709; 3% &#x7684;&#x90CA;&#x533A;&#x4EBA;&#x53E3;&#x79FB;&#x5C45;&#x57CE;&#x5E02;&#xFF08;&#x5176;&#x4F59; 97% &#x7EE7;&#x7EED;&#x7559;&#x5728;&#x90CA;&#x533A;&#xFF09;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<div class="diagram">
+    <div class="diagram-container">
+        <svg width="116pt" height="133pt" viewbox="0.00 0.00 115.56 132.80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>&#x57CE;&#x5E02;&#x4EBA;&#x53E3;&#x8FC1;&#x79FB;&#x793A;&#x610F;&#x56FE;</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-128.8 111.564,-128.8 111.564,4 -4,4"/>
+<!-- city -->
+<g id="node1" class="node"><title>city</title>
+<ellipse fill="none" stroke="black" cx="31.9515" cy="-106.8" rx="27.2892" ry="18"/>
+<text text-anchor="middle" x="31.9515" y="-102.6" font-family="Times,serif" font-size="14.00">&#x57CE;&#x533A;</text>
+</g>
+<!-- city&#45;&gt;city -->
+<g id="edge2" class="edge"><title>city-&gt;city</title>
+<path fill="none" stroke="black" d="M56.699,-114.921C67.7705,-115.695 77.3459,-112.987 77.3459,-106.8 77.3459,-102.643 73.0234,-100.057 66.8289,-99.0417"/>
+<polygon fill="black" stroke="black" points="66.8179,-95.5392 56.699,-98.6789 66.5673,-102.535 66.8179,-95.5392"/>
+<text text-anchor="middle" x="90.1762" y="-102.6" font-family="Times,serif" font-size="14.00">95%</text>
+</g>
+<!-- rural -->
+<g id="node2" class="node"><title>rural</title>
+<ellipse fill="none" stroke="black" cx="31.9515" cy="-18" rx="31.9031" ry="18"/>
+<text text-anchor="middle" x="31.9515" y="-13.8" font-family="Times,serif" font-size="14.00">&#x90CA;&#x533A;</text>
+</g>
+<!-- city&#45;&gt;rural -->
+<g id="edge1" class="edge"><title>city-&gt;rural</title>
+<path fill="none" stroke="black" d="M20.9123,-90.1606C17.4409,-84.358 14.055,-77.5425 12.2909,-70.8 10.401,-63.5765 10.401,-61.2235 12.2909,-54 13.1823,-50.5929 14.4879,-47.1672 16.0093,-43.863"/>
+<polygon fill="black" stroke="black" points="19.1215,-45.4647 20.7042,-34.9887 12.934,-42.1912 19.1215,-45.4647"/>
+<text text-anchor="middle" x="22.2818" y="-58.2" font-family="Times,serif" font-size="14.00">5%</text>
+</g>
+<!-- rural&#45;&gt;city -->
+<g id="edge3" class="edge"><title>rural-&gt;city</title>
+<path fill="none" stroke="black" d="M31.9515,-36.1133C31.9515,-48.2309 31.9515,-64.735 31.9515,-78.6401"/>
+<polygon fill="black" stroke="black" points="28.4516,-78.6511 31.9515,-88.6511 35.4516,-78.6511 28.4516,-78.6511"/>
+<text text-anchor="middle" x="41.2818" y="-58.2" font-family="Times,serif" font-size="14.00">3%</text>
+</g>
+<!-- rural&#45;&gt;rural -->
+<g id="edge4" class="edge"><title>rural-&gt;rural</title>
+<path fill="none" stroke="black" d="M60.4461,-26.1891C72.0854,-26.7023 81.903,-23.9727 81.903,-18 81.903,-13.8938 77.2627,-11.3204 70.5802,-10.2798"/>
+<polygon fill="black" stroke="black" points="70.5972,-6.77695 60.4461,-9.81093 70.2736,-13.7695 70.5972,-6.77695"/>
+<text text-anchor="middle" x="94.7333" y="-13.8" font-family="Times,serif" font-size="14.00">97%</text>
+</g>
+</g>
+</svg>
+
+    </div>
+    <p class="diagram-caption">&#x57CE;&#x5E02;&#x4EBA;&#x53E3;&#x8FC1;&#x79FB;&#x793A;&#x610F;&#x56FE;</p>
+</div>
+
+<p>&#x8FD9;&#x4E2A;&#x7814;&#x7A76;&#x7ED3;&#x679C;&#xFF0C;&#x7528;&#x6570;&#x5B66;&#x8868;&#x793A;&#x5C31;&#x662F;&#xFF0C;&#x7B2C; $i$ &#x5E74;&#x7684;&#x57CE;&#x533A;&#x4EBA;&#x53E3;&#x7ECF;&#x8FC7;&#x4E00;&#x5E74;&#x540E;&#xFF0C;&#x5728;&#x57CE;&#x533A;&#x548C;&#x90CA;&#x533A;&#x7684;&#x5206;&#x5E03;&#x4E3A;&#xFF1A;</p>
+<span>$$\begin{equation}
+\begin{bmatrix} 0.95\, \mathbf{r}_{i} \\ 0.05\, \mathbf{r}_{i} \end{bmatrix}
+\end{equation}$$</span><!-- Has MathJax -->
+<p>&#x7B2C; $i$ &#x5E74;&#x7684;&#x90CA;&#x533A;&#x4EBA;&#x53E3;&#x7ECF;&#x8FC7;&#x4E00;&#x5E74;&#x540E;&#xFF0C;&#x5728;&#x57CE;&#x533A;&#x548C;&#x90CA;&#x533A;&#x7684;&#x5206;&#x5E03;&#x4E3A;&#xFF1A;</p>
+<span>$$\begin{equation}
+\begin{bmatrix} 0.03\, \mathbf{s}_{i} \\ 0.97\, \mathbf{s}_{i} \end{bmatrix}
+\end{equation}$$</span><!-- Has MathJax -->
+<p>&#x8FD9;&#x65F6;&#xFF08;&#x7B2C; $i+1$ &#x5E74;&#xFF09;&#xFF0C;&#x57CE;&#x533A;&#x4EBA;&#x53E3;&#x6709;&#x6765;&#x81EA;&#x4E00;&#x5E74;&#x524D;&#x57CE;&#x533A;&#x4EBA;&#x53E3;&#x7684; 95%&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x5E74;&#x524D;&#x90CA;&#x533A;&#x4EBA;&#x53E3;&#x7684; 3%&#xFF1B;&#x540C;&#x6837;&#xFF0C;&#x90CA;&#x533A;&#x4EBA;&#x53E3;&#x6709;&#x6765;&#x81EA;&#x4E00;&#x5E74;&#x524D;&#x57CE;&#x533A;&#x4EBA;&#x53E3;&#x7684; 5%&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x5E74;&#x524D;&#x90CA;&#x533A;&#x4EBA;&#x53E3;&#x7684; 97%&#x3002;&#x7528;&#x5411;&#x91CF;&#x8868;&#x793A;&#x5C31;&#x662F;&#xFF0C;&#x7B2C; $i+1$ &#x5E74;&#x7684;&#x57CE;&#x5E02;&#x4EBA;&#x53E3;&#x5206;&#x5E03;&#xFF1A;</p>
+<span>$$\begin{equation}
+\mathbf{x}_{i+1} = \begin{bmatrix} c_{i+1} \\ r_{i+1} \end{bmatrix}
+= c_0 \begin{bmatrix} 0.95 \\ 0.05 \end{bmatrix} + r_0 \begin{bmatrix} 0.95 \\ 0.05 \end{bmatrix}
+= \begin{bmatrix} 0.95 &amp; 0.03 \\ 0.05 &amp; 0.97 \end{bmatrix}\begin{bmatrix} c_i \\ r_i \end{bmatrix}
+\end{equation}$$</span><!-- Has MathJax -->
+<p>&#x4E5F;&#x5C31;&#x662F;&#x6BCF;&#x5E74;&#x4EBA;&#x53E3;&#x5206;&#x5E03;&#x662F;&#x7531;&#x4E0A;&#x4E00;&#x5E74;&#x4EBA;&#x53E3;&#x5206;&#x5E03;&#x5DE6;&#x4E58;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#xFF08;&#x8FD9;&#x4E2A;&#x77E9;&#x9635;&#x8868;&#x793A;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#xFF09;&#x5F97;&#x5230;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x7528; $\mathbf{M}$ &#x8868;&#x793A;&#x8FD9;&#x4E2A;&#x77E9;&#x9635;&#xFF0C;&#x5C31;&#x662F;&#xFF1A;</p>
+<span>$$\begin{equation}
+\mathbf{x}_{i+1} = \mathbf{M} \mathbf{x}_i
+\end{equation}$$</span><!-- Has MathJax -->
+<p>&#x4ECE;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x4EBA;&#x53E3;&#x8FC1;&#x79FB;&#x7684;&#x89C4;&#x5F8B;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x65F6;&#xFF08;&#x6BCF;&#x4E00;&#x5E74;&#x7684;&#x4EBA;&#x53E3;&#x53EA;&#x4E0E;&#x4E0A;&#x4E00;&#x5E74;&#x4EBA;&#x53E3;&#x6709;&#x5173;&#xFF0C;&#x4E14;&#x662F;&#x7EBF;&#x6027;&#x5173;&#x7CFB;&#xFF09;&#xFF0C;&#x4EBA;&#x53E3;&#x7684;&#x8FC1;&#x79FB;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x6765;&#x8868;&#x793A;&#x3002;&#x53C8;&#x7531;&#x4E8E;&#x77E9;&#x9635;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#xFF0C;&#x6240;&#x4EE5;&#x6BCF;&#x4E00;&#x5E74;&#x7684;&#x4EBA;&#x53E3;&#x90FD;&#x53EF;&#x770B;&#x4F5C;&#x662F;&#x4E0A;&#x4E00;&#x5E74;&#x4EBA;&#x53E3;&#x5DE6;&#x4E58;&#x4E00;&#x4E2A;&#x53D8;&#x6362;&#x77E9;&#x9635;&#xFF08;&#x53C8;&#x53EB;<code>&#x8F6C;&#x79FB;&#x77E9;&#x9635;</code>&#xFF09;&#x3002;</p>
+<h1 id="&#x4E8C;-&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;"><a href="#&#x4E8C;&#x3001;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;" class="headerlink" title="&#x4E8C;&#x3001;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;"></a>&#x4E8C;&#x3001;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;</h1><p>&#x6709;&#x540C;&#x5B66;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x610F;&#x8BC6;&#x5230;&#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;<code>&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;</code>&#x561B;&#xFF01;&#x5BF9;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C31;&#x662F;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x3002;</p>
+<blockquote><p>&#xFF08;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#xFF09;&#x4E3A;&#x72B6;&#x6001;&#x7A7A;&#x95F4;&#x4E2D;&#x7ECF;&#x8FC7;&#x4ECE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x8F6C;&#x6362;&#x7684;&#x968F;&#x673A;&#x8FC7;&#x7A0B;&#x3002;&#x8BE5;&#x8FC7;&#x7A0B;&#x8981;&#x6C42;&#x5177;&#x5907; &#x201C;&#x65E0;&#x8BB0;&#x5FC6;&#x201D; &#x7684;&#x6027;&#x8D28;&#xFF1A;&#x4E0B;&#x4E00;&#x72B6;&#x6001;&#x7684;&#x6982;&#x7387;&#x5206;&#x5E03;&#x53EA;&#x80FD;&#x7531;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x51B3;&#x5B9A;&#xFF0C;&#x5728;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x4E2D;&#x5B83;&#x524D;&#x9762;&#x7684;&#x4E8B;&#x4EF6;&#x5747;&#x4E0E;&#x4E4B;&#x65E0;&#x5173;&#x3002;</p>
+<footer><strong>&#x4E2D;&#x6587;&#x7EF4;&#x57FA;&#x767E;&#x79D1;/&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;</strong><cite><a href="https://zh.wikipedia.org/zh-cn/&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;" target="_blank" rel="external">zh.wikipedia.org/zh-cn/&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;</a></cite></footer></blockquote>
+<p>&#x5728;&#x6211;&#x4EEC;&#x7684;&#x4F8B;&#x5B50;&#x91CC;&#xFF0C;&#x57CE;&#x5E02;&#x6BCF;&#x4E00;&#x5E74;&#x4EBA;&#x53E3;&#x53EA;&#x4E0E;&#x4E0A;&#x4E00;&#x5E74;&#x4EBA;&#x53E3;&#x6709;&#x5173;&#xFF0C;&#x6EE1;&#x8DB3;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x6027;&#x8D28;&#xFF0C;&#x6240;&#x4EE5;&#x4EBA;&#x53E3;&#x7684;&#x8FC1;&#x79FB;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x4E00;&#x4E2A;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x3002;&#x8FD9;&#x4E2A;&#x94FE;&#x4E2D;&#x8868;&#x793A;&#x72B6;&#x6001;&#x7684;&#x8282;&#x70B9;&#x5C31;&#x662F; $\mathbf{x}_i$&#xFF0C;&#x8282;&#x70B9;&#x4E2D;&#x7684;&#x8F6C;&#x6362;&#x5173;&#x7CFB;&#x5C31;&#x662F;<code>&#x8F6C;&#x79FB;&#x77E9;&#x9635;</code> $\mathbf{M}$&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x5C55;&#x793A;&#x4E86;&#x6211;&#x4EEC;&#x501F;&#x52A9;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x89E3;&#x51B3;&#x51E0;&#x4F55;&#x4E4B;&#x5916;&#x7684;&#x95EE;&#x9898;&#x65F6;&#x7684;&#x601D;&#x8DEF;&#xFF1A;</p>
+<ul>
+<li>&#x9996;&#x5148;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x5C06;&#x6BCF;&#x5E74;&#x7684;&#x4EBA;&#x53E3;&#x5EFA;&#x6A21;&#x4E3A;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x5411;&#x91CF; $\mathbf{x}_i$ &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x5B9E;&#x9645;&#x95EE;&#x9898;&#x5C31;&#x5DF2;&#x7ECF;&#x8F6C;&#x6362;&#x5230;&#x4E8C;&#x7EF4;&#x7684;&#x7A7A;&#x95F4;&#x4E2D;&#x4E86;&#x3002;&#x4ECE;&#x8FD9;&#x4E2A;&#x7A7A;&#x95F4;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#xFF0C;&#x6BCF;&#x5E74;&#x4EBA;&#x53E3;&#x7684;&#x53D8;&#x5316;&#x60C5;&#x51B5;&#xFF0C;&#x5C31;&#x662F;&#x4E8C;&#x7EF4;&#x5411;&#x91CF;&#x4E0D;&#x65AD;&#x53D8;&#x6362;&#x7684;&#x8FC7;&#x7A0B;&#x3002;</li>
+<li>&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x4EBA;&#x53E3;&#x53D8;&#x5316;&#x662F;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#xFF08;&#x6BD4;&#x5982;&#x6BCF;&#x5E74;&#x57CE;&#x533A;&#x4EBA;&#x53E3;&#x662F;&#x4E0A;&#x4E00;&#x5E74;&#x57CE;&#x533A;&#x4EBA;&#x53E3;&#x548C;&#x90CA;&#x533A;&#x4EBA;&#x53E3;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x53D8;&#x6362;&#x53EF;&#x4EE5;&#x7528;&#x77E9;&#x9635;&#x6765;&#x63CF;&#x8FF0;&#x3002;</li>
+<li>&#x53C8;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x8FDB;&#x4E00;&#x6B65;&#x7B80;&#x5316;&#x95EE;&#x9898;&#xFF0C;&#x4EFB;&#x52A1;&#x6BCF;&#x5E74;&#x7684;&#x53D8;&#x5316;&#x662F;&#x7A33;&#x5B9A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x7EBF;&#x6027;&#x53D8;&#x6362;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</li>
+</ul>
+<p>&#x672A;&#x6765;&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x8FD8;&#x4F1A;&#x8FDB;&#x4E00;&#x6B65;&#x5C55;&#x5F00;&#xFF0C;&#x5BF9;<code>&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;</code>&#x7684;&#x5E73;&#x7A33;&#x5206;&#x5E03;&#x8FDB;&#x884C;&#x66F4;&#x6DF1;&#x5165;&#x7684;&#x5206;&#x6790;&#x3002;</p>
+<h1 id="&#x53C2;&#x8003;&#x6587;&#x732E;"><a href="#&#x53C2;&#x8003;&#x6587;&#x732E;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x732E;"></a>&#x53C2;&#x8003;&#x6587;&#x732E;</h1><hr>
+<ul>
+<li>&#x7EBF;&#x6027;&#x4EE3;&#x6570;&#x53CA;&#x5176;&#x5E94;&#x7528;&#xFF1A;&#x7B2C;3&#x7248;/&#xFF08;&#x7F8E;&#xFF09;&#x83B1;&#xFF08;Lay, D.C.&#xFF09;&#x8457;&#xFF1B;&#x6C88;&#x590D;&#x5174;&#x7B49;&#x8BD1;. &#x2014;&#x2014;&#x5317;&#x4EAC;&#xFF1A;&#x4EBA;&#x6C11;&#x90AE;&#x7535;&#x51FA;&#x7248;&#x793E;&#xFF0C;2007.7</li>
+</ul>
+<h1 id="&#x7248;&#x6743;&#x58F0;&#x660E;"><a href="#&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;" class="headerlink" title="&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;"></a>&#x7248;&#x6743;&#x58F0;&#x660E;&#xFF1A;</h1><hr>
+<p>&#x672C;&#x6587;&#x4E2D;&#x6240;&#x6709;&#x6587;&#x5B57;&#x3001;&#x56FE;&#x7247;&#x7248;&#x6743;&#x5747;&#x5C5E;&#x672C;&#x4EBA;&#x6240;&#x6709;&#xFF0C;&#x5982;&#x9700;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x6765;&#x6E90;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础概念/" rel="tag">#基础概念</a>
+          
+            <a href="/tags/数学/" rel="tag">#数学</a>
+          
+            <a href="/tags/线性代数/" rel="tag">#线性代数</a>
+          
+            <a href="/tags/线性代数拾遗/" rel="tag">#线性代数拾遗</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/20/linear-algebra-4/" rel="next" title="线性代数拾遗（四）：线性方程组的应用">
+                <i class="fa fa-chevron-left"></i> 线性代数拾遗（四）：线性方程组的应用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/22/linear-algebra-5/"
+           data-title="线性代数拾遗（五）：矩阵变换的应用" data-url="http://mengqi92.github.io/2016/06/22/linear-algebra-5/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar/avatar.png"
+               alt="Mengqi" />
+          <p class="site-author-name" itemprop="name">Mengqi</p>
+          <p class="site-description motion-element" itemprop="description">机器学习、图像处理、统计分析、函数式编程</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mengqi92" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/mengqipei" target="_blank" title="twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:mengqipei@gmail.com" target="_blank" title="email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2264422383" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.fuzihao.org" title="切问录" target="_blank">切问录</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-社会学例子"><span class="nav-number">1.</span> <span class="nav-text">一、社会学例子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-马尔可夫链"><span class="nav-number">2.</span> <span class="nav-text">二、马尔可夫链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版权声明"><span class="nav-number">4.</span> <span class="nav-text">版权声明：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mengqi</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mengqipei"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>
