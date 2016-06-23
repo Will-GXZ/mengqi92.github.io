@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mengqi92.github.io/2016/06/23/wishful-thinking/</loc>
+    
+    <lastmod>2016-06-23T07:32:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://mengqi92.github.io/categories/index.html</loc>
+    
+    <lastmod>2016-06-22T16:19:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mengqi92.github.io/2016/06/22/linear-algebra-5/</loc>
     
     <lastmod>2016-06-22T10:45:13.000Z</lastmod>
@@ -68,13 +82,6 @@
     <loc>http://mengqi92.github.io/tags/index.html</loc>
     
     <lastmod>2016-05-14T09:07:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mengqi92.github.io/categories/index.html</loc>
-    
-    <lastmod>2016-05-14T09:07:52.000Z</lastmod>
     
   </url>
   
