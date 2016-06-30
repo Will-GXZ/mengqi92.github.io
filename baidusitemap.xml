@@ -4,33 +4,60 @@
 
     
   <url>
-    <loc>http://mengqi92.github.io/2016/06/23/wishful-thinking/</loc>
-    <lastmod>2016-06-23T15:37:38.000Z</lastmod>
+    <loc>http://mengqi92.github.io/2016/07/01/linear-algebra-6/</loc>
+    <lastmod>2016-06-30T16:32:21.000Z</lastmod>
     <data>
         <display>
-        <title>愿望思维</title>
-        <pubTime>2016-06-23T07:32:58.000Z</pubTime>
+        <title>线性代数拾遗（六）：特征值与特征向量</title>
+        <pubTime>2016-06-30T16:32:21.000Z</pubTime>
         
-        <tag>编程</tag>
+        <tag>基础概念</tag>
          
-        <tag>重构</tag>
+        <tag>数学</tag>
          
-        <tag>代码结构</tag>
+        <tag>线性代数</tag>
+         
+        <tag>线性代数拾遗</tag>
          
          
            
              
-              <breadCrumb title="编程" url="http://mengqi92.github.io/categories/programming/"/>
+              <breadCrumb title="线性代数" url="http://mengqi92.github.io/categories/linear-algebra/"/>
           
         </display>
     </data>
     </url>
 
     
+  <url>
+    <loc>http://mengqi92.github.io/2016/05/20/linear-algebra-3/</loc>
+    <lastmod>2016-06-29T13:35:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>线性代数拾遗（三）：线性变换以及矩阵的意义</title>
+        <pubTime>2016-05-20T13:11:00.000Z</pubTime>
+        
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
+         
+        <tag>线性代数</tag>
+         
+        <tag>线性代数拾遗</tag>
+         
+         
+           
+             
+              <breadCrumb title="线性代数" url="http://mengqi92.github.io/categories/linear-algebra/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://mengqi92.github.io/2016/06/22/linear-algebra-5/</loc>
-    <lastmod>2016-06-22T10:45:13.000Z</lastmod>
+    <lastmod>2016-06-24T14:30:20.000Z</lastmod>
     <data>
         <display>
         <title>线性代数拾遗（五）：矩阵变换的应用</title>
@@ -55,30 +82,29 @@
 
     
   <url>
-    <loc>http://mengqi92.github.io/2016/05/20/linear-algebra-3/</loc>
-    <lastmod>2016-06-21T15:15:45.000Z</lastmod>
+    <loc>http://mengqi92.github.io/2016/06/23/wishful-thinking/</loc>
+    <lastmod>2016-06-23T15:37:38.000Z</lastmod>
     <data>
         <display>
-        <title>线性代数拾遗（三）：线性变换以及矩阵的意义</title>
-        <pubTime>2016-05-20T13:11:00.000Z</pubTime>
+        <title>愿望思维</title>
+        <pubTime>2016-06-23T07:32:58.000Z</pubTime>
         
-        <tag>基础概念</tag>
+        <tag>编程</tag>
          
-        <tag>数学</tag>
+        <tag>重构</tag>
          
-        <tag>线性代数</tag>
-         
-        <tag>线性代数拾遗</tag>
+        <tag>代码结构</tag>
          
          
            
              
-              <breadCrumb title="线性代数" url="http://mengqi92.github.io/categories/linear-algebra/"/>
+              <breadCrumb title="编程" url="http://mengqi92.github.io/categories/programming/"/>
           
         </display>
     </data>
     </url>
 
+    
     
   <url>
     <loc>http://mengqi92.github.io/2016/06/20/linear-algebra-4/</loc>
