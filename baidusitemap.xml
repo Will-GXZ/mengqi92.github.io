@@ -5,19 +5,19 @@
     
   <url>
     <loc>http://mengqi92.github.io/2016/07/01/linear-algebra-6/</loc>
-    <lastmod>2016-06-30T16:32:21.000Z</lastmod>
+    <lastmod>2016-06-30T16:39:54.000Z</lastmod>
     <data>
         <display>
         <title>线性代数拾遗（六）：特征值与特征向量</title>
-        <pubTime>2016-06-30T16:32:21.000Z</pubTime>
+        <pubTime>2016-06-30T16:34:09.000Z</pubTime>
         
-        <tag>基础概念</tag>
-         
-        <tag>数学</tag>
+        <tag>线性代数拾遗</tag>
          
         <tag>线性代数</tag>
          
-        <tag>线性代数拾遗</tag>
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
          
          
            
@@ -37,13 +37,13 @@
         <title>线性代数拾遗（三）：线性变换以及矩阵的意义</title>
         <pubTime>2016-05-20T13:11:00.000Z</pubTime>
         
-        <tag>基础概念</tag>
-         
-        <tag>数学</tag>
+        <tag>线性代数拾遗</tag>
          
         <tag>线性代数</tag>
          
-        <tag>线性代数拾遗</tag>
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
          
          
            
@@ -63,13 +63,13 @@
         <title>线性代数拾遗（五）：矩阵变换的应用</title>
         <pubTime>2016-06-22T09:55:26.000Z</pubTime>
         
-        <tag>基础概念</tag>
-         
-        <tag>数学</tag>
+        <tag>线性代数拾遗</tag>
          
         <tag>线性代数</tag>
          
-        <tag>线性代数拾遗</tag>
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
          
          
            
@@ -114,13 +114,13 @@
         <title>线性代数拾遗（四）：线性方程组的应用</title>
         <pubTime>2016-06-19T16:00:00.000Z</pubTime>
         
-        <tag>基础概念</tag>
-         
-        <tag>数学</tag>
+        <tag>线性代数拾遗</tag>
          
         <tag>线性代数</tag>
          
-        <tag>线性代数拾遗</tag>
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
          
          
            
@@ -140,13 +140,13 @@
         <title>线性代数拾遗（二）：线性方程组的解集及其几何意义</title>
         <pubTime>2016-05-13T16:00:00.000Z</pubTime>
         
-        <tag>基础概念</tag>
-         
-        <tag>数学</tag>
+        <tag>线性代数拾遗</tag>
          
         <tag>线性代数</tag>
          
-        <tag>线性代数拾遗</tag>
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
          
          
            
@@ -166,13 +166,13 @@
         <title>线性代数拾遗（一 ）：线性方程组、向量方程和矩阵方程</title>
         <pubTime>2016-05-03T14:55:27.000Z</pubTime>
         
-        <tag>基础概念</tag>
-         
-        <tag>数学</tag>
+        <tag>线性代数拾遗</tag>
          
         <tag>线性代数</tag>
          
-        <tag>线性代数拾遗</tag>
+        <tag>基础概念</tag>
+         
+        <tag>数学</tag>
          
          
            
@@ -248,13 +248,13 @@
         
         <tag>机器学习</tag>
          
-        <tag>图像处理</tag>
-         
         <tag>基础概念</tag>
          
-        <tag>Gabor 特征</tag>
-         
         <tag>数学</tag>
+         
+        <tag>图像处理</tag>
+         
+        <tag>Gabor 特征</tag>
          
         <tag>卷积</tag>
          
@@ -300,6 +300,8 @@
         <title>复数的几种表示形式</title>
         <pubTime>2015-10-06T06:47:16.000Z</pubTime>
         
+        <tag>基础概念</tag>
+         
         <tag>傅里叶变换</tag>
          
         <tag>欧拉公式</tag>
@@ -309,8 +311,6 @@
         <tag>数字信号处理</tag>
          
         <tag>图像处理</tag>
-         
-        <tag>基础概念</tag>
          
         <tag>Gabor 特征</tag>
          
