@@ -13,15 +13,15 @@
         
         <tag>机器学习</tag>
          
+        <tag>傅里叶变换</tag>
+         
         <tag>图像处理</tag>
+         
+        <tag>Gabor 特征</tag>
          
         <tag>特征提取</tag>
          
-        <tag>傅里叶变换</tag>
-         
         <tag>Gabor</tag>
-         
-        <tag>Gabor 特征</tag>
          
          
            
@@ -250,9 +250,9 @@
          
         <tag>图像处理</tag>
          
-        <tag>Gabor 特征</tag>
-         
         <tag>基础概念</tag>
+         
+        <tag>Gabor 特征</tag>
          
         <tag>数学</tag>
          
@@ -300,11 +300,7 @@
         <title>复数的几种表示形式</title>
         <pubTime>2015-10-06T06:47:16.000Z</pubTime>
         
-        <tag>图像处理</tag>
-         
         <tag>傅里叶变换</tag>
-         
-        <tag>Gabor 特征</tag>
          
         <tag>欧拉公式</tag>
          
@@ -312,7 +308,11 @@
          
         <tag>数字信号处理</tag>
          
+        <tag>图像处理</tag>
+         
         <tag>基础概念</tag>
+         
+        <tag>Gabor 特征</tag>
          
          
            
