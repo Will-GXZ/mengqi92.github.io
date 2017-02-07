@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="机器学习,傅里叶变换,图像处理,Gabor 特征,特征提取,Gabor," />
+  <meta name="keywords" content="机器学习,图像处理,特征提取,傅里叶变换,Gabor,Gabor 特征," />
 
 
 
@@ -104,7 +104,7 @@ Gabor 特征主要依靠 Gabor 核在频率域上对信号进行加窗，从而�
 <meta property="og:image" content="http://mengqi92.github.io/2015/10/11/gabor/gabor-filter-frequency.png">
 <meta property="og:image" content="http://mengqi92.github.io/2015/10/11/gabor/gabor-filter-spatial.png">
 <meta property="og:image" content="http://mengqi92.github.io/2015/10/11/gabor/gabor-filter-banks.png">
-<meta property="og:updated_time" content="2016-05-20T18:14:40.000Z">
+<meta property="og:updated_time" content="2017-02-07T03:10:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gabor 特征总结">
 <meta name="twitter:description" content="Gabor 特征是一种可以用来描述图像纹理信息的特征，Gabor 滤波器的频率和方向与人类的视觉系统类似，特别适合于纹理表示与判别。
@@ -382,7 +382,7 @@ Gabor 特征主要依靠 Gabor 核在频率域上对信号进行加窗，从而�
 <h3 id="222-&#x4E8C;&#x7EF4;&#x590D;&#x6570;&#x6CE2;"><a href="#2-2-2-&#x4E8C;&#x7EF4;&#x590D;&#x6570;&#x6CE2;" class="headerlink" title="2.2.2 &#x4E8C;&#x7EF4;&#x590D;&#x6570;&#x6CE2;"></a>2.2.2 &#x4E8C;&#x7EF4;&#x590D;&#x6570;&#x6CE2;</h3><p>&#x4E8C;&#x7EF4;&#x590D;&#x6570;&#x6CE2;&#x5B8C;&#x6574;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF08;&#x7528;&#x590D;&#x6307;&#x6570;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#xFF09;&#xFF1A;<br>$$ s(x,y) = \exp\left( i \left(2\pi (u_0 x + v_0 y) + P \right) \right) $$</p>
 <p>&#x7531;&#x4E8E;&#x521D;&#x59CB;&#x76F8;&#x4F4D;&#x5BF9;Gabor&#x6838;&#x5F71;&#x54CD;&#x4E0D;&#x5927;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x7701;&#x7565;&#xFF0C;&#x5F97;&#x5230;&#x66F4;&#x7B80;&#x6D01;&#x7684;&#x5F62;&#x5F0F;&#xFF08;&#x8BBA;&#x6587;&#x4E2D;&#x5173;&#x4E8E; Gabor &#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x5404;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x8FD9;&#x4E9B;&#x7EC6;&#x8282;&#x7684;&#x8003;&#x8651;&#x4E0D;&#x540C;&#xFF09;&#xFF1A;<br>$$ s(x,y) = \exp \left(i \left(2\pi (u_0 x + v_0 y) \right) \right) $$</p>
 <h3 id="223-&#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;&#x51FD;&#x6570;"><a href="#2-2-3-&#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;&#x51FD;&#x6570;" class="headerlink" title="2.2.3 &#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;&#x51FD;&#x6570;"></a>2.2.3 &#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;&#x51FD;&#x6570;</h3><p>&#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;<br>$$ \omega(x, y, \sigma_x, \sigma_y) = K \exp(-\pi \left (x-x_0)^2 / \sigma_x^2 + (y-y_0)^2 / \sigma_y^2\right ) \tag{5}\label{5}$$<br>&#x5176;&#x4E2D;&#xFF0C;$\sigma_x, \sigma_y$ &#x5206;&#x522B;&#x4E3A;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x4E0A;&#x7684;&#x5C3A;&#x5EA6;&#x53C2;&#x6570;&#xFF08;scaling parameters&#xFF09;&#xFF0C;&#x7528;&#x6765;&#x63A7;&#x5236;&#x9AD8;&#x65AF;&#x51FD;&#x6570;&#x5728;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x4E0A;&#x7684;&#x201C;&#x5C55;&#x5E03;&#x201D;&#x5F62;&#x72B6;&#x3002;$(x_0, y_0)$ &#x4E3A;&#x9AD8;&#x65AF;&#x51FD;&#x6570;&#x7684;&#x4E2D;&#x5FC3;&#x70B9;&#x3002;$K$ &#x4E3A;&#x5E38;&#x6570;&#x3002;</p>
-<p>&#x8003;&#x8651;&#x5168;&#x9762;&#x7684;&#x8BDD;&#xFF0C;&#x9AD8;&#x65AF;&#x51FD;&#x6570;&#x8FD8;&#x8981;&#x6709;&#xFF08;&#x987A;&#x65F6;&#x9488;&#xFF09;&#x65CB;&#x8F6C;&#xFF0C;&#x5373;&#xFF1A;<br>$$\begin{cases}<br>(x-x_0)_r = (x-x_0)\cos \theta + (y-y_0)\sin \theta \\<br>(y-y_0)_r = -(y-y_0)\sin \theta + (y-y_0)\cos \theta<br>\end{cases}$$</p>
+<p>&#x8003;&#x8651;&#x5168;&#x9762;&#x7684;&#x8BDD;&#xFF0C;&#x9AD8;&#x65AF;&#x51FD;&#x6570;&#x8FD8;&#x8981;&#x6709;&#xFF08;&#x987A;&#x65F6;&#x9488;&#xFF09;&#x65CB;&#x8F6C;&#xFF0C;&#x5373;&#xFF1A;<br>$$\begin{cases}<br>(x-x_0)_r = (x-x_0)\cos \theta + (y-y_0)\sin \theta \\<br>(y-y_0)_r = -(x-x_0)\sin \theta + (y-y_0)\cos \theta<br>\end{cases}$$</p>
 <p>&#x52A0;&#x5165;&#x65CB;&#x8F6C;&#x53C2;&#x6570;&#x540E;&#x7684;&#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;&#x51FD;&#x6570;&#x4E3A;&#xFF1A;<br>$$ \omega_r(x, y, \theta, \sigma_x, \sigma_y) = K \exp(-\pi \left (x-x_0)_r^2 / \sigma_x^2 + (y-y_0)_r^2 / \sigma_y^2\right )$$</p>
 <img src="/2015/10/11/gabor/2d-gaussian.png" alt="&#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;" title="&#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;">
 <p>&#x4E0A;&#x56FE;&#x5373;&#x662F;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x9AD8;&#x65AF;&#x6838;&#x7684;&#x56FE;&#x50CF;&#xFF0C;&#x8BE5;&#x9AD8;&#x65AF;&#x6838;&#x4E2D;&#xFF0C;$(x_0, y_0) = (0, 0)$&#xFF0C;$(\sigma_x^2, \sigma_y^2) = (50, 40)$&#xFF0C;$\theta = -45&#xB0;$</p>
@@ -438,15 +438,15 @@ Gabor 特征主要依靠 Gabor 核在频率域上对信号进行加窗，从而�
           
             <a href="/tags/机器学习/" rel="tag">#机器学习</a>
           
-            <a href="/tags/傅里叶变换/" rel="tag">#傅里叶变换</a>
-          
             <a href="/tags/图像处理/" rel="tag">#图像处理</a>
-          
-            <a href="/tags/Gabor-特征/" rel="tag">#Gabor 特征</a>
           
             <a href="/tags/特征提取/" rel="tag">#特征提取</a>
           
+            <a href="/tags/傅里叶变换/" rel="tag">#傅里叶变换</a>
+          
             <a href="/tags/Gabor/" rel="tag">#Gabor</a>
+          
+            <a href="/tags/Gabor-特征/" rel="tag">#Gabor 特征</a>
           
         </div>
       
@@ -690,7 +690,7 @@ Gabor 特征主要依靠 Gabor 核在频率域上对信号进行加窗，从而�
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

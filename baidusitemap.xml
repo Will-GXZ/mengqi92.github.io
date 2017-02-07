@@ -4,6 +4,36 @@
 
     
   <url>
+    <loc>http://mengqi92.github.io/2015/10/11/gabor/</loc>
+    <lastmod>2017-02-07T03:10:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>Gabor 特征总结</title>
+        <pubTime>2015-10-11T09:02:00.000Z</pubTime>
+        
+        <tag>机器学习</tag>
+         
+        <tag>图像处理</tag>
+         
+        <tag>特征提取</tag>
+         
+        <tag>傅里叶变换</tag>
+         
+        <tag>Gabor</tag>
+         
+        <tag>Gabor 特征</tag>
+         
+         
+           
+             
+              <breadCrumb title="图像处理" url="http://mengqi92.github.io/categories/cv/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mengqi92.github.io/2016/07/01/linear-algebra-6/</loc>
     <lastmod>2016-07-01T11:18:29.000Z</lastmod>
     <data>
@@ -209,36 +239,6 @@
 
     
   <url>
-    <loc>http://mengqi92.github.io/2015/10/11/gabor/</loc>
-    <lastmod>2016-05-20T18:14:40.000Z</lastmod>
-    <data>
-        <display>
-        <title>Gabor 特征总结</title>
-        <pubTime>2015-10-11T09:02:00.000Z</pubTime>
-        
-        <tag>机器学习</tag>
-         
-        <tag>傅里叶变换</tag>
-         
-        <tag>图像处理</tag>
-         
-        <tag>Gabor 特征</tag>
-         
-        <tag>特征提取</tag>
-         
-        <tag>Gabor</tag>
-         
-         
-           
-             
-              <breadCrumb title="图像处理" url="http://mengqi92.github.io/categories/cv/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://mengqi92.github.io/2015/10/06/convolution/</loc>
     <lastmod>2016-05-20T18:14:21.000Z</lastmod>
     <data>
@@ -250,9 +250,9 @@
          
         <tag>图像处理</tag>
          
-        <tag>基础概念</tag>
-         
         <tag>Gabor 特征</tag>
+         
+        <tag>基础概念</tag>
          
         <tag>数学</tag>
          
@@ -300,7 +300,11 @@
         <title>复数的几种表示形式</title>
         <pubTime>2015-10-06T06:47:16.000Z</pubTime>
         
+        <tag>图像处理</tag>
+         
         <tag>傅里叶变换</tag>
+         
+        <tag>Gabor 特征</tag>
          
         <tag>欧拉公式</tag>
          
@@ -308,11 +312,7 @@
          
         <tag>数字信号处理</tag>
          
-        <tag>图像处理</tag>
-         
         <tag>基础概念</tag>
-         
-        <tag>Gabor 特征</tag>
          
          
            

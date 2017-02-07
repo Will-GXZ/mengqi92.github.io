@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mengqi92.github.io/2015/10/11/gabor/</loc>
+    
+    <lastmod>2017-02-07T03:10:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mengqi92.github.io/2016/07/01/linear-algebra-6/</loc>
     
     <lastmod>2016-07-01T11:18:29.000Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://mengqi92.github.io/2015/10/05/logistic-regression/</loc>
     
     <lastmod>2016-05-20T18:14:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://mengqi92.github.io/2015/10/11/gabor/</loc>
-    
-    <lastmod>2016-05-20T18:14:40.000Z</lastmod>
     
   </url>
   
